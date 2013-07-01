@@ -8,4 +8,7 @@
 		= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{api_key}&sensor=false"
 		= csrf_meta_tags
 %body
+	%nav
+		= link_to new_startup_path, class: "add", target: "_blank" do
+			%span.icon-plus
 	= yield
