@@ -1,0 +1,10 @@
+.container-narrow
+	%h1 Ajouter une start-up
+	= simple_form_for @startup  do |f|
+		= f.error_notification
+		= f.input :name, input_html: {class: 'input-xxlarge'}
+		= f.input :url, input_html: {class: 'input-xxlarge'}
+		= f.input :adress, input_html: {class: 'input-xxlarge'}
+		= f.input :email, input_html: {class: 'input-xxlarge'}
+		= f.input :description, input_html: {class: 'input-xxlarge'}
+		= f.button :submit, "Envoyer", :class => "btn btn-large btn-primary"

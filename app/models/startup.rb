@@ -8,7 +8,7 @@ class Startup
   field :adress, type: String
   field :email, type: String
   field :description, type: String
-  field :is_published, type: Boolean, deafult: false
+  field :is_published, type: Boolean, default: false
 
   field :coordinates, type: Array
 
