@@ -8,6 +8,14 @@ html
 	height: 100%
 	font-family: 'Opend Sans', sans-serif
 
+.fill
+	top: 58px
+	left: 0
+	right: 0
+	bottom: 0
+	position: fixed
+	width: auto
+	height: auto
 
 body
 	height: 100%
@@ -20,6 +28,7 @@ nav
 	left: 0
 	right: 0
 	height: 58px
+	position: fixed
 	background-color: #B5B1B3
 	color: black
 	text-align: center
@@ -30,8 +39,18 @@ nav
 		margin-right: 15px
 		margin-top: 12px
 		float: right
-		
+
 #map
+	position: absolute
 	height: 100%
+	width: 80%
+	float: left
 	img
 		max-width: none
+
+#startups-panel
+	height: 100%
+	width: 20%
+	float: right
+	overflow-y: scroll
+	overflow-x: hidden
