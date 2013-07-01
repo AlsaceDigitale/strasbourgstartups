@@ -6,5 +6,10 @@
 		= f.input :url, input_html: {class: 'input-xxlarge'}
 		= f.input :adress, input_html: {class: 'input-xxlarge'}
 		= f.input :email, input_html: {class: 'input-xxlarge'}
-		= f.input :description, input_html: {class: 'input-xxlarge'}
+		= f.input :description, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true}, as: :text
+		%i
+			Characters left
+			%span#char-count
+		%br/
+		%br/
 		= f.button :submit, "Envoyer", :class => "btn btn-large btn-primary"

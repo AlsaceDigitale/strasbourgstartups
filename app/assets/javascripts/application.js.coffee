@@ -14,13 +14,23 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require bootstrap
-#= require_tree .
+#= require_tree .	
+
+updateCountdown = () ->
+	left = 500 - $("#startup_description").val().length
+	$("#char-count").html left
 
 $(document).ready ->
-  map = new google.maps.Map(document.getElementById("map"),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-    zoom: 14
-  )
+	if $("#map").length > 0
+	  map = new google.maps.Map(document.getElementById("map"),
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	    zoom: 14
+	  )
 
-  center = new google.maps.LatLng(48.583148, 7.747882000000004)
-  map.setCenter center
+	  center = new google.maps.LatLng(48.583148, 7.747882000000004)
+	  map.setCenter center
+
+	updateCountdown()
+	$("#startup_description").change(updateCountdown)
+	$("#startup_description").keyup(updateCountdown)
+
