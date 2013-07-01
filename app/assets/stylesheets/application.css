@@ -14,12 +14,22 @@
 
 html{
   height: 100%;
+  font-family: 'Opend Sans', sans-serif;
 }
 
 body{
   height: 100%;
   margin: 0;
+  padding-top: 58px;
   padding: 0;
+}
+
+nav{
+	top: 0;
+	height: 58px;
+	background-color: #000000;
+	color: white;
+	text-align: center;
 }
 
 #map{
