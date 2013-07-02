@@ -2,7 +2,17 @@
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
-
+ 
+  config.model Startup do
+    list do
+      sort_by :name
+      field :is_published
+      field :name
+      field :url
+      field :street
+      field :city
+    end
+  end
 
   ################  Global configuration  ################
 
@@ -21,7 +31,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'Admin'
 
   # Display empty fields in show views:
-  # config.compact_show_view = false
+  config.compact_show_view = false
 
   # Number of default rows per-page:
   # config.default_items_per_page = 20

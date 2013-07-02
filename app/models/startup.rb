@@ -18,6 +18,14 @@ class Startup
 
   geocoded_by :address
 
+  before_validation do |startup|
+    if startup.is_published == "1"
+      startup.is_published = true
+    elsif startup.is_published == "0"
+      startup.is_published = false
+    end
+  end
+
   def address
     [street, zip_code, city].compact.join(', ')
   end
