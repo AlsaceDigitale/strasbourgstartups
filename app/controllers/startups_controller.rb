@@ -1,5 +1,23 @@
 class StartupsController < ApplicationController
   def index
+    respond_to do |format|
+      format.html
+      format.json {
+        startups = Startup.is_published.all
+
+        venues = startups.uniq{|startup| startup.coordinates.to_a}.inject([]) {|memo, startup|
+          hsh = {
+            lat: startup.coordinates.last,
+            lng: startup.coordinates.first,
+            name: startup.name
+          }
+          memo << hsh
+          memo
+        }
+
+        render :json => venues.to_json
+      }
+    end
   end
 
   def new

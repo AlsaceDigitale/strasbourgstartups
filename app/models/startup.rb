@@ -29,4 +29,8 @@ class Startup
   def address
     [street, zip_code, city].compact.join(', ')
   end
+
+  def self.is_published
+    where(:is_published => true)
+  end
 end
