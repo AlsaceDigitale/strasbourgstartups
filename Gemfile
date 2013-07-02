@@ -53,3 +53,6 @@ gem 'font-awesome-rails'
 
 gem 'simple_form'
 gem 'geocoder', git: 'https://github.com/alexreisner/geocoder'
+
+gem 'rails_admin'
+gem "devise", github: 'plataformatec/devise'
