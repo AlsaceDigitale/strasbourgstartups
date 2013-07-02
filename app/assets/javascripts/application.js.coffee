@@ -20,6 +20,11 @@ updateCountdown = () ->
 	left = 500 - $("#startup_description").val().length
 	$("#char-count").html left
 
+handleResizing = () ->
+	center = window.map.getCenter()
+	google.maps.event.trigger(window.map, "resize")
+	window.map.setCenter(center)
+
 $(document).ready ->
 	if $("#map").length > 0
 	  map = new google.maps.Map(document.getElementById("map"),
@@ -29,6 +34,10 @@ $(document).ready ->
 
 	  center = new google.maps.LatLng(48.583148, 7.747882000000004)
 	  map.setCenter center
+
+		google.maps.event.addDomListener window, "resize", () ->
+			handleResizing()
+		window.map = map
 
 	updateCountdown()
 	$("#startup_description").change(updateCountdown)
