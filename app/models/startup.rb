@@ -2,7 +2,6 @@ class Startup
   include Mongoid::Document
   include Mongoid::Paperclip
 
-  include Mongoid::Document
   field :name, type: String
   field :url, type: String
   field :adress, type: String
