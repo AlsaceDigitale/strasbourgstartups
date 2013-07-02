@@ -52,3 +52,4 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 gem 'simple_form'
+gem 'geocoder', git: 'https://github.com/alexreisner/geocoder'

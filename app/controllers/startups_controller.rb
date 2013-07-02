@@ -8,6 +8,7 @@ class StartupsController < ApplicationController
 
   def create
   	@startup = Startup.new create_params
+    @startup.coordinates = Geocoder.coordinates(@startup.address)
 
   	if @startup.save
   		render :action => "thanks"
@@ -17,8 +18,8 @@ class StartupsController < ApplicationController
   end
 
   protected
-  def create_params
-  	params.require(:startup).permit(:name, :url, :adress, :email, :description, :logo)
-  end
 
+  def create_params
+  	params.require(:startup).permit(:name, :url, :street, :zip_code, :city, :email, :description, :logo)
+  end
 end
