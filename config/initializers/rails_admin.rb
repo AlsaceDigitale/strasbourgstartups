@@ -5,7 +5,7 @@ RailsAdmin.config do |config|
  
   config.model Startup do
     list do
-      sort_by :name
+      sort_reverse :created_at
       field :is_published
       field :name
       field :url
