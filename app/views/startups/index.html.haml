@@ -6,4 +6,4 @@
 				%p.name= s.name
 				= image_tag(s.logo, :size => "150x200") if s.logo.file?
 				%p= s.description
-				= link_to "Plus d'infos", "/"
+				= link_to "Plus d'infos", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, desc: s.description}

@@ -30,6 +30,7 @@ handleResizing = () ->
 	window.map.setCenter(center)
 
 window.loadStartups = () ->
+	window.infos = []
 	$.ajax
 		url: "/startups",
 		dataType: 'json',
@@ -37,11 +38,18 @@ window.loadStartups = () ->
 		success: (data, status, xhr) ->
 			$(data).each () ->
 				startup = this
-				lat_lng = new google.maps.LatLng(startup.lng, startup.lat)
+				lat_lng = new google.maps.LatLng(startup.lat, startup.lng)
 				marker = new google.maps.Marker
 					position: lat_lng
 					map: window.map
 					title: startup.name
+				infoWindow = new google.maps.InfoWindow
+					position: lat_lng
+					content: startup.name
+				google.maps.event.addListener marker, "click", () ->
+					item.close() for item in infos
+					infoWindow.open(map, marker)
+					infos.push(infoWindow)
 
 $(document).ready ->
 	if $("#map").length > 0
@@ -58,6 +66,17 @@ $(document).ready ->
 		window.map = map
 
 		window.loadStartups()
+
+		$(".open_infoWindow").on "click", (e) ->
+			item.close() for item in window.infos
+			lat_lng = new google.maps.LatLng($(this).data("lat"), $(this).data("lng"))
+			infoWindow = new google.maps.InfoWindow(
+				position: lat_lng
+				content: $(this).data("desc")
+			)
+			infoWindow.open(map)
+			infos.push(infoWindow)
+			false
 
 	updateCountdown()
 	$("#startup_description").change(updateCountdown)

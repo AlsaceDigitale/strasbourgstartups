@@ -6,11 +6,14 @@ class StartupsController < ApplicationController
       format.json {
         list = Startup.is_published.all
 
-        startups = list.uniq{|startup| startup.coordinates.to_a}.inject([]) {|memo, startup|
+        startups = list.uniq{|startup| startup.name}.inject([]) {|memo, startup|
           hsh = {
-            lat: startup.coordinates.last,
-            lng: startup.coordinates.first,
-            name: startup.name
+            lat: startup.coordinates.first,
+            lng: startup.coordinates.last,
+            name: startup.name,
+            description: startup.description,
+            address: startup.address,
+            url: startup.url
           }
           memo << hsh
           memo
