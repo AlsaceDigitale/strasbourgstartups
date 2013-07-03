@@ -1,3 +1,9 @@
 .fill
 	#map
 	#startups-panel
+		%ul
+			- @startups.each do |s|
+				%p.name= s.name
+				= image_tag(s.logo, :size => "150x200") if s.logo.file?
+				%p= s.description
+				= link_to "Plus d'infos", "/"
