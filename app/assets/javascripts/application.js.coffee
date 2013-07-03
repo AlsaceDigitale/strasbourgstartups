@@ -17,8 +17,12 @@
 #= require_tree .	
 
 updateCountdown = () ->
-	left = 500 - $("#startup_description").val().length
-	$("#char-count").html left
+	if(typeof($("#startup_description").val()) == "undefined")
+		left = 500
+		$("#char-count").html left
+	else
+		left = 500 - $("#startup_description").val().length
+		$("#char-count").html left
 
 handleResizing = () ->
 	center = window.map.getCenter()
