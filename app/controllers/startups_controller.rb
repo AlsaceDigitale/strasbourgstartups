@@ -28,7 +28,6 @@ class StartupsController < ApplicationController
 
   def create
   	@startup = Startup.new create_params
-    @startup.coordinates = Geocoder.coordinates(@startup.address)
 
   	if @startup.save
   		render :action => "thanks"

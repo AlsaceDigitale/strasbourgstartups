@@ -29,6 +29,11 @@ class Startup
     end
   end
 
+  after_validation :geocode
+  before_save do |startup|
+    startup.coordinates = startup.to_coordinates
+  end
+
   def address
     [street, zip_code, city].compact.join(', ')
   end
