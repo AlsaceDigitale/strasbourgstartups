@@ -1,5 +1,4 @@
 #wrap
-	= link_to "Retour à la carte", "/"
 	#left-col
 		= image_tag(@startup.logo, :size => "300x400") if @startup.logo.file?
 
@@ -11,3 +10,4 @@
 		%a{:href => "mailto:#{@startup.email}"} Contact
 		%p.address= @startup.address
 		%p= @startup.description
+		= link_to "Retour à la carte", "/"
