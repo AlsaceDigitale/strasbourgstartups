@@ -56,7 +56,7 @@ window.loadStartups = () ->
 					item.close() for item in infos
 					infoWindow.open(map, marker)
 
-$(document).ready ->
+initialize = () ->
 	if $("#map").length > 0
 	  map = new google.maps.Map(document.getElementById("map"),
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -92,3 +92,5 @@ $(document).ready ->
 	$("#startup_description").change(updateCountdown)
 	$("#startup_description").keyup(updateCountdown)
 
+$(initialize)
+$(document).on "page:load", initialize
