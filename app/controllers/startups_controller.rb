@@ -37,6 +37,10 @@ class StartupsController < ApplicationController
   	end
   end
 
+  def show
+    @startup = Startup.find(params[:id])
+  end
+
   protected
 
   def create_params
