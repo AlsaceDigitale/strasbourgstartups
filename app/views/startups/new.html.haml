@@ -9,7 +9,7 @@
 		= f.input :city, input_html: {class: 'input-xxlarge'}
 		= f.input :email, input_html: {class: 'input-xxlarge'}
 		= f.input :logo
-		= f.input :description, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true}, as: :text
+		= f.input :description, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true, :rows => '7'}, as: :text
 		%i
 			Caractères restants :
 			%span#char-count
