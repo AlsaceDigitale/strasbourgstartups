@@ -1,0 +1,23 @@
+fr:
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'Obligatoire'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Il y a des erreurs dans le formulaire, veuillez vérifier vos réponses"
+    # Labels and hints examples
+    labels:
+      startup:
+        name: 'Nom'
+        url: 'Site web'
+        street: 'Adresse'
+        zip_code: 'Code postal'
+        city: 'Ville'
+        email: 'Mail de contact'
+        logo: 'Logo'
+        description: 'Description'
