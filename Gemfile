@@ -56,3 +56,5 @@ gem 'geocoder', git: 'https://github.com/alexreisner/geocoder'
 
 gem 'rails_admin'
 gem "devise", github: 'plataformatec/devise'
+
+gem 'mongoid_slug'

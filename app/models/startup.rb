@@ -1,6 +1,7 @@
 class Startup
   include Mongoid::Document
   include Mongoid::Paperclip
+  include Mongoid::Slug
   include Geocoder::Model::Mongoid
 
   field :name, type: String
@@ -13,6 +14,8 @@ class Startup
   field :is_published, type: Boolean, default: false
 
   field :coordinates, type: Array
+
+  slug :name
 
   has_mongoid_attached_file :logo
 
