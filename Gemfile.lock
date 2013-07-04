@@ -9,6 +9,12 @@ GIT
       warden (~> 1.2.1)
 
 GIT
+  remote: git://github.com/starchow/rails_admin-i18n.git
+  revision: a04f3793a526d13d45327128179a300723aa5686
+  specs:
+    rails_admin-i18n (0.0.9)
+
+GIT
   remote: https://github.com/alexreisner/geocoder
   revision: 3b0921c999097f9b740316adf0785582748cad96
   specs:
@@ -212,6 +218,7 @@ DEPENDENCIES
   mongoid_slug
   rails (= 4.0.0)
   rails_admin
+  rails_admin-i18n!
   sass-rails (~> 4.0.0)
   sdoc
   simple_form

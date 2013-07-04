@@ -58,3 +58,4 @@ gem 'rails_admin'
 gem "devise", github: 'plataformatec/devise'
 
 gem 'mongoid_slug'
+gem 'rails_admin-i18n', github: 'starchow/rails_admin-i18n'
