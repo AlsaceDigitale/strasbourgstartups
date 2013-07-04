@@ -4,22 +4,20 @@ class StartupsController < ApplicationController
     respond_to do |format|
       format.html
       format.json {
-        list = Startup.is_published.all
-
-        startups = list.uniq{|startup| startup.name}.inject([]) {|memo, startup|
-          hsh = {
-            lat: startup.coordinates.first,
-            lng: startup.coordinates.last,
-            name: startup.name,
-            description: startup.description,
-            address: startup.address,
-            url: startup.url
-          }
-          memo << hsh
-          memo
+        grouped_startups = @startups.group_by(&:coordinates).map do |coordinates, startups| {
+          lat: coordinates.first,
+          lng: coordinates.last,
+          startups:startups.map do |s|
+            {
+              name: s.name,
+              description: s.description,
+              address: s.address,
+              url: s.url
+            }
+          end
         }
-
-        render :json => startups.to_json
+      end
+      render :json => grouped_startups.to_json
       }
     end
   end

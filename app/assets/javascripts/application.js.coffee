@@ -37,19 +37,24 @@ window.loadStartups = () ->
 		type: 'GET',
 		success: (data, status, xhr) ->
 			$(data).each () ->
-				startup = this
-				lat_lng = new google.maps.LatLng(startup.lat, startup.lng)
+				location = this
+				lat_lng = new google.maps.LatLng(location.lat, location.lng)
+				contents = for startup in location.startups
+					content = $(".startup-info.template").clone().removeClass("template")
+					for attr, value of startup
+						content.find(".#{attr}").html(value)
+					$("<div>").html(content).html()
 				marker = new google.maps.Marker
 					position: lat_lng
 					map: window.map
-					title: startup.name
+					title: location.startups[0][2]
 				infoWindow = new google.maps.InfoWindow
 					position: lat_lng
-					content: startup.name
+					content: contents.join("")
+				infos.push(infoWindow)
 				google.maps.event.addListener marker, "click", () ->
 					item.close() for item in infos
 					infoWindow.open(map, marker)
-					infos.push(infoWindow)
 
 $(document).ready ->
 	if $("#map").length > 0
@@ -70,11 +75,16 @@ $(document).ready ->
 		$(".open_infoWindow").on "click", (e) ->
 			item.close() for item in window.infos
 			lat_lng = new google.maps.LatLng($(this).data("lat"), $(this).data("lng"))
-			infoWindow = new google.maps.InfoWindow(
+			content = $(".startup-info.template").clone().removeClass("template")
+			for attr, value of $(this).data()
+				content.find(".#{attr}").html(value)
+			content = $("<div>").html(content).html()
+			console.log content
+			infoWindow = new google.maps.InfoWindow
 				position: lat_lng
-				content: $(this).data("desc")
-			)
+				content: content
 			infoWindow.open(map)
+			console.log infos
 			infos.push(infoWindow)
 			false
 
