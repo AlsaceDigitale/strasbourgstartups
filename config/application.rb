@@ -38,6 +38,8 @@ module Strasbourgstartups
       :fog_public => true
     }
 
+    config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
