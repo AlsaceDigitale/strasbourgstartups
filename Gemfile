@@ -47,6 +47,8 @@ end
 
 gem 'mongoid', :git => 'https://github.com/mongoid/mongoid'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
+gem 'fog'
+gem 'asset_sync'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
