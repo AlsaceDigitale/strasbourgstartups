@@ -10,6 +10,8 @@
 		= csrf_meta_tags
 %body
 	%nav
+		= link_to "/", class: "home", target: "_blank", title: "Retourner à la carte" do
+			%span.icon-home
 		Strasbourg Startups
 		= link_to new_startup_path, class: "add", target: "_blank", title: "Ajouter une startup" do
 			%span.icon-plus
