@@ -1,5 +1,5 @@
 .container-narrow
-	%h1 Ajouter une start-up
+	%h1 Add a startup
 	= simple_form_for @startup  do |f|
 		= f.error_notification
 		= f.input :name, input_html: {class: 'input-xxlarge'}
@@ -11,8 +11,8 @@
 		= f.input :logo
 		= f.input :description, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true, :rows => '7'}, as: :text
 		%i
-			Caractères restants :
+			Characters left :
 			%span#char-count
 		%br/
 		%br/
-		= f.button :submit, "Envoyer", :class => "btn btn-large btn-primary"
+		= f.button :submit, "Submit", :class => "btn btn-large btn-primary"

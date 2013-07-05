@@ -13,6 +13,6 @@
 				%p.name= s.name
 				= image_tag(s.logo, :size => "150x200") if s.logo.file?
 				%p= s.description
-				= link_to "Plus d'info", startup_path(s), target: "_blank"
+				= link_to "More infos", startup_path(s), target: "_blank"
 				%br/
-				= link_to "Afficher sur la carte", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description, address: s.address, url: s.url}
+				= link_to "Mark on map", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description, address: s.address, url: s.url}

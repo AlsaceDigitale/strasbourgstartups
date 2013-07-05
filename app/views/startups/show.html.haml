@@ -5,9 +5,9 @@
 	#right-col
 		%h1
 			= @startup.name
-		%a{:href => @startup.url} Site web
+		%a{:href => @startup.url} Website
 		%br/
-		%a{:href => "mailto:#{@startup.email}"} Contact
+		%a{:href => "mailto:#{@startup.email}"} Email
 		%p.address= @startup.address
 		%p= @startup.description
-		= link_to "Retour à la carte", "/"
+		= link_to "Back to map", "/"
