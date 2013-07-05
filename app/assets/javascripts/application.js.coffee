@@ -55,6 +55,7 @@ window.loadStartups = () ->
 				infos.push(infoWindow)
 				google.maps.event.addListener marker, "click", () ->
 					item.close() for item in infos
+					map.setCenter(lat_lng)
 					infoWindow.open(map, marker)
 
 initialize = () ->
@@ -85,6 +86,7 @@ initialize = () ->
 				position: lat_lng
 				content: content
 				maxWidth: 400
+			map.setCenter(lat_lng)
 			infoWindow.open(map)
 			console.log infos
 			infos.push(infoWindow)
