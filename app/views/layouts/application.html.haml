@@ -13,4 +13,6 @@
 		Strasbourg Startups
 		= link_to new_startup_path, class: "add", target: "_blank", title: "Ajouter une startup" do
 			%span.icon-plus
+		= link_to headlines_path, class: "headlines", target: "_blank", title: "News" do
+			%span.icon-rss
 	= yield

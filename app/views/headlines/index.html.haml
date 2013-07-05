@@ -1,0 +1,5 @@
+.fill
+	#headlines
+		- @headlines.each do |headline|
+			%p.title= headline.title
+			= headline.body
