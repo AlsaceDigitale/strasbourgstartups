@@ -1,5 +1,6 @@
 .fill
 	#headlines
-		- @headlines.each do |headline|
+		- @headlines.reverse_each do |headline|
 			%p.title= headline.title
+			%p.time= headline.created_at.strftime("%B %d, %Y")
 			= headline.body
