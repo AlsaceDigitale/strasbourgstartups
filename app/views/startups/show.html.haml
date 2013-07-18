@@ -1,6 +1,6 @@
 #wrap
 	#left-col
-		= image_tag(@startup.logo, :size => "300x400") if @startup.logo.file?
+		= image_tag(@startup.logo.url(:medium)) if @startup.logo.file?
 
 	#right-col
 		%h1

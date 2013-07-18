@@ -17,7 +17,11 @@ class Startup
 
   slug :name
 
-  has_mongoid_attached_file :logo
+  has_mongoid_attached_file :logo,
+    :styles => {
+      :small  => ['250x250>', :png],
+      :medium => ['500x500',  :png],
+    }
 
   geocoded_by :address
 

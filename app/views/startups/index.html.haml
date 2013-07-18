@@ -12,7 +12,7 @@
       - @startups.each do |s|
         %li
           %p.name= s.name
-          = image_tag(s.logo, :size => "150x200") if s.logo.file?
+          = image_tag(s.logo.url(:small)) if s.logo.file?
           %p= s.description
           %ul.inline.links
             %li= link_to "More infos", s
