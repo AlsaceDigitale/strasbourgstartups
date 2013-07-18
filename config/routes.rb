@@ -1,9 +1,12 @@
 Strasbourgstartups::Application.routes.draw do
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  
+
   resources :startups
   resources :headlines
+
+  get 'about' => 'content#about'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -44,7 +47,7 @@ Strasbourgstartups::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
