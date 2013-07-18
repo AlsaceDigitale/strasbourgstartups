@@ -11,7 +11,7 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     - api_key = "AIzaSyAw8mWBLhSsE2dI2t0dLhsZt12I9kSEKK0"
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{api_key}&sensor=false"
-    = favicon_link_tag "favicon.png", type: 'image/png'
+    = favicon_link_tag asset_url("favicon.png"), type: 'image/png'
     = csrf_meta_tags
   %body{class: controller.controller_name == "startups" && controller.action_name == "index" ? "map" : "content"}
     %nav
