@@ -1,5 +1,6 @@
 class StartupsController < ApplicationController
   def index
+    @page_title = "Gathering and fostering the emerging startup scene in Strasbourg since 2013"
     @startups = Startup.is_published.all
     respond_to do |format|
       format.html

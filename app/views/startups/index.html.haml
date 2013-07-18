@@ -1,18 +1,21 @@
 .startup-info.template
-	%span.name
-	%br/
-	%span.description
-	%br/
-	%span.address
+  %span.name
+  %br/
+  %span.description
+  %br/
+  %span.address
 
 .fill
-	#map
-	#startups-panel
-		%ul
-			- @startups.each do |s|
-				%p.name= s.name
-				= image_tag(s.logo, :size => "150x200") if s.logo.file?
-				%p= s.description
-				= link_to "More infos", startup_path(s), target: "_blank"
-				%br/
-				= link_to "Mark on map", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description, address: s.address, url: s.url}
+  #map
+  #startups-panel
+    %ul.unstyled.startups
+      - @startups.each do |s|
+        %li
+          %p.name= s.name
+          = image_tag(s.logo, :size => "150x200") if s.logo.file?
+          %p= s.description
+          %ul.inline.links
+            %li= link_to "More infos", startup_path(s), target: "_blank"
+            %li
+              \|
+            %li= link_to "Mark on map", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description, address: s.address, url: s.url}

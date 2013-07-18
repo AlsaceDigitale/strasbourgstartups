@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
+gem 'redcarpet'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -58,3 +59,9 @@ gem "devise", github: 'plataformatec/devise'
 
 gem 'mongoid_slug'
 gem 'rails_admin-i18n', github: 'starchow/rails_admin-i18n'
+
+gem 'pry-rails', group: [:development]
+gem 'pry-nav', group: [:development]
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'puma'

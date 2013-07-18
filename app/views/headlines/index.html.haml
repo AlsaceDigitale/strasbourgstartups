@@ -1,6 +1,14 @@
-.fill
-	#headlines
-		- @headlines.reverse_each do |headline|
-			%p.title= headline.title
-			%p.time= headline.created_at.strftime("%B %d, %Y")
-			= headline.body
+.container
+  .row
+    .span12
+      - @headlines.each do |headline|
+        %article
+          %h2= headline.title
+          .time
+            .day= headline.published_at.strftime("%d")
+            .month= headline.published_at.strftime("%B")
+            .year= headline.published_at.strftime("%Y")
+          .body
+            :markdown
+              #{ headline.body }
+        %hr
