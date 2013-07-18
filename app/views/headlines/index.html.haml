@@ -1,6 +1,8 @@
 .container-narrow
   .row-fluid
     .span12
+      %h1{style: "text-align: center;"}= @page_title
+    .span12
       - @headlines.each do |headline|
         %article
           %h2= headline.title

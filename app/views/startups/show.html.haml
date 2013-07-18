@@ -1,13 +1,12 @@
-#wrap
-	#left-col
-		= image_tag(@startup.logo.url(:medium)) if @startup.logo.file?
-
-	#right-col
-		%h1
-			= @startup.name
-		%a{:href => @startup.url} Website
-		%br/
-		%a{:href => "mailto:#{@startup.email}"} Email
-		%p.address= @startup.address
-		%p= @startup.description
-		= link_to "Back to map", "/"
+.container
+  .row
+    .span6
+      = image_tag(@startup.logo.url(:medium)) if @startup.logo.file?
+    .span6
+      %h1.startup_name= @startup.name
+      %a{:href => @startup.url} Website
+      %br/
+      %a{:href => "mailto:#{@startup.email}"} Email
+      %p.address= @startup.address
+      %p= @startup.description
+      = link_to "Back to map", "/"
