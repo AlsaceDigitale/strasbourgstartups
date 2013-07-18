@@ -11,15 +11,15 @@
     - api_key = "AIzaSyAw8mWBLhSsE2dI2t0dLhsZt12I9kSEKK0"
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{api_key}&sensor=false"
     = csrf_meta_tags
-%body{class: controller.controller_name == "startups" && controller.action_name == "index" ? "map" : "content"}
-  %nav
-    = link_to "/", class: "home", title: "Back to the map" do
-      %span.icon-home
-    = link_to "Strasbourg Startups", "/", class: "brand"
-    = link_to "/about", class: "headlines", title: "About" do
-      %span.icon-question
-    = link_to new_startup_path, class: "headlines", title: "Add a new startup" do
-      %span.icon-plus
-    = link_to headlines_path, class: "headlines", title: "Latests news" do
-      %span.icon-rss
-  = yield
+  %body{class: controller.controller_name == "startups" && controller.action_name == "index" ? "map" : "content"}
+    %nav
+      = link_to "/", class: "home", title: "Back to the map" do
+        %span.icon-home
+      = link_to "Strasbourg Startups", "/", class: "brand"
+      = link_to "/about", class: "headlines", title: "About" do
+        %span.icon-question
+      = link_to new_startup_path, class: "headlines", title: "Add a new startup" do
+        %span.icon-plus
+      = link_to headlines_path, class: "headlines", title: "Latests news" do
+        %span.icon-rss
+    = yield
