@@ -6,7 +6,6 @@
   %span.address
 
 .fill
-  #map
   #startups-panel
     %ul.unstyled.startups
       - @startups.each do |s|
@@ -19,3 +18,4 @@
             %li
               \|
             %li= link_to "Mark on map", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description, address: s.address, url: s.url}
+  #map
