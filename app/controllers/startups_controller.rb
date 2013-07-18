@@ -24,6 +24,7 @@ class StartupsController < ApplicationController
   end
 
   def new
+    @page_title = "Add a startup"
   	@startup = Startup.new
   end
 
@@ -39,6 +40,7 @@ class StartupsController < ApplicationController
 
   def show
     @startup = Startup.find(params[:id])
+    @page_title = @startup.name
   end
 
   protected
