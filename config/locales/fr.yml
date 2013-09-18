@@ -1,10 +1,10 @@
 fr:
   startups:
     index: "Rassembler et promouvoir la scène startup strasbourgeoise"
-  content:
-    about: "A propos"
     new: "Ajouter une startup"
     create: "Ajouter une startup"
+  content:
+    about: "A propos"
   headlines:
     index: "Dernières actualités"
   nav:

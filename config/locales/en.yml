@@ -1,10 +1,10 @@
 en:
   startups:
     index: "Gathering and fostering the emerging startup scene in Strasbourg since 2013"
-  content:
-    about: "About"
     new: "Add a startup"
     create: "Add a startup"
+  content:
+    about: "About"
   headlines:
     index: "Latest news"
   nav:
