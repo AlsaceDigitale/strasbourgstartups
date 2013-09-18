@@ -166,6 +166,7 @@ article
   .body
     margin-top: -14px
   h2
+    color: black
     display: inline
     float: left
     padding-right: 30px
@@ -181,6 +182,13 @@ article
   &.fr
     h1, h2
       background: image-url('fr.png') no-repeat right top
+
+article
+  a
+    h2
+      &:hover
+        color: black
+        text-decoration: underline
 
 @media screen and (max-width: 767px)
   nav

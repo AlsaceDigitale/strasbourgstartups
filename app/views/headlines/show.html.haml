@@ -1,0 +1,25 @@
+.container
+  .row-fluid
+    %article.span6.en
+      %h2= @headline.title_en
+      .clearfix
+      .time
+        .day= @headline.published_at.strftime("%d")
+        .month= @headline.published_at.strftime("%b")
+        .year= @headline.published_at.strftime("%Y")
+      .body
+        :markdown
+          #{ @headline.body_en }
+    %article.span6.fr
+      %h2= @headline.title_fr
+      .clearfix
+      .time
+        .day= @headline.published_at.strftime("%d")
+        .month= @headline.published_at.strftime("%b")
+        .year= @headline.published_at.strftime("%Y")
+      .body
+        :markdown
+          #{ @headline.body_fr }
+  .row-fluid
+    = render partial: "disqus"
+

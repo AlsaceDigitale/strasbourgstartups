@@ -25,6 +25,16 @@
       = link_to headlines_path, class: "headlines", title: t("nav.latest_news") do
         %span.icon-rss
     = yield
+    - unless controller.controller_name == "startups" && controller.action_name == "index"
+      %footer.container
+        .row-fluid
+          .span12
+            %hr
+            %small
+              Website developped by
+              = link_to "Novelys", "http://www.novelys.com"
+              , hosted by
+              = link_to "Appsdeck.eu", "http://www.appsdeck.eu"
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

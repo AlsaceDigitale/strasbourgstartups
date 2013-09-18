@@ -6,7 +6,8 @@
   - @headlines.each do |headline|
     .row-fluid
       %article.span6.en
-        %h2= headline.title_en
+        = link_to headline do
+          %h2= headline.title_en
         .clearfix
         .time
           .day= headline.published_at.strftime("%d")
@@ -16,7 +17,8 @@
           :markdown
             #{ headline.body_en }
       %article.span6.fr
-        %h2= headline.title_fr
+        = link_to headline do
+          %h2= headline.title_fr
         .clearfix
         .time
           .day= headline.published_at.strftime("%d")
@@ -25,5 +27,6 @@
         .body
           :markdown
             #{ headline.body_fr }
-    .row-fluid
-      %hr.span12
+    - unless headline == @headlines.last
+      .row-fluid
+        %hr.span12
