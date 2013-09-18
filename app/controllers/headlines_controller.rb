@@ -6,5 +6,6 @@ class HeadlinesController < ApplicationController
 
   def show
     @headline = Headline.find params[:id]
+    @page_title = @headline.title
   end
 end
