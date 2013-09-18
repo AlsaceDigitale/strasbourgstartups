@@ -19,6 +19,7 @@ class StartupsController < ApplicationController
       end
       render :json => grouped_startups.to_json
       }
+      format.rss { render :layout => false }
     end
   end
 

@@ -20,4 +20,13 @@ class Headline
     txt = read_attribute(:body_en)
     txt.present? ? txt : read_attribute(:body)
   end
+
+  def title
+    "#{title_en} / #{title_fr}"
+  end
+
+  def body
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+    markdown.render "#{body_en}\n\n#{body_fr}"
+  end
 end

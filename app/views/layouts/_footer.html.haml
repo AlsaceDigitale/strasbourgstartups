@@ -1,0 +1,21 @@
+%footer.container
+  .row-fluid
+    .span12{style: "min-height: 0; margin: 5px 0;"}
+      %hr{style: "min-height: 0; margin: 5px 0;"}
+    .span12{style: "margin-left: 0px;"}
+      %small.pull-left
+        %ul.inline
+          %li
+            = link_to "https://www.facebook.com/StrasbourgStartups" do
+              %span.icon-facebook
+          %li
+            = link_to "https://twitter.com/SXBStartups" do
+              %span.icon-twitter
+          %li
+            = link_to headlines_path(format: "rss") do
+              %span.icon-rss
+      %small.pull-right
+        Website developped by
+        = link_to "Novelys", "http://www.novelys.com"
+        , hosted by
+        = link_to "Appsdeck.eu", "http://www.appsdeck.eu"
