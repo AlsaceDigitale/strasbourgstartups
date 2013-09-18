@@ -27,6 +27,6 @@ class Headline
 
   def body
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-    markdown.render "#{body_en}\n\n#{body_fr}"
+    markdown.render "ENGLISH VERSION (FRENCH VERSION BELOW)\n\n#{body_en}\n\nFRENCH VERSION (ENGLISH VERSION ABOVE)\n\n#{body_fr}"
   end
 end
