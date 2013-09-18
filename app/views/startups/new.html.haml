@@ -1,12 +1,6 @@
 .container-narrow
-  %h1= @page_title
-  %p.explanation.first
-    By submitting this form, you will ask us to add your startup to the directory. Notice that we deeply care about the quality of the entries: we only want startups, from Strasbourg and its surrounding area. We want real companies, not just an idea living its only life on a PowerPoint. That's why we'll ask you to come demo your product during one of our Demo Night/Demo Day. After your presentation, a council composed of all the founders already present in the directory will validate (or not) your proposal to be part of the directory.
-  %p.explanation
-    %strong When will be the next Demo Night/Demo Day ?
-  %p.explanation.last
-    Check the
-    = link_to "latest news.", headlines_path
+  %h1= t("startups.index")
+  = render partial: "explanation"
   = simple_form_for @startup  do |f|
     = f.error_notification
     = f.input :name, input_html: {class: 'input-xxlarge'}
@@ -15,11 +9,9 @@
     = f.input :zip_code, input_html: {class: 'input-xxlarge'}
     = f.input :city, input_html: {class: 'input-xxlarge'}
     = f.input :email, input_html: {class: 'input-xxlarge'}
+    = f.input :description_fr, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true, :rows => '7'}, as: :text, hint: (t("simple_form.labels.startup.char_count") + content_tag("span", nil, class: "char-count")).html_safe
+    = f.input :description_en, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true, :rows => '7'}, as: :text, hint: (t("simple_form.labels.startup.char_count") + content_tag("span", nil, class: "char-count")).html_safe
     = f.input :logo
-    = f.input :description, input_html: {class: 'input-xxlarge', :maxlength => '500', :lenghtcut => true, :rows => '7'}, as: :text
-    %i
-      Characters left :
-      %span#char-count
     %br/
     %br/
     = f.button :submit, "Submit", :class => "btn btn-large btn-primary"

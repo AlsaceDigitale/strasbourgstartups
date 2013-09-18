@@ -14,15 +14,17 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require bootstrap
-#= require_tree .	
+#= require_tree .
 
 updateCountdown = () ->
-	if(typeof($("#startup_description").val()) == "undefined")
-		left = 500
-		$("#char-count").html left
-	else
-		left = 500 - $("#startup_description").val().length
-		$("#char-count").html left
+  node = $(this)
+  count_node = node.next().find(".char-count")
+  if(typeof(node.val()) == "undefined")
+    left = 500
+    count_node.html left
+  else
+    left = 500 - node.val().length
+    count_node.html left
 
 handleResizing = () ->
 	center = window.map.getCenter()
@@ -92,9 +94,13 @@ initialize = () ->
 			infos.push(infoWindow)
 			false
 
-	updateCountdown()
-	$("#startup_description").change(updateCountdown)
-	$("#startup_description").keyup(updateCountdown)
+  $("#startup_description_fr").change(updateCountdown)
+  $("#startup_description_fr").keyup(updateCountdown)
+  $("#startup_description_en").change(updateCountdown)
+  $("#startup_description_en").keyup(updateCountdown)
+
+  $("#startup_description_fr").trigger("change")
+  $("#startup_description_en").trigger("change")
 
 $(initialize)
 $(document).on "page:load", initialize

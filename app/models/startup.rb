@@ -10,7 +10,8 @@ class Startup
   field :zip_code, type: String
   field :city, type: String
   field :email, type: String
-  field :description, type: String
+  field :description_fr, type: String
+  field :description_en, type: String
   field :is_published, type: Boolean, default: false
 
   field :coordinates, type: Array
@@ -44,5 +45,12 @@ class Startup
 
   def self.is_published
     where(:is_published => true)
+  end
+
+  def description(locale)
+    txt = self["description_#{locale}".to_sym]
+    contrary = locale.to_s == "en" ? "fr" : "en"
+    txt = txt.present? ? txt : self["description_#{contrary}".to_sym]
+    txt.present? ? txt : self["description".to_sym]
   end
 end

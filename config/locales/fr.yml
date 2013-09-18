@@ -1,0 +1,17 @@
+fr:
+  startups:
+    index: "Rassembler et promouvoir la scène startup strasbourgeoise"
+  content:
+    about: "A propos"
+    new: "Ajouter une startup"
+    create: "Ajouter une startup"
+  headlines:
+    index: "Dernières actualités"
+  nav:
+    back_to_map: "Retourner à la carte"
+    about: "À propos"
+    latest_news: "Actualités"
+    add_new: "Ajouter une startup"
+  startup:
+    more: "Plus d'infos"
+    mark: "Voir sur la carte"

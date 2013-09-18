@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Strasbourg Startups - #{@page_title}
+    %title Strasbourg Startups - #{ @page_title || t("#{controller.controller_name}.#{controller.action_name}") }
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Oswald:300.400.700"
@@ -15,14 +15,14 @@
     = csrf_meta_tags
   %body{class: controller.controller_name == "startups" && controller.action_name == "index" ? "map" : "content"}
     %nav
-      = link_to "/", class: "home", title: "Back to the map" do
+      = link_to "/", class: "home", title: t("nav.back_to_map") do
         %span.icon-home
       = link_to "Strasbourg Startups", "/", class: "brand"
-      = link_to "/about", class: "headlines", title: "About" do
+      = link_to "/about", class: "headlines", title: t("nav.about") do
         %span.icon-question
-      = link_to new_startup_path, class: "headlines", title: "Add a new startup" do
+      = link_to new_startup_path, class: "headlines", title: t("nav.add_new") do
         %span.icon-plus
-      = link_to headlines_path, class: "headlines", title: "Latests news" do
+      = link_to headlines_path, class: "headlines", title: t("nav.latest_news") do
         %span.icon-rss
     = yield
     :javascript

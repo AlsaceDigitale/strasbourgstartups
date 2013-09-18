@@ -12,10 +12,10 @@
         %li
           %p.name= s.name
           = image_tag(s.logo.url(:small)) if s.logo.file?
-          %p= s.description
+          %p= s.description(I18n.locale)
           %ul.inline.links
-            %li= link_to "More infos", s
+            %li= link_to t("startup.more"), s
             %li
               \|
-            %li= link_to "Mark on map", "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description, address: s.address, url: s.url}
+            %li= link_to t("startup.mark"), "#", class: "open_infoWindow", data: {lat: s.coordinates.first, lng: s.coordinates.last, name: s.name, description: s.description(I18n.locale), address: s.address, url: s.url}
   #map

@@ -20,4 +20,6 @@ fr:
         city: 'Ville'
         email: 'Mail de contact'
         logo: 'Logo'
-        description: 'Description'
+        description_fr: 'Description en français'
+        description_en: 'Description en anglais'
+        char_count: "Nbre caractères restant : "

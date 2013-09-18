@@ -1,6 +1,5 @@
 class StartupsController < ApplicationController
   def index
-    @page_title = "Gathering and fostering the emerging startup scene in Strasbourg since 2013"
     @startups = Startup.is_published.all
     respond_to do |format|
       format.html
@@ -11,7 +10,7 @@ class StartupsController < ApplicationController
           startups:startups.map do |s|
             {
               name: s.name,
-              description: s.description,
+              description: s.description(I18n.locale),
               address: s.address,
               url: s.url
             }
@@ -24,7 +23,6 @@ class StartupsController < ApplicationController
   end
 
   def new
-    @page_title = "Add a startup"
   	@startup = Startup.new
   end
 

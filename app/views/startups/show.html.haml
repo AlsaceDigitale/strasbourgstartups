@@ -4,9 +4,10 @@
       = image_tag(@startup.logo.url(:medium)) if @startup.logo.file?
     .span6
       %h1.startup_name= @startup.name
-      %a{:href => @startup.url} Website
+      %a{:href => @startup.url} URL
       %br/
       %a{:href => "mailto:#{@startup.email}"} Email
       %p.address= @startup.address
-      %p= @startup.description
-      = link_to "Back to map", "/"
+      = simple_format @startup.description_en
+      = simple_format @startup.description_fr
+      = link_to t("nav.back_to_map"), "/"

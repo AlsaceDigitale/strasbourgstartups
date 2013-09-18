@@ -1,16 +1,30 @@
-.container-narrow
+.container
   .row-fluid
     .span12
-      %h1{style: "text-align: center;"}= @page_title
-    .span12
-      - @headlines.each do |headline|
-        %article
-          %h2= headline.title
-          .time
-            .day= headline.published_at.strftime("%d")
-            .month= headline.published_at.strftime("%B")
-            .year= headline.published_at.strftime("%Y")
-          .body
-            :markdown
-              #{ headline.body }
-        %hr
+      %h1{style: "text-align: center; margin: 20px 0;"}
+        %em
+          Latest news / Dernières actualités
+  - @headlines.each do |headline|
+    .row-fluid
+      %article.span6.en
+        %h2= headline.title_en
+        .clearfix
+        .time
+          .day= headline.published_at.strftime("%d")
+          .month= headline.published_at.strftime("%B")
+          .year= headline.published_at.strftime("%Y")
+        .body
+          :markdown
+            #{ headline.body_en }
+      %article.span6.fr
+        %h2= headline.title_fr
+        .clearfix
+        .time
+          .day= headline.published_at.strftime("%d")
+          .month= headline.published_at.strftime("%B")
+          .year= headline.published_at.strftime("%Y")
+        .body
+          :markdown
+            #{ headline.body_fr }
+    .row-fluid
+      %hr.span12
