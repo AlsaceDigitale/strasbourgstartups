@@ -2,8 +2,7 @@
   .row-fluid
     .span12
       %h1{style: "text-align: center; margin: 20px 0;"}
-        %em
-          Latest news / Dernières actualités
+        %em= @page_title
   - @headlines.each do |headline|
     .row-fluid
       %article.span6.en
