@@ -8,7 +8,7 @@
 .fill
   #startups-panel
     %ul.unstyled.startups
-      - @startups.each do |s|
+      - @startups.reverse.each do |s|
         %li
           %p.name= s.name
           = image_tag(s.logo.url(:small)) if s.logo.file?
