@@ -64,7 +64,7 @@ initialize = () ->
 	if $("#map").length > 0
 	  map = new google.maps.Map(document.getElementById("map"),
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
-	    zoom: 14
+	    zoom: 13
 	  )
 
 	  center = new google.maps.LatLng(48.583148, 7.747882000000004)
