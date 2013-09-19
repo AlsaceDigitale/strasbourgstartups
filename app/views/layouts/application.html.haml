@@ -24,7 +24,7 @@
       = link_to new_startup_path, class: "headlines", title: t("nav.add_new") do
         %span.icon-plus
       = link_to headlines_path, class: "headlines", title: t("nav.latest_news") do
-        %span.icon-rss
+        %span.icon-bullhorn
     = yield
     = render partial: "/layouts/footer" unless controller.controller_name == "startups" && controller.action_name == "index"
     :javascript
