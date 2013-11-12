@@ -69,3 +69,4 @@ gem 'pry-nav', group: [:development]
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'puma'
+gem 'airbrake'
