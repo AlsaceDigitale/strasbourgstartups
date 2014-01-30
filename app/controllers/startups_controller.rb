@@ -1,6 +1,6 @@
 class StartupsController < ApplicationController
   def index
-    @startups = Startup.is_published.all
+    @startups = Startup.is_published.desc(:updated_at).all
     respond_to do |format|
       format.html
       format.json {
