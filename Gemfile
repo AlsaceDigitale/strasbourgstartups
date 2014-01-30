@@ -48,7 +48,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'mongoid', :git => 'https://github.com/mongoid/mongoid'
-gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
+gem 'paperclip', '3.5.2'
+gem 'mongoid-paperclip', :require => 'mongoid_paperclip', github: 'meskyanichi/mongoid-paperclip'
 gem 'fog'
 gem 'asset_sync'
 
@@ -58,10 +59,10 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'geocoder', git: 'https://github.com/alexreisner/geocoder'
 
-gem 'rails_admin'
-gem "devise", github: 'plataformatec/devise'
+gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'devise'
 
-gem 'mongoid_slug'
+gem 'mongoid_slug', github: 'digitalplaywright/mongoid-slug'
 gem 'rails_admin-i18n', github: 'starchow/rails_admin-i18n'
 
 gem 'pry-rails', group: [:development]

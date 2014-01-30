@@ -1,34 +1,58 @@
 GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 75ad4ee87b29c79215793e7e9d346e3ab81b5b4f
+  remote: git://github.com/digitalplaywright/mongoid-slug.git
+  revision: 5cf9c3c5cfac9df628a95e69f00774cd0fe90d96
   specs:
-    devise (3.0.0.rc)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      warden (~> 1.2.1)
+    mongoid_slug (3.2.0)
+      mongoid (> 3.0)
+      stringex (~> 2.0)
+
+GIT
+  remote: git://github.com/meskyanichi/mongoid-paperclip.git
+  revision: 34a66cbc6c35098fb5fc9eaa5cf051c8556c9fe3
+  specs:
+    mongoid-paperclip (0.0.8)
+      paperclip (>= 2.3.6)
+
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 2010c962a577b52e0f32386e04f267cf39c0162a
+  specs:
+    rails_admin (0.6.0)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0)
+      haml (~> 4.0)
+      jquery-rails (~> 3.0)
+      jquery-ui-rails (~> 4.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (~> 4.0)
 
 GIT
   remote: git://github.com/starchow/rails_admin-i18n.git
-  revision: a04f3793a526d13d45327128179a300723aa5686
+  revision: 19dd9dbf2f05daa76d648698f2d162120f177930
   specs:
     rails_admin-i18n (0.0.9)
 
 GIT
   remote: https://github.com/alexreisner/geocoder
-  revision: 3b0921c999097f9b740316adf0785582748cad96
+  revision: a25e3d7b8ef3dba9954a624b2441b7e018b5f111
   specs:
-    geocoder (1.1.8)
+    geocoder (1.1.9)
 
 GIT
   remote: https://github.com/mongoid/mongoid
-  revision: 06b708d37cdebdc50b69614e9ff84dd953993a12
+  revision: 62b6c1bda1a206cce2ea6310ebf55442434224a0
   specs:
-    mongoid (4.0.0)
-      activemodel (~> 4.0.0)
-      moped (~> 1.4)
-      origin (~> 1.0)
-      tzinfo (~> 0.3.22)
+    mongoid (4.0.0.alpha2)
+      activemodel (>= 4.0.0)
+      moped (~> 2.0.beta5)
+      origin (~> 2.1)
+      tzinfo (>= 0.3.37)
 
 GEM
   remote: https://rubygems.org/
@@ -57,111 +81,115 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    airbrake (3.1.14)
+    airbrake (3.1.15)
       builder
-      json
+      multi_json
     arel (4.0.1)
-    asset_sync (0.5.4)
+    asset_sync (1.0.0)
       activemodel
-      fog
+      fog (>= 1.8.0)
     atomic (1.1.14)
-    bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.2.0)
+    bcrypt-ruby (3.1.2)
+    bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
+    bson (2.2.0)
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.1)
+    cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
-    coderay (1.0.9)
-    coffee-rails (4.0.0)
+    coderay (1.1.0)
+    coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0.beta, < 5.0)
+      railties (>= 4.0.0, < 5.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.2)
-    dotenv (0.8.0)
-    dotenv-rails (0.8.0)
-      dotenv (= 0.8.0)
+    coffee-script-source (1.7.0)
+    connection_pool (1.2.0)
+    devise (3.2.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+    dotenv (0.9.0)
+    dotenv-rails (0.9.0)
+      dotenv (= 0.9.0)
     erubis (2.7.0)
-    excon (0.6.6)
-    execjs (1.4.0)
-      multi_json (~> 1.0)
-    fog (0.9.0)
+    excon (0.31.0)
+    execjs (2.0.2)
+    fog (1.19.0)
       builder
-      excon (~> 0.6.1)
-      formatador (>= 0.1.3)
-      json
+      excon (~> 0.31.0)
+      formatador (~> 0.2.0)
       mime-types
-      net-scp (>= 1.0.4)
-      net-ssh (>= 2.1.4)
-      nokogiri (>= 1.4.4)
+      multi_json (~> 1.0)
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5)
       ruby-hmac
-    font-awesome-rails (3.2.1.1)
+    font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
-    haml (4.0.3)
+    haml (4.0.5)
       tilt
-    haml-rails (0.4)
-      actionpack (>= 3.1, < 4.1)
-      activesupport (>= 3.1, < 4.1)
-      haml (>= 3.1, < 4.1)
-      railties (>= 3.1, < 4.1)
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hike (1.2.3)
-    http_accept_language (2.0.0)
+    http_accept_language (2.0.1)
     i18n (0.6.9)
-    jbuilder (1.4.2)
+    jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (3.0.1)
+    jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.0.3)
-      jquery-rails
+    jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
-    json (1.8.0)
-    kaminari (0.14.1)
+    json (1.8.1)
+    kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
+    method_source (0.8.2)
     mime-types (1.25.1)
-    mini_portile (0.5.0)
+    mini_portile (0.5.2)
     minitest (4.7.5)
-    mongoid-paperclip (0.0.8)
-      paperclip (>= 2.3.6)
-    mongoid_slug (3.1.2)
-      mongoid (> 3.0)
-      stringex (~> 1.4)
-    moped (1.5.0)
-    multi_json (1.8.2)
+    moped (2.0.0.beta5)
+      bson (~> 2.1)
+      connection_pool (~> 1.2)
+      optionable (~> 0.2.0)
+    multi_json (1.8.4)
     nested_form (0.3.2)
-    net-scp (1.1.1)
+    net-scp (1.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (2.6.7)
-    nokogiri (1.6.0)
+    net-ssh (2.7.0)
+    nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    origin (1.1.0)
-    orm_adapter (0.4.0)
-    paperclip (3.4.2)
+    optionable (0.2.0)
+    origin (2.1.0)
+    orm_adapter (0.5.0)
+    paperclip (3.5.2)
       activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (~> 0.5.0)
+      cocaine (~> 0.5.3)
       mime-types
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     pry-nav (0.2.3)
       pry (~> 0.9.10)
-    pry-rails (0.3.1)
+    pry-rails (0.3.2)
       pry (>= 0.9.10)
-    puma (2.1.1)
+    puma (2.7.1)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-pjax (0.7.0)
@@ -180,43 +208,30 @@ GEM
     rails-i18n (4.0.1)
       i18n (~> 0.6)
       rails (~> 4.0)
-    rails_admin (0.5.0)
-      bootstrap-sass (~> 2.3)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (~> 3.0)
-      haml (~> 4.0)
-      jquery-rails (~> 3.0)
-      jquery-ui-rails (~> 4.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.7)
-      rails (~> 4.0.0)
-      remotipart (~> 1.0)
-      safe_yaml (~> 0.9)
-      sass-rails (~> 4.0)
     railties (4.0.2)
       actionpack (= 4.0.2)
       activesupport (= 4.0.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.1)
-    rdoc (3.12.2)
+    rdoc (4.1.1)
       json (~> 1.4)
-    redcarpet (2.3.0)
-    remotipart (1.0.5)
+    redcarpet (3.0.0)
+    remotipart (1.2.1)
     ruby-hmac (0.4.0)
-    safe_yaml (0.9.3)
-    sass (3.2.9)
-    sass-rails (4.0.0)
-      railties (>= 4.0.0.beta, < 5.0)
+    safe_yaml (1.0.1)
+    sass (3.2.14)
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    sdoc (0.3.20)
-      json (>= 1.1.3)
-      rdoc (~> 3.10)
-    simple_form (1.4.1)
-    slop (3.4.5)
+    sdoc (0.4.0)
+      json (~> 1.8)
+      rdoc (~> 4.0, < 5.0)
+    simple_form (3.0.1)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
+    slop (3.4.7)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -226,7 +241,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    stringex (1.5.1)
+    stringex (2.1.2)
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -234,13 +249,13 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.2.0)
+    turbolinks (2.2.0)
       coffee-rails
     tzinfo (0.3.38)
-    uglifier (2.1.1)
+    uglifier (2.4.0)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
-    warden (1.2.1)
+      json (>= 1.8.0)
+    warden (1.2.3)
       rack (>= 1.0)
 
 PLATFORMS
@@ -251,7 +266,7 @@ DEPENDENCIES
   asset_sync
   bootstrap-sass
   coffee-rails (~> 4.0.0)
-  devise!
+  devise
   dotenv-rails
   fog
   font-awesome-rails
@@ -261,14 +276,15 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mongoid!
-  mongoid-paperclip
-  mongoid_slug
+  mongoid-paperclip!
+  mongoid_slug!
+  paperclip (= 3.5.2)
   pry-nav
   pry-rails
   puma
   rails (~> 4.0.0)
   rails-i18n (~> 4.0.0)
-  rails_admin
+  rails_admin!
   rails_admin-i18n!
   redcarpet
   sass-rails (~> 4.0.0)
