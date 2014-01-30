@@ -53,8 +53,8 @@ gem 'mongoid-paperclip', :require => 'mongoid_paperclip', github: 'meskyanichi/m
 gem 'fog'
 gem 'asset_sync'
 
-gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'font-awesome-rails', '~> 3.2.1.1'
 
 gem 'simple_form'
 gem 'geocoder', git: 'https://github.com/alexreisner/geocoder'
