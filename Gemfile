@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 ruby '2.1.2'
 
@@ -47,7 +47,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'mongoid', :git => 'https://github.com/mongoid/mongoid'
+gem 'mongoid', '~> 4.0.0.beta1'
 gem 'paperclip', '3.5.2'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip', github: 'meskyanichi/mongoid-paperclip'
 gem 'fog'
