@@ -71,3 +71,5 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'puma'
 gem 'airbrake'
+
+gem 'rails_12factor'
