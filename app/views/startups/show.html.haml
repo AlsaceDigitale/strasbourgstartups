@@ -4,7 +4,7 @@
       = image_tag(@startup.logo.url(:medium)) if @startup.logo.file?
     .span6
       %h1.startup_name= @startup.name
-      = link_to @startup.url, target: "_blank"
+      = link_to @startup.url, @startup.url, target: "_blank"
       %br
       = mail_to @startup.email
       %p.address= @startup.address
