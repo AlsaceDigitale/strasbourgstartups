@@ -1,11 +1,11 @@
 development:
-  # Configure available database sessions. (required)
-  sessions:
+  # Configure available database clients. (required)
+  clients:
     # Defines the default session. (required)
     default:
       uri: mongodb://heroku_app16726550:oj9l97cmnj0e0e41phldgjrbt4@ds033818.mongolab.com:33818/heroku_app16726550
 test:
-  sessions:
+  clients:
     default:
       database: strasbourgstartups_test
       hosts:

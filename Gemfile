@@ -1,6 +1,6 @@
   source 'https://rubygems.org'
 
-ruby '2.1.4'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.0'
@@ -47,9 +47,10 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'mongoid', '~> 4.0.0.beta1'
+gem 'mongoid', '~> 5'
 gem 'paperclip', '3.5.2'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip', github: 'meskyanichi/mongoid-paperclip'
+gem 'mongoid-slug', '~> 5'
 gem 'fog'
 gem 'asset_sync'
 
@@ -62,7 +63,6 @@ gem 'geocoder', git: 'https://github.com/alexreisner/geocoder'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'devise'
 
-gem 'mongoid_slug', github: 'digitalplaywright/mongoid-slug'
 gem 'rails_admin-i18n', github: 'starchow/rails_admin-i18n'
 
 gem 'pry-rails', group: [:development]
