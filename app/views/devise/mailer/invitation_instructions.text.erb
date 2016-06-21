@@ -3,7 +3,7 @@
 <%- startup_link = startup_url(startup) %>
 <%= t("devise.mailer.invitation_instructions.hello", first_name: @resource.first_name) %>
 
-<%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url, startup_name: startup_name) %>
+<%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url, startup_name: startup_name).html_safe %>
 
 <%= accept_user_invitation_url(@resource, invitation_token: @token) %>
 
@@ -12,4 +12,4 @@
 <% end %>
 Yann Klis, pour le groupe Strasbourg Startups
 
-<%= strip_tags t("devise.mailer.invitation_instructions.ignore", startup_name: startup_name, startup_link: startup_link) %>
+<%= strip_tags t("devise.mailer.invitation_instructions.ignore", startup_name: startup_name, startup_link: startup_link).html_safe %>
