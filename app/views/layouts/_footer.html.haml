@@ -2,10 +2,13 @@
   .container
     .row
       .col-xs-12{style: "margin-left: 0px;"}
-        %small.pull-left
+        .pull-left
           %ul.list-inline
             %li= link_to fa_icon("facebook"), "https://www.facebook.com/StrasbourgStartups"
             %li= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
             %li= link_to fa_icon("rss"), headlines_path(format: "rss")
-        %small.pull-right
-          != "Website developped by #{ link_to "Novelys", "http://www.novelys.com" }, hosted on #{ link_to "Scalingo", "https://scalingo.com" }."
+        .pull-right.text-right
+          %p
+            Strasbourg Startups est une initiative lancée par #{ link_to "Alsace Digitale", "http://www.alsacedigitale.org" }.
+          %small
+            != "Website developped by #{ link_to "Novelys", "http://www.novelys.com" }, hosted on #{ link_to "Scalingo", "https://scalingo.com" }."
