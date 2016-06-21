@@ -1,0 +1,11 @@
+.row
+  .col-xs-12.col-sm-6
+    = image_tag(@startup.logo.url(:medium), class: "img-responsive") if @startup.logo.file?
+  .col-xs-12.col-sm-6
+    %h1.startup_name= @startup.name
+    = link_to @startup.url, @startup.url, target: "_blank"
+    %br
+    = mail_to @startup.email if @startup.email
+    %p.address= @startup.address
+    = @startup.description
+    = link_to t("views.common.back_to_map"), startups_path

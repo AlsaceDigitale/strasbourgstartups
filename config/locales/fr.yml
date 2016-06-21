@@ -17,6 +17,10 @@ fr:
       startups: "Startups"
       events: "Événements"
       users: "Utilisateurs"
+    common:
+      back_to_map: "Retourner à la liste des startups"
+      about: "À propos"
+      add_new: "Ajouter une startup"
     footer:
       signature: "Strasbourg Startups est une initiative lancée par <a href='http://www.alsacedigitale.org' target='_blank'>Alsace Digitale</a>."
       web_development: "<a href='https://www.novelys.com' target='_blank'>Développement Ruby on Rails</a>"
