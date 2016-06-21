@@ -14,9 +14,9 @@ fr:
         submit_button: "Définir mon mot de passe"
     mailer:
       invitation_instructions:
-        subject: 'Instruction de confirmation'
+        subject: 'Invitation à rejoindre Strasbourg Startups'
         hello: 'Salut %{first_name} !'
-        someone_invited_you: "Voici ton invitation pour accéder au site %{url}. Ceci te permettra de gérer directement les informations de %{startup_name}. Pour l'accepter il te suffit de cliquer sur le lien ci-dessous."
+        someone_invited_you: "Voici ton invitation pour accéder au site %{url}.<br/><br/>Ceci te permettra de gérer directement les informations de <strong>%{startup_name}</strong>. Pour accepter cette invitation il te suffit de cliquer sur le lien ci-dessous."
         accept: "Accepter l'invitation"
         accept_until: "Cette invitation expirera le %{due_date}."
-        ignore: "Si tu ne souhaites pas accepter cette invitation, il te suffit d'ignorer ce mail. Toute la communauté Strasbourg Startups sera alors très triste et la présentation de %{startup_name} restera vide :/<br />Ton compte ne sera pas créé tant que tu n'accéderas pas au lien ci-dessous et que tu aies défini ton mot de passe."
+        ignore: "PS : si tu ne souhaites pas accepter cette invitation, il te suffit d'ignorer ce mail. Toute la communauté Strasbourg Startups sera alors très triste et la présentation de %{startup_name} restera vide : #{ startup_link }."
