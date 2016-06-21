@@ -10,8 +10,8 @@
     = localized_field.input :fr, as: :ckeditor, input_html: {value: value}
     - value = @startup.description_translations["en"] if @startup.description_translations
     = localized_field.input :en, as: :ckeditor, input_html: {value: value}
+  = f.input :is_published, as: :boolean
   - if current_user.is_admin?
-    = f.input :is_published, as: :boolean
     = f.input :added_on, as: :datetime, html5: true, input_html: {data: {provide: 'datepicker'}}
   .row
     .col-xs-12
