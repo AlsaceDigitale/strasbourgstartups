@@ -26,6 +26,7 @@ class Startup
       small: ['250x250>', :png],
       medium: ['500x500>', :png]
     }
+  validates_attachment_content_type :logo, content_type: /\Aimage/
 
   scope :publicly_visible, -> { desc(:added_on).where(is_published: true) }
 
