@@ -8,7 +8,9 @@
             %li= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
             %li= link_to fa_icon("rss"), headlines_path(format: "rss")
         .pull-right.text-right
-          %p
-            Strasbourg Startups est une initiative lancée par #{ link_to "Alsace Digitale", "http://www.alsacedigitale.org" }.
-          %small
-            != "Website developped by #{ link_to "Novelys", "http://www.novelys.com" }, hosted on #{ link_to "Scalingo", "https://scalingo.com" }."
+          %p= t("views.footer.signature").html_safe
+          %ul.list-inline
+            %li
+              %small= t("views.footer.web_development").html_safe
+            %li
+              %small= t("views.footer.hosting").html_safe
