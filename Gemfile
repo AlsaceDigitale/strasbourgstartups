@@ -65,6 +65,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'asset_sync'
   gem 'rails_12factor'
 end
 
