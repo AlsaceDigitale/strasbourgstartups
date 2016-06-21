@@ -7,7 +7,7 @@
 - if headline_focus
   .well
     %strong.h3{style: "margin-top:0;display:block;"}= t("views.partials.sidebar.focus")
-    = image_tag headline_focus.banner.url(:medium), class: "img-responsive"
+    = image_tag headline_focus.banner.url(:medium), class: "img-responsive", style: "margin-bottom:10px;"
     %strong{style: "display:block;"}= headline_focus.title
     = headline_focus.chapo
     = link_to headline_focus, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
@@ -18,7 +18,7 @@
 - if startup_last
   .well
     %strong.h3{style: "margin-top:0;"}= t("views.partials.sidebar.startup_last")
-    = image_tag startup_last.logo.url(:medium), class: "img-responsive"
+    = image_tag startup_last.logo.url(:medium), class: "img-responsive", style: "margin-bottom:10px;"
     %strong= startup_last.name
     = link_to startup_last, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
       = t("views.startups.index.see_detail")
