@@ -4,7 +4,7 @@
   %tbody
     - for headline in @headlines
       %tr
-        %td= image_tag(headline.banner.url(:small)) if headline.banner.file?
+        %td= image_tag(headline.banner.url(:small), class: "img-responsive-fixed-height", style: "height:50px;") if headline.banner.file?
         %td= headline.title
         %td= I18n.l headline.published_at, format: :datetime
         %td
