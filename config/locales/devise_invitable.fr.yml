@@ -19,4 +19,4 @@ fr:
         someone_invited_you: "Voici ton invitation pour accéder au site %{url}.<br/><br/>Ceci te permettra de gérer directement les informations de <strong>%{startup_name}</strong>. Pour accepter cette invitation il te suffit de cliquer sur le lien ci-dessous."
         accept: "Accepter l'invitation"
         accept_until: "Cette invitation expirera le %{due_date}."
-        ignore: "PS : si tu ne souhaites pas accepter cette invitation, il te suffit d'ignorer ce mail. Toute la communauté Strasbourg Startups sera alors très triste et la présentation de %{startup_name} restera vide : #{ startup_link }."
+        ignore: "PS : si tu ne souhaites pas accepter cette invitation, il te suffit d'ignorer ce mail. Toute la communauté Strasbourg Startups sera alors très triste et la présentation de %{startup_name} restera vide : %{startup_link}."
