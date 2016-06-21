@@ -1,0 +1,59 @@
+!!! 5
+%html{lang: 'fr'}
+  %head
+    %title= "Strasbourg Startups Admin | #{ @page_title }"
+    %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}
+    %meta{charset: "utf-8"}
+    %meta{http: {equiv: "X-UA-Compatible"}, content: "IE=edge"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    = stylesheet_link_tag 'admin', media: 'all'
+    = csrf_meta_tags
+    = favicon_link_tag
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Oswald:300.400.700"
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,900,900italic,700"
+  %body
+    - if user_signed_in?
+      %nav.navbar.navbar-inverse
+        .container
+          .navbar-header
+            %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to "Strasbourg Startups", admin_root_path, class: "navbar-brand"
+          #navbar.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li{class: request.path =~ /startups/ ? "active" : nil}
+                = link_to I18n.t("views.nav.startups"), admin_startups_path
+              %li{class: request.path =~ /headlines/ ? "active" : nil}
+                = link_to I18n.t("views.nav.headlines"), admin_headlines_path
+              %li{class: request.path =~ /users/ ? "active" : nil}
+                = link_to I18n.t("views.nav.users"), admin_users_path
+            %ul.nav.navbar-nav.navbar-right
+              %li= link_to current_user.email, admin_root_path
+              %li= link_to fa_icon("sign-out", title: "Déconnexion"), destroy_user_session_path, :method => :delete
+      .container
+        .row
+          .col-xs-12
+            .well.bg-white
+              - if flash[:notice]
+                .alert.alert-info= flash[:notice]
+              - elsif flash[:error]
+                .alert.alert-danger= flash[:error]
+              - elsif flash[:success]
+                .alert.alert-success= flash[:success]
+              = yield
+      = javascript_include_tag :admin
+      = javascript_include_tag Ckeditor.cdn_url
+    - else
+      .container
+        .row
+          .col-xs-12.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4.login
+            .well.bg-white
+              %h1.h3.no-top.no-bottom{style: "font-family: 'Oswald',sans-serif;font-size: 32px;font-weight: 900;"}
+                Strasbourg Startups
+                %br
+                %small
+                  admin
+            = yield

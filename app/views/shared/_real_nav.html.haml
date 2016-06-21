@@ -1,0 +1,8 @@
+#navbar.collapse.navbar-collapse
+  %ul.nav.navbar-nav.pull-right
+    %li{class: request.path.start_with?("/headlines") && "active"}
+      = link_to I18n.t("views.nav.headlines"), headlines_path
+    %li{class: request.path.start_with?("/startups") && "active"}
+      = link_to I18n.t("views.nav.startups"), startups_path
+    %li.hide{class: request.path.start_with?("/events") && "active"}
+      = link_to I18n.t("views.nav.events"), events_path

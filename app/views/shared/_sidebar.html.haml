@@ -1,0 +1,29 @@
+- unless controller.controller_name == "welcome"
+  %blockquote
+    Strasbourg Startups : Rassembler et promouvoir la scène startup strasbourgeoise.
+
+- headline_focus = Headline.where(is_focus: true).desc(:published_at).first
+- headline_focus ||= Headline.desc(:published_at).first
+- if headline_focus
+  .well
+    %strong.h3{style: "margin-top:0;display:block;"}= t("views.partials.sidebar.focus")
+    = image_tag headline_focus.banner.url(:medium), class: "img-responsive"
+    %strong{style: "display:block;"}= headline_focus.title
+    = headline_focus.chapo
+    = link_to headline_focus, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
+      = t("views.welcome.show.read_more")
+      = fa_icon "angle-right"
+
+- startup_last = Startup.where(is_published: true).desc(:added_on).first
+- if startup_last
+  .well
+    %strong.h3{style: "margin-top:0;"}= t("views.partials.sidebar.startup_last")
+    = image_tag startup_last.logo.url(:medium), class: "img-responsive"
+    %strong= startup_last.name
+    = link_to startup_last, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
+      = t("views.startups.index.see_detail")
+      = fa_icon "angle-right"
+
+/ likebox
+
+/ tweet wall

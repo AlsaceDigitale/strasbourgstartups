@@ -1,0 +1,17 @@
+.page-header
+  %h2.no-top= @headline.new_record? ? "Ajouter une nouvelle actualité" : "Modifier une actualité"
+
+= simple_form_for [:admin, @headline], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+  = f.input :banner, as: :image_preview, input_html: {preview_version: :small}
+  = f.simple_fields_for :title_translations do |localized_field|
+    = localized_field.input :fr, input_html: {value: @headline.title_translations["fr"]}
+    = localized_field.input :en, input_html: {value: @headline.title_translations["en"]}
+  = f.simple_fields_for :body_translations do |localized_field|
+    = localized_field.input :fr, as: :ckeditor, input_html: {value: @headline.body_translations["fr"]}
+    = localized_field.input :en, as: :ckeditor, input_html: {value: @headline.body_translations["en"]}
+  = f.input :published_at, as: :datetime, html5: true, input_html: {data: {provide: 'datetimepicker'}}
+  .row
+    .col-xs-12
+      %ul.pull-right.list-inline
+        %li= link_to 'Retour', {action: :index}, class: "btn btn-link"
+        %li= f.submit "Enregistrer", class: "btn btn-primary"

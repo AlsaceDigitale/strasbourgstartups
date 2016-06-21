@@ -1,0 +1,5 @@
+.col-xs-12.col-sm-2.startup
+  = link_to startup do
+    = image_tag startup.logo.url(:medium), alt: "Logo #{startup.name}", class: "img-responsive"
+    %strong= startup.name
+    %em= l(startup.added_on, format: :added_on) if startup.added_on.present?

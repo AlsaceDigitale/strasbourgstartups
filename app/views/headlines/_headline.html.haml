@@ -1,0 +1,17 @@
+.row
+  .col-xs-12.headline
+    = link_to headline do
+      %h1.no-top= headline.title
+    %em{style: "display:block;margin-bottom:10px;"}= l(headline.published_at, format: :published_at)
+    - if controller.action_name == "index"
+      = strip_tags(headline.chapo)
+      = image_tag headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;"
+      = link_to t("views.welcome.show.read_more"), headline, class: "btn btn-transparent"
+    - else
+      = @headline.body.html_safe
+- unless controller.action_name == "index"
+  .row
+    %hr.col-xs-12
+  .row
+    .col-xs-12
+      = render partial: "disqus"

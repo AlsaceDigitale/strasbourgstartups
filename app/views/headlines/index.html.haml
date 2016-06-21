@@ -1,0 +1,4 @@
+- @page_title = t("views.headlines.index.page_title")
+= render @headlines
+
+= will_paginate @headlines, renderer: BootstrapPagination::Rails

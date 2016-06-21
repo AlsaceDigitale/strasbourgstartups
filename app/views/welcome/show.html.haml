@@ -1,0 +1,18 @@
+%h1= t("views.welcome.show.latest_headlines")
+.row{style: "margin-top:20px;"}
+  - for headline in @headlines
+    .col-xs-12.col-sm-4
+      = image_tag headline.banner.url(:medium), class: "img-responsive"
+      %strong{style: "display:block;font-size:120%;"}= headline.title
+      %em{style: "display:block;"}= l(headline.published_at, format: :published_at)
+      = strip_tags(headline.chapo)
+      = link_to t("views.welcome.show.read_more"), headline
+= link_to headlines_path, class: "btn btn-primary", style: "margin-top:20px;" do
+  = t("views.welcome.show.link_to_all_headlines")
+  = fa_icon "angle-right"
+
+%h1{style: "margin-top:20px;"}= t("views.welcome.show.latest_startups")
+.row
+  = render @startups
+  .col-sm-2
+    = link_to fa_icon("angle-right", title: "Voir toutes les startups"), startups_path, style: "line-height:200px;font-size:100px;"

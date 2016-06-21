@@ -1,0 +1,71 @@
+fr:
+  will_paginate:
+    previous_label: "&#8592; Précédent"
+    next_label: "Suivant &#8594;"
+    page_gap: "&hellip;"
+  date:
+    formats:
+      added_on: "ajouté le %d/%m/%Y"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      published_at: "publié le %d/%m/%Y à %H:%M"
+      datetime: "%d/%m/%Y %H:%M"
+  views:
+    nav:
+      headlines: "Actualités"
+      startups: "Startups"
+      events: "Événements"
+      users: "Utilisateurs"
+    welcome:
+      show:
+        page_description: "Rassembler et promouvoir la scène startup strasbourgeoise"
+        latest_headlines: "Dernières actualités"
+        latest_startups: "Liste des startups"
+        read_more: "Lire la suite"
+        link_to_all_headlines: "Voir toutes les actualités"
+    startups:
+      index:
+        page_title: "Liste des startups"
+        see_detail: "Voir les détails"
+    headlines:
+      index:
+        page_title: "Dernières actualités"
+    users:
+      index:
+        page_title: "Utilisateurs"
+    events:
+      index:
+        page_title: "Derniers événements"
+    partials:
+      sidebar:
+        focus: "À la une"
+        startup_last: "Dernière startup ajoutée"
+  simple_form:
+    labels:
+      headline:
+        banner: "Image"
+        published_at: "Date de publication"
+        title_translations:
+          fr: "Titre (FR)"
+          en: "Titre (EN)"
+        body_translations:
+          fr: "Corps de texte (FR)"
+          en: "Corps de texte (EN)"
+      startup:
+        logo: "Logo"
+        name: "Nom"
+        url: "Site web"
+        description_translations:
+          fr: "Description (FR)"
+          en: "Description (EN)"
+        is_published: "Publié ?"
+        added_on: "Ajouté le"
+      user:
+        email: "Email"
+        first_name: "Prénom"
+        is_admin: "Admin ?"
+        last_name: "Nom"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+        startup_ids: "Startups en portefeuille"

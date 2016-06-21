@@ -1,0 +1,72 @@
+@import variables
+
+$body-bg: #f3f3f3
+$text-color: #262626
+
+@import bootstrap-datetimepicker
+@import bootstrap-sprockets
+@import font-awesome
+@import bootstrap
+@import common
+
+.login
+  margin-top: 20%
+  .form-horizontal
+    margin: 20px 0 0 0
+    .col-sm-3
+      width: 40%
+    .col-sm-9
+      width: 60%
+    label
+      font-weight: normal
+    .btn
+      margin-top: 10px
+
+.bg-white
+  background-color: white
+
+.well
+  border: 0
+  border-radius: 0
+  box-shadow: 0
+  margin-left: -12px
+  margin-right: -12px
+  .page-header
+    margin-top: 0
+  .table
+    font-size: 14px
+
+textarea.form-control
+  height: 350px
+  &.short
+    height: 80px
+
+ul.sections
+  > li:last-child
+    border-bottom: 1px solid #999
+  > li, > li > ul > li
+    border-top: 1px solid #999
+    margin: 5px 0 -2px
+    padding: 7px 0 5px
+    a
+      font-size: 90%
+  > li
+    > ul
+      margin-left: 30px
+
+.constraint
+  > .col-sm-9
+    height: 270px
+    overflow: auto
+    padding: 0 10px
+    border: 1px solid #ccc
+
+.form-horizontal
+  .form-group
+    .form-horizontal
+      .form-group
+        margin-left: 0
+        margin-right: 0
+
+table
+  margin: 20px 0
