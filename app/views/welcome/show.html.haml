@@ -3,8 +3,8 @@
   - for headline in @headlines
     .col-xs-12.col-sm-4
       = image_tag headline.banner.url(:medium), class: "img-responsive-fixed-height", style: "object-fit:cover;margin-bottom:10px;"
-      %strong{style: "display:block;font-size:120%;max-height:50px;margin:5px 0;"}= headline.title
-      %em{style: "display:block;"}= l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
+      %strong{style: "display:block;font-size:120%;height:50px;margin:5px 0;"}= headline.title
+      %em{style: "display:block;margin:5px 0;"}= l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
       = strip_tags(headline.chapo)
       = link_to t("views.welcome.show.read_more"), headline
 = link_to headlines_path, class: "btn btn-primary", style: "margin-top:20px;" do
