@@ -57,7 +57,7 @@ class Startup
     end
   end
 
-  def logo_url(size)
+  def logo_url(size = nil)
     if logo.file?
       logo_file_name.ends_with?("svg") ? logo.url : logo.url(size)
     else
