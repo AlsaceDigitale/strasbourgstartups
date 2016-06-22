@@ -8,12 +8,12 @@
       = t("views.common.return_startups_list")
 
 .row
-  .col-xs-12.col-sm-6{style: "padding-top:50px;"}
+  .col-xs-12.col-sm-4{style: "padding-top:50px;"}
     - if @startup.logo.file? && @startup.logo_file_name.ends_with?("svg")
-      = image_tag(@startup.logo_url, style: "width:70%;display:block;margin: 0 auto;")
+      = image_tag(@startup.logo_url, style: "width:80%;display:block;margin: 0 auto;")
     - else
-      = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:70%;margin: 0 auto;")
-  .col-xs-12.col-sm-6
+      = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:80%;margin: 0 auto;")
+  .col-xs-12.col-sm-8
     %h1.no-top= @startup.name
     = link_to @startup.url, @startup.url, target: "_blank"
     %br
