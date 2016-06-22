@@ -1,7 +1,7 @@
 .page-header
   %h2.no-top= @startup.new_record? ? "Ajouter une nouvelle startup" : "Modifier une startup"
 
-= render partial: "/shared/errors_and_notices"
+= render partial: "/shared/errors_and_notices", locals: {model: @startup}
 
 = simple_form_for @startup, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
   = f.input :logo, as: :image_preview, input_html: {preview_version: :small}

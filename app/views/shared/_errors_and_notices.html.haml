@@ -1,9 +1,13 @@
-- if flash[:error] || flash[:errors] || flash[:notice]
+- if flash[:error] || flash[:errors] || flash[:notice] || model.errors[:base].any?
   .row
     .col-xs-12
       - if flash[:error]
         .alert.alert-danger
           %strong!= flash[:error]
+
+      - if model.errors[:base].any?
+        .alert.alert-danger
+          %strong= model.errors[:base].join(", ")
 
       - if flash[:errors]
         .alert.alert-danger

@@ -1,4 +1,8 @@
 fr:
+  recaptcha:
+    errors:
+      verification_failed: 'La vérification du captcha a échoué, veuillez cocher la case.'
+      recaptcha_unreachable: 'Service de véification injoignable.'
   will_paginate:
     previous_label: "&#8592; Précédent"
     next_label: "Suivant &#8594;"
