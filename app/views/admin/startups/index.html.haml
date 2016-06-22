@@ -3,12 +3,12 @@
 %table.table.table-condensed.table-hover.table-striped
   %thead
     %tr
-      %td Logo
-      %td Nom
-      %td Ajouté le
-      %td Publié ?
-      %td Nbre comptes liés
-      %td
+      %th Logo
+      %th Nom
+      %th Ajouté le
+      %th Publié ?
+      %th Comptes liés
+      %th
   %tbody
     - for startup in @startups
       %tr
@@ -16,7 +16,10 @@
         %td= startup.name
         %td= I18n.l startup.added_on, format: :added_on_short if startup.added_on
         %td= startup.is_published? ? "oui" : "non"
-        %td= startup.users.count
+        %td
+          %ul.list-unstyled
+            - for user in startup.users
+              %li= user.email
         %td
           %ul.list-inline
             %li= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, startup]
