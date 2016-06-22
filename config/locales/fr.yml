@@ -77,3 +77,6 @@ fr:
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
         startup_ids: "Startups en portefeuille"
+    hints:
+      startup:
+        logo: "Si vous avez votre logo en SVG, vous devriez choisir cette version. Le vectoriel c'est mieux :)"

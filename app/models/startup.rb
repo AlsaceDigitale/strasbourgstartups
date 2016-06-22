@@ -46,4 +46,10 @@ class Startup
   #   txt = txt.present? ? txt : self["description_#{contrary}".to_sym]
   #   txt.present? ? txt : self["description".to_sym]
   # end
+
+  def logo_url(size)
+    if logo.file?
+      logo_file_name.ends_with?("svg") ? logo.url : logo.url(size)
+    end
+  end
 end
