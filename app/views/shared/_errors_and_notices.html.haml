@@ -1,0 +1,14 @@
+- if flash[:error] || flash[:errors] || flash[:notice]
+  .row
+    .col-xs-12
+      - if flash[:error]
+        .alert.alert-danger
+          %strong!= flash[:error]
+
+      - if flash[:errors]
+        .alert.alert-danger
+          %strong= flash[:errors]
+
+      - if flash[:notice]
+        .alert.alert-warning
+          %strong= flash[:notice]

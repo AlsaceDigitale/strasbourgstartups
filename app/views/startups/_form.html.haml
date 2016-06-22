@@ -1,19 +1,21 @@
 .page-header
   %h2.no-top= @startup.new_record? ? "Ajouter une nouvelle startup" : "Modifier une startup"
 
-= simple_form_for [:admin, @startup], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+= render partial: "/shared/errors_and_notices"
+
+= simple_form_for @startup, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
   = f.input :logo, as: :image_preview, input_html: {preview_version: :small}
   = f.input :name
   = f.input :email
   = f.input :url
   = f.simple_fields_for :description_translations do |localized_field|
     - value = @startup.description_translations["fr"] if @startup.description_translations
-    = localized_field.input :fr, as: :ckeditor, input_html: {value: value}
+    = localized_field.input :fr, as: :text, input_html: {value: value}
     - value = @startup.description_translations["en"] if @startup.description_translations
-    = localized_field.input :en, as: :ckeditor, input_html: {value: value}
-  = f.input :is_published, as: :boolean
-  - if current_user.is_admin?
-    = f.input :added_on, as: :datetime, html5: true, input_html: {data: {provide: 'datepicker'}}
+    = localized_field.input :en, as: :text, input_html: {value: value}
+  .form-group
+    .col-sm-9.col-sm-offset-3
+      = recaptcha_tags
   .row
     .col-xs-12
       %ul.pull-right.list-inline

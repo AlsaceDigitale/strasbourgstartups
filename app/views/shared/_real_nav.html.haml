@@ -2,7 +2,9 @@
   %ul.nav.navbar-nav.pull-right
     %li{class: request.path.start_with?("/headlines") && "active"}
       = link_to I18n.t("views.nav.headlines"), headlines_path
-    %li{class: request.path.start_with?("/startups") && "active"}
+    %li{class: controller.controller_name == "startups" && %w(index show).include?(controller.action_name) && "active"}
       = link_to I18n.t("views.nav.startups"), startups_path
+    %li{class: controller.controller_name == "startups" && %w(new create).include?(controller.action_name) && "active"}
+      = link_to I18n.t("views.nav.startup_add"), new_startup_path
     %li.hide{class: request.path.start_with?("/events") && "active"}
       = link_to I18n.t("views.nav.events"), events_path

@@ -5,7 +5,7 @@ class Admin::StartupsController < Admin::BaseController
 protected
 
   def permitted_params
-    params.permit(startup: [:logo, :name, :url, {description_translations: [:fr, :en]}, :is_published, :added_on])
+    params.permit(startup: [:logo, :name, :email, :url, {description_translations: [:fr, :en]}, :is_published, :added_on])
   end
 
   def begin_of_association_chain
