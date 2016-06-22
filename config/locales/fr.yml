@@ -35,9 +35,10 @@ fr:
       show:
         page_description: "Rassembler et promouvoir la scène startup strasbourgeoise"
         latest_headlines: "Dernières actualités"
-        latest_startups: "Liste des startups"
+        latest_startups: "Dernières startups acceptées"
         read_more: "Lire la suite"
         link_to_all_headlines: "Voir toutes les actualités"
+        link_to_all_startups: "Voir toutes les startups"
     startups:
       index:
         page_title: "Liste des startups"
@@ -54,7 +55,7 @@ fr:
     partials:
       sidebar:
         focus: "À la une"
-        startup_last: "Dernière startup ajoutée"
+        startup_last: "Dernière startup acceptée"
   simple_form:
     labels:
       headline:

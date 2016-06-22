@@ -7,6 +7,6 @@ class WelcomeController < ApplicationController
 
     @headlines = Headline.publicly_visible.limit(3)
 
-    @startups = Startup.publicly_visible.limit(5)
+    @startups = Startup.publicly_visible.limit(4)
   end
 end

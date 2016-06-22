@@ -8,13 +8,13 @@
             %li= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
             %li= link_to fa_icon("rss"), headlines_path(format: "rss")
         .pull-right.text-right
-          %p= t("views.footer.signature").html_safe
-          %ul.list-inline
-            %li
-              = link_to "Connexion", admin_root_path
+          %ul.list-unstyled
+            %li= t("views.footer.signature").html_safe
+            %li= mail_to "hello@strasbourg-startups.com"
+            %li= link_to "Connexion", admin_root_path
     .row
       .col-xs-12.text-center
-        %ul.list-inline
+        %ul.list-inline{style: "margin-top:10px;"}
           %li
             %small= t("views.footer.web_development").html_safe
           %li
