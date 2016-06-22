@@ -68,6 +68,7 @@ fr:
         body_translations:
           fr: "Corps de texte (FR)"
           en: "Corps de texte (EN)"
+        is_focus: "Mis en avant ?"
       startup:
         logo: "Logo"
         name: "Nom"
@@ -78,7 +79,6 @@ fr:
           en: "Description (EN)"
         is_published: "Publié ?"
         added_on: "Ajouté le"
-        is_focus: "Mis en avant ?"
       user:
         email: "Email"
         first_name: "Prénom"
