@@ -2,7 +2,7 @@
 .row{style: "margin-top:20px;"}
   - for headline in @headlines
     .col-xs-12.col-sm-4
-      = image_tag headline.banner.url(:medium), class: "img-responsive-fixed-height"
+      = image_tag headline.banner.url(:medium), class: "img-responsive-fixed-height", style: "object-fit:cover;"
       %strong{style: "display:block;font-size:120%;"}= headline.title
       %em{style: "display:block;"}= l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
       = strip_tags(headline.chapo)
