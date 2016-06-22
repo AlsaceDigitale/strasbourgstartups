@@ -2,4 +2,7 @@
   .col-xs-12
     %h1.no-top= @page_title = t("views.startups.index.page_title")
 .row
+  .col-xs-12
+    .h3= t("views.startups.index.count_active", count: @startups.count)
+.row
   = render @startups

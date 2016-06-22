@@ -44,6 +44,9 @@ fr:
       index:
         page_title: "Liste des startups"
         see_detail: "Voir les détails"
+        count_active:
+          one: "1 startup en activité"
+          other: "%{count} startups en activité"
     headlines:
       index:
         page_title: "Dernières actualités"
