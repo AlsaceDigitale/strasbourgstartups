@@ -6,6 +6,7 @@ fr:
   date:
     formats:
       added_on: "ajouté le %d/%m/%Y"
+      added_on_short: "%d/%m/%Y"
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
