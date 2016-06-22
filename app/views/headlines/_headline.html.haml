@@ -9,6 +9,8 @@
       %br
       = link_to t("views.welcome.show.read_more"), headline, class: "btn btn-transparent", style: "margin-top:10px;"
     - else
+      = image_tag headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;" if headline.banner.file?
+      %br
       = @headline.body.html_safe
 .row
   .col-xs-12

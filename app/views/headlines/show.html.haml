@@ -1,3 +1,5 @@
+- @page_title = @headline.title
+- @og_image = @headline.banner.url if @headline.banner.file?
 .row
   .col-xs-12
     = link_to headlines_path, class: "btn btn-transparent", style: "margin-bottom:20px;" do
