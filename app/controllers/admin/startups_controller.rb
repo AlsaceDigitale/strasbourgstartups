@@ -13,7 +13,7 @@ protected
   end
 
   def collection
-    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:added_on).paginate(per_page: 20, page: params[:page]))
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:added_on))
   end
 
 public
