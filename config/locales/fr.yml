@@ -24,7 +24,8 @@ fr:
       users: "Utilisateurs"
       startup_add: "Ajouter une startup"
     common:
-      back_to_map: "Retourner à la liste des startups"
+      return_startups_list: "Retourner à la liste des startups"
+      return_headlines_list: "Retourner à la liste des actualités"
       about: "À propos"
       add_new: "Ajouter une startup"
     footer:

@@ -1,2 +1,8 @@
+.row
+  .col-xs-12
+    = link_to headlines_path, class: "btn btn-transparent", style: "margin-bottom:20px;" do
+      = fa_icon "angle-left"
+      = t("views.common.return_headlines_list")
+
 = render partial: "headline", locals: {headline: @headline}
 
