@@ -19,7 +19,7 @@
   .well
     %strong.h3{style: "margin-top:0;margin-bottom:10px;display:block;"}= t("views.partials.sidebar.startup_last")
     = image_tag startup_last.logo_url(:medium), class: "img-responsive-fixed-height", style: "height:140px;margin-bottom:10px;"
-    %strong.text-center{style: "font-size:120%;"}= startup_last.name
+    %strong.text-center{style: "font-size:120%;display:block;"}= startup_last.name
     = link_to startup_last, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
       = t("views.startups.index.see_detail")
       = fa_icon "angle-right"
