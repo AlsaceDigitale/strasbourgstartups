@@ -5,7 +5,7 @@ fr:
     page_gap: "&hellip;"
   date:
     formats:
-      added_on: "ajouté le %d/%m/%Y"
+      added_on: "accepté le %d/%m/%Y"
       added_on_short: "%d/%m/%Y"
   time:
     formats:

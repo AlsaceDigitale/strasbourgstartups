@@ -7,6 +7,7 @@
       %th Nom
       %th Ajouté
       %th Modifié
+      %th Accepté
       %th Publié ?
       %th Comptes liés
       %th
@@ -15,8 +16,9 @@
       %tr
         %td= image_tag(startup.logo_url(:small), class: "img-responsive-fixed-height", style: "height:50px;margin:5px 0;") if startup.logo.file?
         %td= startup.name
+        %td= I18n.l startup.created_at, format: :datetime
+        %td= I18n.l startup.updated_at, format: :datetime
         %td= I18n.l startup.added_on, format: :added_on_short if startup.added_on
-        %td= I18n.l startup.updated_at, format: :added_on_short
         %td= startup.is_published? ? "oui" : "non"
         %td
           %ul.list-unstyled
