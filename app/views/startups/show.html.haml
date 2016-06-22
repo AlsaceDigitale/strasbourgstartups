@@ -1,5 +1,6 @@
 - @page_title = "Présentation de #{ @startup.name }"
 - @page_description = @startup.description
+- @og_image = @startup.logo.url if @startup.logo.file?
 .row
   .col-xs-12
     = link_to startups_path, class: "btn btn-transparent", style: "margin-bottom:20px;" do

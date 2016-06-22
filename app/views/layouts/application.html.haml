@@ -10,8 +10,8 @@
       %meta{name: "description", content: @page_description}
     %meta{property: "og:title", content: @og_title || @page_title}
     %meta{property: "og:type", content: "website"}
-    - if @og_image.present?
-      %meta{property: "og:image", content: @og_image}
+    - @og_image ||= image_url("og_image_default.png")
+    %meta{property: "og:image", content: @og_image}
     - description = @og_description || @page_description
     - if description.present?
       %meta{property: "og:description", content: description}
