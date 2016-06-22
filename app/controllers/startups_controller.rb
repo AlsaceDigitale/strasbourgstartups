@@ -9,7 +9,7 @@ protected
 public
 
   def index
-    @startups = Startup.publicly_visible.all
+    @startups = Startup.publicly_visible.sort_by{|x| x.name.downcase}
   end
 
   def show
