@@ -12,7 +12,7 @@
   %tbody
     - for startup in @startups
       %tr
-        %td= image_tag(startup.logo.url(:small)) if startup.logo.file?
+        %td= image_tag(startup.logo_url(:small), class: "img-responsive-fixed-height", style: "height:50px;margin:5px 0;") if startup.logo.file?
         %td= startup.name
         %td= I18n.l startup.added_on, format: :added_on_short if startup.added_on
         %td= startup.is_published? ? "oui" : "non"
