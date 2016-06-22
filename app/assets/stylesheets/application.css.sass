@@ -63,10 +63,18 @@
     margin-bottom: 40px
 
 footer
-  background-color: #282828
+  background-color: $brand-primary
   color: white
   margin-top: 40px
   padding: 20px 0
+  a
+    font-weight: bold
+    color: white
+    &:hover, &:focus
+      color: white
+  small
+    a
+      font-weight: lighter
 
 .startup
   margin-top: 20px
@@ -83,7 +91,6 @@ footer
       color: $text-color
 
 .headline
-  margin-bottom: 20px
   a
     &:hover
       text-decoration: none
