@@ -47,6 +47,11 @@ class Startup
   #   txt.present? ? txt : self["description".to_sym]
   # end
 
+  def url
+    x = read_attribute :url
+    x.starts_with?("http://") ? x : "http://#{x}"
+  end
+
   def logo_url(size)
     if logo.file?
       logo_file_name.ends_with?("svg") ? logo.url : logo.url(size)
