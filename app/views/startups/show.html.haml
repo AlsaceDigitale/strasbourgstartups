@@ -13,7 +13,7 @@
       - if @startup.logo_file_name.ends_with?("svg")
         = image_tag(@startup.logo.url, style: "width:70%;display:block;margin: 0 auto;")
       - else
-        = image_tag(@startup.logo.url, class: "img-responsive", style: "margin: 0 auto;")
+        = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:70%;margin: 0 auto;")
   .col-xs-12.col-sm-6
     %h1.no-top= @startup.name
     = link_to @startup.url, @startup.url, target: "_blank"
