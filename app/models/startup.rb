@@ -50,7 +50,11 @@ class Startup
 
   def url
     x = read_attribute :url
-    x.starts_with?("http://") ? x : "http://#{x}"
+    if x.present?
+      x.starts_with?("http://") ? x : "http://#{x}"
+    else
+      x
+    end
   end
 
   def logo_url(size)
