@@ -8,6 +8,7 @@
         %th Nom
         %th Admin ?
         %th Date de création
+        %th Invitation acceptée
         %th
       - for user in @users
         %tr
@@ -15,6 +16,7 @@
           %td= user.name
           %td= user.is_admin? ? "Oui" : "Non"
           %td= l user.created_at
+          %td= user.confirmed_at.present? ? "Oui" : "Non"
           %td= link_to fa_icon("trash", title: "Supprimer"), admin_user_path(user), method: :delete, data: {confirm: 'Êtes-vous sûr ?'}
   = will_paginate @users, renderer: BootstrapPagination::Rails
 - else
