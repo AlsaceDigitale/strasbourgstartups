@@ -21,6 +21,7 @@ module StrasbourgStartups
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 '/about',  '/a-propos'
       r301 '/admin',  '/extranet'
+      r301 '/admin/',  '/extranet/'
       r301 '/admin/*',  '/extranet/$1'
     end
 
