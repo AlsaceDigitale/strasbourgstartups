@@ -10,7 +10,7 @@ protected
   end
 
   def collection
-    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:created_date).paginate(page: params[:page], per_page: 20))
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:created_at).paginate(page: params[:page], per_page: 20))
   end
 
   def check_current_user
@@ -31,9 +31,9 @@ public
   end
 
   def create_invitation
-    user = User.new permitted_params[:user]
-    if [user.email, user.first_name, user.startup_ids].all?(&:present?)
-      User.invite!(email: user.email, first_name: user.first_name, last_name: user.last_name, startup_ids: user.startup_ids)
+    @user = User.new permitted_params[:user]
+    if [@user.email, @user.first_name, @user.startup_ids].all?(&:present?) || (@user.is_admin? && @user.email.present?)
+      User.invite!(email: @user.email, first_name: @user.first_name, last_name: @user.last_name, startup_ids: @user.startup_ids, is_admin: @user.is_admin)
       redirect_to({action: :index})
     else
       render action: :new
