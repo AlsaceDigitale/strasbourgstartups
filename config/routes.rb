@@ -24,5 +24,7 @@ Rails.application.routes.draw do
 
   root to: "welcome#show"
 
+  get '/about', to: redirect('/a-propos')
+
   get ':id', to: 'pages#show', as: :extra_page
 end
