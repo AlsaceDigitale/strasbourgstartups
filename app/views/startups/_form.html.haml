@@ -1,5 +1,6 @@
+- @og_image = image_url("tout_seul_dans_le_bois.png")
 .page-header
-  %h2.no-top= @startup.new_record? ? "Ajouter une nouvelle startup" : "Modifier une startup"
+  %h2.no-top= @page_title = @startup.new_record? ? "Ajouter une nouvelle startup" : "Modifier une startup"
 
 = render partial: "/shared/errors_and_notices", locals: {model: @startup}
 
