@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
 
-  namespace :admin do
+  namespace :admin, path: 'extranet' do
     resources :users do
       collection do
         get :new_invitation
@@ -23,8 +23,6 @@ Rails.application.routes.draw do
   resources :pages
 
   root to: "welcome#show"
-
-  get '/about', to: redirect('/a-propos')
 
   get ':id', to: 'pages#show', as: :extra_page
 end
