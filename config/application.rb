@@ -49,7 +49,9 @@ module StrasbourgStartups
     }
 
     config.to_prepare do
-      Devise::SessionsController.layout "admin"
+      Devise::SessionsController.layout  "admin"
+      Devise::PasswordsController.layout "admin"
+      Devise::ConfirmationsController.layout "admin"
     end
   end
 end

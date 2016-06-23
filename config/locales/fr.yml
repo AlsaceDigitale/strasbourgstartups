@@ -104,3 +104,8 @@ fr:
         logo: "Si vous avez votre logo en SVG, vous devriez choisir cette version. Le vectoriel c'est mieux :)"
       page:
         code: "Code à usage interne pour utiliser la page sur le Front Office"
+
+  devise:
+    passwords:
+      new:
+        send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation

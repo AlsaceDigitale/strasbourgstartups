@@ -59,4 +59,10 @@
                 %br
                 %small
                   admin
+            - if flash[:notice]
+              .alert.alert-info= flash[:notice]
+            - elsif flash[:error]
+              .alert.alert-danger= flash[:error]
+            - elsif flash[:success]
+              .alert.alert-success= flash[:success]
             = yield

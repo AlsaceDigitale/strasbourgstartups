@@ -1,0 +1,8 @@
+%h2= t('.forgot_your_password', :default => 'Forgot your password?')
+= simple_form_for resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+  = devise_error_messages!
+  = f.input :email
+  .row
+    .col-xs-12
+      = f.submit t('.send_me_reset_password_instructions', :default => "Send me reset password instructions"), class: "btn btn-primary pull-right"
+= render "devise/shared/links"

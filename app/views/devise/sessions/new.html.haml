@@ -3,4 +3,6 @@
   = f.input :password, required: false
   .row
     .col-xs-12
-      = f.button :submit, "Se connecter", class: "btn btn-primary pull-right"
+      = f.button :submit, t('.sign_in', :default => "Sign in"), class: "btn btn-primary pull-right"
+
+= render "devise/shared/links"
