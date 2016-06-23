@@ -31,6 +31,8 @@
                   = link_to I18n.t("views.nav.headlines"), admin_headlines_path
                 %li{class: request.path =~ /users/ ? "active" : nil}
                   = link_to I18n.t("views.nav.users"), admin_users_path
+                %li{class: request.path =~ /pages/ ? "active" : nil}
+                  = link_to I18n.t("views.nav.pages"), admin_pages_path
             %ul.nav.navbar-nav.navbar-right
               %li= link_to current_user.email, admin_root_path
               %li= link_to fa_icon("sign-out", title: "Déconnexion"), destroy_user_session_path, :method => :delete

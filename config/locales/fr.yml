@@ -22,6 +22,7 @@ fr:
       startups: "Startups"
       events: "Événements"
       users: "Utilisateurs"
+      pages: "Pages"
       startup_add: "Ajouter une startup"
     common:
       return_startups_list: "Retourner à la liste des startups"
@@ -82,6 +83,14 @@ fr:
           en: "Description (EN)"
         is_published: "Publié ?"
         added_on: "Ajouté le"
+      page:
+        title_translations:
+          fr: "Titre (FR)"
+          en: "Titre (EN)"
+        body_translations:
+          fr: "Corps de texte (FR)"
+          en: "Corps de texte (EN)"
+        code: "Code"
       user:
         email: "Email"
         first_name: "Prénom"
@@ -93,3 +102,5 @@ fr:
     hints:
       startup:
         logo: "Si vous avez votre logo en SVG, vous devriez choisir cette version. Le vectoriel c'est mieux :)"
+      page:
+        code: "Code à usage interne pour utiliser la page sur le Front Office"

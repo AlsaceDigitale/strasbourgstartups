@@ -1,0 +1,7 @@
+- @page_title = @page.title
+-# @og_image = @headline.banner.url if @headline.banner.file?
+
+%h1= @page.title
+
+= @page.body.html_safe
+

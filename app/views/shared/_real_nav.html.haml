@@ -8,3 +8,7 @@
       = link_to I18n.t("views.nav.startup_add"), new_startup_path
     %li.hide{class: request.path.start_with?("/events") && "active"}
       = link_to I18n.t("views.nav.events"), events_path
+    - page_about = Page.where(code: "about").first
+    - if page_about
+      %li{class: @page == page_about && "active"}
+        = link_to page_about.title, extra_page_path(page_about)

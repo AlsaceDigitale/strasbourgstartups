@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :startups
     resources :headlines
     resources :events
+    resources :pages
 
     root to: "startups#index"
   end
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
   resources :startups
   resources :headlines
   resources :events
+  resources :pages
 
   root to: "welcome#show"
+
+  get ':id', to: 'pages#show', as: :extra_page
 end
