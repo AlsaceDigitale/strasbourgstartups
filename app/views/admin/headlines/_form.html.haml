@@ -1,5 +1,5 @@
 .page-header
-  %h2.no-top= @headline.new_record? ? "Ajouter une nouvelle actualité" : "Modifier une actualité"
+  %h2.no-top= @page_title = @headline.new_record? ? "Ajouter une nouvelle actualité" : "Modifier une actualité"
 
 = simple_form_for [:admin, @headline], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
   = f.input :banner, as: :image_preview, input_html: {preview_version: :small}
