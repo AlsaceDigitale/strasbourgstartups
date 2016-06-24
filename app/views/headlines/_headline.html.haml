@@ -12,7 +12,6 @@
       = link_to t("views.welcome.show.read_more"), headline, class: (controller.controller_name == "welcome" ? nil : "btn btn-transparent")
     - else
       = image_tag headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;" if headline.banner.file?
-      %br
       = headline.body.html_safe
 
 - if controller.controller_name == "headlines"
