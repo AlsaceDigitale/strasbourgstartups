@@ -105,6 +105,12 @@ footer
       &:hover
         opacity: 0.9
 
+.welcome
+  .headline
+    h1
+      font-size: $font-size-h4
+      height: 40px
+
 .btn
   text-transform: uppercase
   &.btn-transparent
@@ -112,3 +118,12 @@ footer
     &:hover
       background-color: $brand-primary
       color: white
+
+@media(max-width: #{$screen-xs-max})
+  .btn
+    display: block
+
+  .welcome
+    .headline
+      h1
+        height: auto

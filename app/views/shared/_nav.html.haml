@@ -5,9 +5,7 @@
     .navbar-header
       %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+        = fa_icon "bars", style: "color:white;"
 
       - if controller.controller_name != "welcome"
         = link_to "Strasbourg Startups", root_path, class: "navbar-brand"

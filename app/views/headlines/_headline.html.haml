@@ -1,21 +1,25 @@
-.row
-  .col-xs-12.headline
+%div{class: controller.controller_name == "welcome" ? nil : "row"}
+  .col-xs-12.headline{class: controller.controller_name == "welcome" ? "col-sm-4" : nil}
+    - if controller.controller_name == "welcome"
+      = link_to image_tag(headline.banner.url(:medium), class: "img-responsive-fixed-height", style: "margin:20px 0;"), headline if headline.banner.file?
     = link_to headline do
       %h1.no-top= headline.title
     %em{style: "display:block;margin-bottom:10px;"}= l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
-    - if controller.action_name == "index"
+    - if controller.controller_name == "welcome" || controller.action_name == "index"
       = strip_tags(headline.chapo)
-      = image_tag headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;" if headline.banner.file?
-      %br
-      = link_to t("views.welcome.show.read_more"), headline, class: "btn btn-transparent", style: "margin-top:10px;"
+      - if controller.controller_name != "welcome"
+        = link_to image_tag(headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;"), headline if headline.banner.file?
+      = link_to t("views.welcome.show.read_more"), headline, class: (controller.controller_name == "welcome" ? nil : "btn btn-transparent")
     - else
       = image_tag headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;" if headline.banner.file?
       %br
-      = @headline.body.html_safe
-.row
-  .col-xs-12
-    %hr
-- unless controller.action_name == "index"
+      = headline.body.html_safe
+
+- if controller.controller_name == "headlines"
+  .row
+    .col-xs-12
+      %hr
+- if controller.controller_name == "headlines" && controller.action_name == "show"
   .row
     .col-xs-12
       = render partial: "disqus"
