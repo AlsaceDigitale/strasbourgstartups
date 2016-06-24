@@ -75,7 +75,7 @@ fr:
         is_focus: "Mis en avant ?"
       startup:
         logo: "Logo"
-        name: "Nom"
+        name: "Nom du projet"
         email: "Email de contact"
         url: "Site web"
         description_translations:
