@@ -13,7 +13,10 @@ protected
   end
 
   def collection
-    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:added_on))
+    sort_param, sort_order = params[:s].present? ? params[:s].split("+") : [nil, nil]
+    sort_param ||= :added_on
+    sort_order ||= :desc
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.send(sort_order.to_sym, sort_param.to_sym))
   end
 
 public

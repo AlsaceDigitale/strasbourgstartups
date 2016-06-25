@@ -4,11 +4,11 @@
   %thead
     %tr
       %th Logo
-      %th Nom
-      %th Ajouté
-      %th Modifié
-      %th Accepté
-      %th Publié ?
+      %th= sort_link @q, :name, 'Nom'
+      %th= sort_link @q, :created_at, 'Ajouté'
+      %th= sort_link @q, :updated_at, 'Modifié'
+      %th= sort_link @q, :added_on, 'Accepté'
+      %th= sort_link @q, :is_published, 'Publié ?'
       %th Comptes liés
       %th
   %tbody
