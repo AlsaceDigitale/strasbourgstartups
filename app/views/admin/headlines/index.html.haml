@@ -6,7 +6,7 @@
       %tr
         %td= image_tag(headline.banner.url(:small), class: "img-responsive-fixed-height", style: "height:50px;") if headline.banner.file?
         %td= headline.title
-        %td= I18n.l headline.published_at, format: :datetime
+        %td= I18n.l headline.published_at, format: :datetime if headline.published_at
         %td
           %ul.list-inline
             %li= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, headline]
