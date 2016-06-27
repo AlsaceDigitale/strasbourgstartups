@@ -52,7 +52,7 @@ class Startup
     x = read_attribute :url
     if x.present?
       uri = URI(x)
-      uri.scheme ||= "http"
+      uri = URI("http://#{x}") if uri.scheme.blank?
       uri.to_s
     else
       x
