@@ -50,11 +50,9 @@ class Startup
 
   def url
     x = read_attribute :url
-    if x.present?
-      x.starts_with?("http://") ? x : "http://#{x}"
-    else
-      x
-    end
+    uri = URI(x)
+    uri.scheme ||= "http"
+    uri.to_s
   end
 
   def logo_url(size = nil)
