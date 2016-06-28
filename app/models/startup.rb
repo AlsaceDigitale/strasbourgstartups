@@ -31,7 +31,7 @@ class Startup
 
   scope :publicly_visible, -> { desc(:added_on).where(is_published: true) }
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   geocoded_by :address
   after_validation :geocode
