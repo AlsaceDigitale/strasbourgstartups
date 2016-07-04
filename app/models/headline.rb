@@ -6,7 +6,7 @@ class Headline
 
   field :title, type: String, localize: true
   field :body, type: String, localize: true
-  field :published_at, type: Time, default: Time.now
+  field :published_at, type: Time, default: -> { Time.now }
   field :is_focus, type: Boolean, default: false
 
   # slug :title, history: true, localize: true
