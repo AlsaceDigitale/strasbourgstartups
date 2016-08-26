@@ -65,17 +65,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {host: ENV['DEFAULT_HOST']}
 
-  smtp_uri = URI(ENV['MAIL_URL'])
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: smtp_uri.host,
-    port: smtp_uri.port,
-    authentication: :login,
-    user_name: URI.unescape(smtp_uri.user),
-    password: smtp_uri.password,
-    enable_starttls_auto: true,
-  }
+  config.action_mailer.delivery_method = :mailjet
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
