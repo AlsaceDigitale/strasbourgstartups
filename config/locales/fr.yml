@@ -64,6 +64,8 @@ fr:
         startup_last: "Dernière startup acceptée"
   simple_form:
     labels:
+      defaults:
+        tag_list: "Mots-clés"
       headline:
         banner: "Image"
         published_at: "Date de publication"
@@ -84,7 +86,6 @@ fr:
           en: "Description (EN)"
         is_published: "Publié ?"
         added_on: "Ajouté le"
-        tag_list: "Mots-clés"
       page:
         title_translations:
           fr: "Titre (FR)"
@@ -102,9 +103,10 @@ fr:
         password_confirmation: "Confirmation du mot de passe"
         startup_ids: "Startups en portefeuille"
     hints:
+      defaults:
+        tag_list: "Séparer par des virgules"
       startup:
         logo: "Si vous avez votre logo en SVG, vous devriez choisir cette version. Le vectoriel c'est mieux :)"
-        tag_list: "Séparer par des virgules"
       page:
         code: "Code à usage interne pour utiliser la page sur le Front Office"
 

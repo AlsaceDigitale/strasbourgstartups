@@ -4,7 +4,9 @@
       = link_to image_tag(headline.banner.url(:medium), class: "img-responsive-fixed-height", style: "margin:20px 0;"), headline if headline.banner.file?
     = link_to headline do
       %h1.no-top= headline.title
-    %em{style: "display:block;margin-bottom:10px;"}= l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
+    %em{style: "display:block;margin-bottom:10px;"}
+      = l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
+      = "dans #{ headline.tags.map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(", ") }".html_safe
     - if controller.controller_name == "welcome" || controller.action_name == "index"
       = strip_tags(headline.chapo)
       - if controller.controller_name != "welcome"

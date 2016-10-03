@@ -11,6 +11,7 @@
     = localized_field.input :en, as: :ckeditor, input_html: {value: @headline.body_translations["en"]}
   = f.input :published_at, as: :datetime, html5: true, input_html: {data: {provide: 'datetimepicker'}}
   = f.input :is_focus, as: :boolean
+  = f.input :tag_list
   .row
     .col-xs-12
       %ul.pull-right.list-inline

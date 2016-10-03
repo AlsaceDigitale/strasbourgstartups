@@ -5,7 +5,7 @@ class Admin::HeadlinesController < Admin::BaseController
 protected
 
   def permitted_params
-    params.permit(headline: [:published_at, :banner, :is_focus, {title_translations: [:fr, :en]}, {body_translations: [:fr, :en]}])
+    params.permit(headline: [:published_at, :banner, :is_focus, :tag_list, {title_translations: [:fr, :en]}, {body_translations: [:fr, :en]}])
   end
 
   def collection
