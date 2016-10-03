@@ -28,7 +28,7 @@
           %ul.list-inline
             %li= link_to fa_icon('external-link', title: 'Voir la fiche public'), startup, target: '_blank'
             %li= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, startup]
-            %li= link_to fa_icon('briefcase', title: 'Offres d\'emploi'), [:admin, startup, :job_offers]
+            %li= link_to fa_icon('briefcase', title: 'Offres d\'emploi'), [:admin, :job_offers]
             - if current_user.is_admin?
               %li= link_to fa_icon('trash', title: 'Supprimer'), [:admin, startup], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette startup ?'}
 

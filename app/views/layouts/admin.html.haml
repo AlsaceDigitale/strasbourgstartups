@@ -24,8 +24,10 @@
             = link_to "Strasbourg Startups", admin_root_path, class: "navbar-brand"
           #navbar.collapse.navbar-collapse
             %ul.nav.navbar-nav
-              %li{class: request.path =~ /startups/ ? "active" : nil}
+              %li{class: controller.controller_name == "startups" ? "active" : nil}
                 = link_to I18n.t("views.nav.startups"), admin_startups_path
+              %li{class: controller.controller_name == "job_offers" ? "active" : nil}
+                = link_to I18n.t("views.nav.job_offers"), admin_job_offers_path
               - if current_user.is_admin?
                 %li{class: request.path =~ /headlines/ ? "active" : nil}
                   = link_to I18n.t("views.nav.headlines"), admin_headlines_path

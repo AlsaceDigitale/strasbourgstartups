@@ -9,9 +9,8 @@ Rails.application.routes.draw do
         post :create_invitation
       end
     end
-    resources :startups do
-      resources :job_offers
-    end
+    resources :startups
+    resources :job_offers
     resources :headlines
     resources :events
     resources :pages

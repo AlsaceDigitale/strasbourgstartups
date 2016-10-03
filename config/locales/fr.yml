@@ -24,6 +24,7 @@ fr:
       users: "Utilisateurs"
       pages: "Pages"
       startup_add: "Ajouter une startup"
+      job_offers: "Offres d'emploi"
     common:
       return_startups_list: "Retourner à la liste des startups"
       return_headlines_list: "Retourner à la liste des actualités"
