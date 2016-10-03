@@ -46,6 +46,7 @@ fr:
         page_title: "Liste des startups"
         see_detail: "Voir les détails"
         count_active:
+          zero: "Aucune startup en activité"
           one: "1 startup en activité"
           other: "%{count} startups en activité"
     headlines:
@@ -83,6 +84,7 @@ fr:
           en: "Description (EN)"
         is_published: "Publié ?"
         added_on: "Ajouté le"
+        tag_list: "Mots-clés"
       page:
         title_translations:
           fr: "Titre (FR)"
@@ -102,6 +104,7 @@ fr:
     hints:
       startup:
         logo: "Si vous avez votre logo en SVG, vous devriez choisir cette version. Le vectoriel c'est mieux :)"
+        tag_list: "Séparer par des virgules"
       page:
         code: "Code à usage interne pour utiliser la page sur le Front Office"
 

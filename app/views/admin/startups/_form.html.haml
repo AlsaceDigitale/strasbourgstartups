@@ -6,6 +6,7 @@
   = f.input :name
   = f.input :email
   = f.input :url
+  = f.input :tag_list
   = f.simple_fields_for :description_translations do |localized_field|
     - value = @startup.description_translations["fr"] if @startup.description_translations
     = localized_field.input :fr, as: :ckeditor, input_html: {value: value}

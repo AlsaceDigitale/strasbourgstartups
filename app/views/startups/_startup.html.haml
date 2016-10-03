@@ -2,4 +2,8 @@
   = link_to startup do
     = image_tag startup.logo_url(:medium), alt: "Logo #{startup.name}", class: "img-responsive-fixed-height"
     %strong= startup.name
-    %em= l(startup.added_on, format: :added_on) if startup.added_on.present?
+    - if (tags = startup.tags).any?
+      %ul.list-inline
+        - for tag in tags
+          %li
+            %small= link_to "##{ tag }", startups_path(tag: tag)

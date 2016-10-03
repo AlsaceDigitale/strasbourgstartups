@@ -15,13 +15,6 @@ GIT
       responders
 
 GIT
-  remote: git://github.com/mbleigh/acts-as-taggable-on.git
-  revision: 8e64c3d4a81cfbb8af621228eae36a65c1f94501
-  specs:
-    acts-as-taggable-on (4.0.0)
-      activerecord (>= 4.0)
-
-GIT
   remote: git://github.com/ryanb/nested_form.git
   revision: 1b0689dfb4d230ceabd278eba159fcb02f23c68a
   specs:
@@ -313,6 +306,8 @@ GEM
     mongoid-paperclip (0.0.11)
       mongoid
       paperclip (>= 2.3.6, != 4.3.0)
+    mongoid-simple-tags (0.1.2)
+      mongoid (>= 3.0.3)
     mongoid-slug (5.3.0)
       mongoid (>= 3.0)
       mongoid-compatibility
@@ -448,7 +443,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on!
   acts_as_list
   asset_sync
   autoprefixer-rails
@@ -475,6 +469,7 @@ DEPENDENCIES
   momentjs-rails
   mongoid
   mongoid-paperclip
+  mongoid-simple-tags
   mongoid-slug
   nested_form!
   paperclip

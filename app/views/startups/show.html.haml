@@ -15,6 +15,10 @@
       = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:80%;margin: 0 auto;")
   .col-xs-12.col-sm-8
     %h1.no-top= @startup.name
+    - if (tags = @startup.tags).any?
+      %ul.list-inline
+        - for tag in tags
+          %li= link_to "##{ tag }", startups_path(tag: tag)
     = link_to @startup.url, @startup.url, target: "_blank"
     %br
     = mail_to @startup.email if @startup.email

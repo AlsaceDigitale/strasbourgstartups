@@ -1,5 +1,6 @@
 class Startup
   include Mongoid::Document
+  include Mongoid::Document::Taggable
   include Mongoid::Timestamps
   include Mongoid::Paperclip
   include Mongoid::Slug

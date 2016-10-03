@@ -9,7 +9,9 @@ protected
 public
 
   def index
-    @startups = Startup.publicly_visible.sort_by{|x| x.name.downcase}
+    @startups = Startup.publicly_visible
+    @startups = @startups.tagged_with params[:tag] if params[:tag].present?
+    @startups = @startups.sort_by{|x| x.name.downcase}
   end
 
   def show
