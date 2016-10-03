@@ -6,7 +6,7 @@
   = f.input :title
   = f.input :body, as: :ckeditor
   = f.input :is_published, as: :boolean
-  = f.input :end_publishing_on, as: :datetime, html5: true, input_html: {data: {provide: 'datepicker'}}
+  = f.input :end_publishing_on, as: :date, html5: true, input_html: {data: {provide: 'datepicker'}}
   .row
     .col-xs-12
       %ul.pull-right.list-inline
