@@ -73,7 +73,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'dotenv-rails'
-  gem 'scalingo_databases_rake_tasks'
+  gem 'scalingo_databases_rake_tasks', github: 'Scalingo/scalingo_databases_rake_tasks-gem'
 end
 
 group :production do
