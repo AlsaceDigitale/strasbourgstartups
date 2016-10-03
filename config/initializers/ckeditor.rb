@@ -9,16 +9,25 @@ Ckeditor.setup do |config|
   # Allowed image file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(jpg jpeg png gif tiff)
-  # config.image_file_types = ["jpg", "jpeg", "png", "gif", "tiff"]
+  # config.image_file_types = %w(jpg jpeg png gif tiff)
+
+  # Allowed flash file types for upload.
+  # Set to nil or [] (empty array) for all file types
+  # By default: %w(jpg jpeg png gif tiff)
+  # config.flash_file_types = %w(swf)
 
   # Allowed attachment file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
-  # config.attachment_file_types = ["doc", "docx", "xls", "odt", "ods", "pdf", "rar", "zip", "tar", "swf"]
+  # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
 
   # Setup authorization to be run as a before filter
   # By default: there is no authorization.
   # config.authorize_with :cancan
+
+  # Override parent controller CKEditor inherits from
+  # By default: 'ApplicationController'
+  # config.parent_controller = 'MyController'
 
   # Asset model classes
   # config.picture_model { Ckeditor::Picture }
