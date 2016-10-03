@@ -8,6 +8,10 @@ It's a standard Ruby on Rails app.
 
 # How to contribute?
 
+# Sync database from production
+
+bundle exec rake scalingo:mongodb:backup_remote db:drop scalingo:mongodb:restore_local APP=strasbourg-startups
+
 # MongoDB installation
 
 With the help of Scalingo's Docker image:
