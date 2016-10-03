@@ -1,0 +1,14 @@
+.page-header
+  %h2.no-top= @page_title = @job_offer.new_record? ? "Ajouter une nouvelle offre d'emploi" : "Modifier une offre d'emploi"
+
+= simple_form_for [:admin, @startup, @job_offer], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+
+  = f.input :title
+  = f.input :body, as: :ckeditor
+  = f.input :is_published, as: :boolean
+  = f.input :end_publishing_on, as: :datetime, html5: true, input_html: {data: {provide: 'datepicker'}}
+  .row
+    .col-xs-12
+      %ul.pull-right.list-inline
+        %li= link_to 'Retour', {action: :index}, class: "btn btn-link"
+        %li= f.submit "Enregistrer", class: "btn btn-primary"

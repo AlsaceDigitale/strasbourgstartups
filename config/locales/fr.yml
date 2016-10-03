@@ -66,6 +66,7 @@ fr:
     labels:
       defaults:
         tag_list: "Mots-clés"
+        is_published: "Publié ?"
       headline:
         banner: "Image"
         published_at: "Date de publication"
@@ -76,6 +77,10 @@ fr:
           fr: "Corps de texte (FR)"
           en: "Corps de texte (EN)"
         is_focus: "Mis en avant ?"
+      job_offer:
+        title: "Titre (FR)"
+        body: "Corps de texte (FR)"
+        end_publishing_on: "Date de fin de publication"
       startup:
         logo: "Logo"
         name: "Nom du projet"
@@ -84,7 +89,6 @@ fr:
         description_translations:
           fr: "Description (FR)"
           en: "Description (EN)"
-        is_published: "Publié ?"
         added_on: "Ajouté le"
       page:
         title_translations:
