@@ -15,7 +15,7 @@
         %td= job_offer.title
         %td= I18n.l job_offer.created_at, format: :datetime
         %td= I18n.l job_offer.updated_at, format: :datetime
-        %td= I18n.l job_offer.end_publishing_on, format: :added_on_short
+        %td= I18n.l job_offer.end_publishing_on, format: :added_on_short if job_offer.end_publishing_on.present?
         %td= job_offer.is_published? ? "oui" : "non"
         %td
           %ul.list-inline

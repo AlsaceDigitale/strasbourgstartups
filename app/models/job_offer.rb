@@ -11,5 +11,5 @@ class JobOffer
 
   scope :publicly_visible, -> { desc(:updated_at).where(is_published: true, end_publishing_on: {"$gt" => Time.now}) }
 
-  validates :title, :body, presence: true, uniqueness: true
+  validates :title, :body, :end_publishing_on, presence: true
 end
