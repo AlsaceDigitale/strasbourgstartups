@@ -4,7 +4,7 @@ class JobOffer
 
   field :title, type: String
   field :body, type: String
-  field :is_published, type: Boolean, default: false
+  field :is_published, type: Boolean, default: true
   field :end_publishing_on, type: Date, default: 3.months.from_now.to_date
 
   belongs_to :startup
