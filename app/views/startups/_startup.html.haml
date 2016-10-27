@@ -1,9 +1,5 @@
-.col-xs-6.col-sm-3.startup.text-center
-  = link_to startup do
-    = image_tag startup.logo_url(:medium), alt: "Logo #{startup.name}", class: "img-responsive-fixed-height"
-    %strong= startup.name
-    - if (tags = startup.tags).any?
-      %ul.list-inline
-        - for tag in tags
-          %li
-            %small= link_to "##{ tag }", startups_path(tag: tag)
+.card.card-transparent.startup.text-xs-center
+  .card-block
+    - unless startup.new_record?
+      = link_to startup, title: startup.name do
+        = image_tag startup.logo_url(:medium), alt: "Logo #{startup.name}", title: startup.name, class: "img-responsive-fixed-height"

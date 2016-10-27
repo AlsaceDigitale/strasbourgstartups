@@ -13,35 +13,33 @@
     = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,900,900italic,700"
   %body
     - if user_signed_in?
-      %nav.navbar.navbar-inverse
+      %nav.navbar.bg-primary
         .container
           .navbar-header
-            %button.navbar-toggle.collapsed{aria: {controls: "navbar", expanded: "false"}, data: {target: "#navbar", toggle: "collapse"}, type: "button"}
+            %button.navbar-toggler.hidden-sm-up{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", type: "button"}
               %span.sr-only Toggle navigation
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
+              = fa_icon "bars", style: "color:white;"
             = link_to "Strasbourg Startups", admin_root_path, class: "navbar-brand"
-          #navbar.collapse.navbar-collapse
+          #navbarResponsive.collapse.navbar-toggleable-sm
             %ul.nav.navbar-nav
-              %li{class: controller.controller_name == "startups" ? "active" : nil}
-                = link_to I18n.t("views.nav.startups"), admin_startups_path
-              %li{class: controller.controller_name == "job_offers" ? "active" : nil}
-                = link_to I18n.t("views.nav.job_offers"), admin_job_offers_path
+              %li.nav-item{class: controller.controller_name == "startups" ? "active" : nil}
+                = link_to I18n.t("views.nav.startups"), admin_startups_path, class: "nav-link"
+              %li.nav-item{class: controller.controller_name == "job_offers" ? "active" : nil}
+                = link_to I18n.t("views.nav.job_offers"), admin_job_offers_path, class: "nav-link"
               - if current_user.is_admin?
-                %li{class: request.path =~ /headlines/ ? "active" : nil}
-                  = link_to I18n.t("views.nav.headlines"), admin_headlines_path
-                %li{class: request.path =~ /users/ ? "active" : nil}
-                  = link_to I18n.t("views.nav.users"), admin_users_path
-                %li{class: request.path =~ /pages/ ? "active" : nil}
-                  = link_to I18n.t("views.nav.pages"), admin_pages_path
-            %ul.nav.navbar-nav.navbar-right
-              %li= link_to current_user.email, admin_root_path
-              %li= link_to fa_icon("sign-out", title: "Déconnexion"), destroy_user_session_path, method: :delete
+                %li.nav-item{class: request.path =~ /headlines/ ? "active" : nil}
+                  = link_to I18n.t("views.nav.headlines"), admin_headlines_path, class: "nav-link"
+                %li.nav-item{class: request.path =~ /users/ ? "active" : nil}
+                  = link_to I18n.t("views.nav.users"), admin_users_path, class: "nav-link"
+                %li.nav-item{class: request.path =~ /pages/ ? "active" : nil}
+                  = link_to I18n.t("views.nav.pages"), admin_pages_path, class: "nav-link"
+            %ul.nav.navbar-nav.pull-right
+              %li.nav-item= link_to current_user.email, admin_root_path, class: "nav-link"
+              %li.nav-item= link_to fa_icon("sign-out", title: "Déconnexion"), destroy_user_session_path, method: :delete, class: "nav-link"
       .container
         .row
           .col-xs-12
-            .well.bg-white
+            .card.card-block.card-transparent.bg-white
               - if flash[:notice]
                 .alert.alert-info= flash[:notice]
               - elsif flash[:error]
@@ -54,8 +52,8 @@
     - else
       .container
         .row
-          .col-xs-12.col-sm-6.col-sm-offset-3.col-lg-4.col-lg-offset-4.login
-            .well.bg-white
+          .col-xs-12.col-sm-6.offset-sm-3.col-lg-4.offset-lg-4.login
+            .card.card-block.card-transparent.bg-white
               %h1.h3.no-top.no-bottom{style: "font-family: 'Oswald',sans-serif;font-size: 32px;font-weight: 900;"}
                 Strasbourg Startups
                 %br

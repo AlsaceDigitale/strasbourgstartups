@@ -3,7 +3,6 @@
 #= require jquery-ui/sortable
 #= require jquery-ui/effect-highlight
 #= require jquery_nested_form
-#= require bootstrap-sprockets
 #= require moment
 #= require moment/fr
 #= require bootstrap-datetimepicker

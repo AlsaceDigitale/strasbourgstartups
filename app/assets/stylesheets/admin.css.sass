@@ -4,10 +4,17 @@ $body-bg: #f3f3f3
 $text-color: #262626
 
 @import bootstrap-datetimepicker
-@import bootstrap-sprockets
 @import font-awesome
 @import bootstrap
 @import common
+
+nav
+  border-radius: 0
+  .navbar-brand
+    padding-top: 0
+    padding-bottom: 0
+  a
+    color: white
 
 .login
   margin-top: 20%
@@ -25,12 +32,12 @@ $text-color: #262626
 .bg-white
   background-color: white
 
-.well
-  border: 0
+.card-transparent
+  border-width: 0
   border-radius: 0
-  box-shadow: 0
-  margin-left: -12px
-  margin-right: -12px
+  .card-block
+    img
+      padding: 0
   .page-header
     margin-top: 0
   .table

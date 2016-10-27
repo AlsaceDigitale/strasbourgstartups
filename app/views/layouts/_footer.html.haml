@@ -4,18 +4,18 @@
       .col-xs-12
         .pull-left
           %ul.list-inline
-            %li= link_to fa_icon("facebook"), "https://www.facebook.com/StrasbourgStartups"
-            %li= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
-            %li= link_to fa_icon("rss"), headlines_path(format: "rss")
+            %li.list-inline-item= link_to fa_icon("facebook"), "https://www.facebook.com/StrasbourgStartups"
+            %li.list-inline-item= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
+            %li.list-inline-item= link_to fa_icon("rss"), headlines_path(format: "rss")
         .pull-right.text-right
           %ul.list-unstyled
             %li= t("views.footer.signature").html_safe
             %li= mail_to "hello@strasbourg-startups.com"
             %li= link_to "Connexion", admin_root_path
     .row
-      .col-xs-12.text-center
+      .col-xs-12.text-xs-center
         %ul.list-inline{style: "margin-top:10px;"}
-          %li
+          %li.list-inline-item
             %small= t("views.footer.web_development").html_safe
-          %li
+          %li.list-inline-item
             %small= t("views.footer.hosting").html_safe

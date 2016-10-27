@@ -18,7 +18,7 @@
     - if (tags = @startup.tags).any?
       %ul.list-inline
         - for tag in tags
-          %li= link_to "##{ tag }", startups_path(tag: tag)
+          %li.list-inline-item= link_to "##{ tag }", startups_path(tag: tag)
     = link_to @startup.url, @startup.url, target: "_blank"
     %br
     = mail_to @startup.email if @startup.email

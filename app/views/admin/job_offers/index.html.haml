@@ -20,8 +20,8 @@
           %td= job_offer.is_published? ? "oui" : "non"
           %td
             %ul.list-inline
-              %li=# link_to fa_icon('external-link', title: 'Voir la fiche public'), job_offer, target: '_blank'
-              %li= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, job_offer]
-              %li= link_to fa_icon('trash', title: 'Supprimer'), [:admin,  job_offer], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette offre d\'empoi ?'}
+              %li.list-inline-item=# link_to fa_icon('external-link', title: 'Voir la fiche public'), job_offer, target: '_blank'
+              %li.list-inline-item= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, job_offer]
+              %li.list-inline-item= link_to fa_icon('trash', title: 'Supprimer'), [:admin,  job_offer], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette offre d\'empoi ?'}
 - else
   %em{style: "display:block;margin-top:10px;"} Vous n'avez encore publié aucune annonce.

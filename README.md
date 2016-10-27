@@ -17,5 +17,5 @@ bundle exec rake scalingo:mongodb:backup_remote db:drop scalingo:mongodb:restore
 With the help of Scalingo's Docker image:
 
 ```
-docker run -it -p 27017:27017 -v ~/data/mongo/strasbourg_startups:/var/lib/mongodb scalingo/mongo /mongo pipo molo secretadminpassword
+docker run -it -e DB_USER=pipo -e DB_PASSWORD=molo -e DB_UID=`id -u` -p 27017:27017 -v ~/data/mongo/strasbourg_startups:/var/lib/mongodb:rw,z scalingo/mongo:latest /mongo
 ```

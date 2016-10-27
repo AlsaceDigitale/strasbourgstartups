@@ -3,7 +3,7 @@
     %a.fa.fa-chevron-down.fa-2x.readnext{href: "#"}
   .container
     .navbar-header
-      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggler.hidden-sm-up{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
         = fa_icon "bars", style: "color:white;"
 
@@ -13,5 +13,5 @@
     - if controller.controller_name == "welcome"
       .row
         .col-xs-12
-          .title.text-center Strasbourg Startups
-          .subtitle.text-center= @page_description
+          .title.text-xs-center Strasbourg Startups
+          .subtitle.text-xs-center= @page_description

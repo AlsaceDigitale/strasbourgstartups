@@ -1,30 +1,21 @@
-= link_to new_startup_path, class: "btn btn-info btn-block btn-lg", style: "margin-bottom:20px;" do
+= link_to new_startup_path, class: "btn btn-info btn-block", style: "margin-bottom:20px;" do
   = I18n.t("views.nav.startup_add")
   = fa_icon "angle-right"
 
 - headline_focus = Headline.where(is_focus: true).desc(:published_at).first
 - headline_focus ||= Headline.desc(:published_at).first
 - if headline_focus
-  .well
-    %strong.h3{style: "margin-top:0;display:block;margin-bottom:10px;"}= t("views.partials.sidebar.focus")
-    = image_tag headline_focus.banner.url(:medium), class: "img-responsive-fixed-height", style: "height:140px;margin-bottom:10px;object-fit:cover;"
-    %strong{style: "display:block;"}= headline_focus.title
-    = headline_focus.chapo
-    = link_to headline_focus, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
-      = t("views.welcome.show.read_more")
-      = fa_icon "angle-right"
+  .card
+    = image_tag headline_focus.banner.url(:medium), style: "width:100%;background-position: center center;background-size: cover;", class: "card-img-top"
+    .card-block
+      %strong.h5.card-title= headline_focus.title
+      .card-text
+        = headline_focus.chapo
+        = link_to headline_focus, class: "btn btn-primary text-xs-center", style: "display:block;margin-top:10px;" do
+          = t("views.welcome.show.read_more")
+          = fa_icon "angle-right"
 
-- startup_last = Startup.where(is_published: true).desc(:added_on).first
-- if startup_last
-  .well
-    %strong.h3{style: "margin-top:0;margin-bottom:10px;display:block;"}= t("views.partials.sidebar.startup_last")
-    = image_tag startup_last.logo_url(:medium), class: "img-responsive-fixed-height", style: "height:140px;margin-bottom:10px;"
-    %strong.text-center{style: "font-size:120%;display:block;"}= startup_last.name
-    = link_to startup_last, class: "btn btn-primary text-center", style: "display:block;margin-top:10px;" do
-      = t("views.startups.index.see_detail")
-      = fa_icon "angle-right"
-
-.fb-page{data: {href: "https://www.facebook.com/StrasbourgStartups", height: 300, tabs: "timeline", small: {header: "true"}, adapt: {container: {width: "true"}}, hide: {cover: "false"}, show: {facepile: "true"}}}
+.fb-page{data: {href: "https://www.facebook.com/StrasbourgStartups", height: 500, tabs: "timeline", small: {header: "true"}, adapt: {container: {width: "true"}}, hide: {cover: "false"}, show: {facepile: "true"}}}
   %blockquote{cite: "https://www.facebook.com/StrasbourgStartups", class: "fb-xfbml-parse-ignore"}
     = link_to "Strasbourg Startups", "https://www.facebook.com/StrasbourgStartups"
 

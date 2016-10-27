@@ -1,19 +1,17 @@
-%div{class: controller.controller_name == "welcome" ? nil : "row"}
-  .col-xs-12.headline{class: controller.controller_name == "welcome" ? "col-sm-4" : nil}
-    - if controller.controller_name == "welcome"
-      = link_to image_tag(headline.banner.url(:medium), class: "img-responsive-fixed-height", style: "margin:20px 0;"), headline if headline.banner.file?
-    = link_to headline do
-      %h1.no-top= headline.title
-    %em{style: "display:block;margin-bottom:10px;"}
+.row
+  .col-xs-12.headline
+    %h1.no-top= link_to headline.title, headline
+    %small.text-muted.text-xs-italic{style: "display:block;margin-bottom:10px;"}
       = l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
-      = "dans #{ headline.tags.map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(", ") }".html_safe
-    - if controller.controller_name == "welcome" || controller.action_name == "index"
+      - if headline.tags.any?
+        = "dans #{ headline.tags.map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(", ") }".html_safe
+    = link_to image_tag(headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;"), headline if headline.banner.file?
+    .clearfix
+    - if controller.action_name == "index"
       = strip_tags(headline.chapo)
-      - if controller.controller_name != "welcome"
-        = link_to image_tag(headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;"), headline if headline.banner.file?
-      = link_to t("views.welcome.show.read_more"), headline, class: (controller.controller_name == "welcome" ? nil : "btn btn-transparent")
+      .clearfix
+      = link_to t("views.welcome.show.read_more"), headline, class: "btn btn-transparent"
     - else
-      = image_tag headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;" if headline.banner.file?
       = headline.body.html_safe
 
 - if controller.controller_name == "headlines"

@@ -10,4 +10,7 @@
         %small= "avec le tag #{params[:tag]}"
 
 .row
-  = render @startups
+  - @startups.in_groups_of(4, Startup.new) do |group|
+    .card-deck-wrapper
+      .card-deck
+        = render group
