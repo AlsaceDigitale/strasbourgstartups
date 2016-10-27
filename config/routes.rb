@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :startups
     resources :job_offers
     resources :headlines
-    resources :events
     resources :pages
 
     root to: "startups#index"
@@ -20,7 +19,6 @@ Rails.application.routes.draw do
 
   resources :startups
   resources :headlines
-  resources :events
   resources :pages
 
   root to: "welcome#show"
