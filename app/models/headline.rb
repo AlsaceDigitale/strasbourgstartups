@@ -23,6 +23,7 @@ class Headline
   scope :publicly_visible, -> { desc(:published_at).where(published_at: {"$lt" => Time.now}) }
 
   def chapo
-    (ActionView::Base.full_sanitizer.sanitize(body).split(/\.|\!|\?/).first.strip + ".").truncate(120)
+    first_part = ActionView::Base.full_sanitizer.sanitize(body).split(/\.|\!|\?/).first
+    first_part.present? ? (first_part.strip + ".").truncate(120) : nil
   end
 end
