@@ -3,7 +3,7 @@
   .card-deck
     - @headlines.each do |headline|
       .card.headline
-        = image_tag(headline.banner.url(:medium), style: "width:100%;height:200px;background-position: center center;background-size: cover;", class: "card-img-top") if headline.banner.file?
+        = image_tag(headline.banner.url(:medium), style: "width:100%;background-position: center center;background-size: cover;", class: "card-img-top") if headline.banner.file?
         .card-block
           %h1.h5.card-title= link_to headline.title, headline
           .card-text
