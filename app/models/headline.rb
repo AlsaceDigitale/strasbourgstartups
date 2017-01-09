@@ -16,7 +16,7 @@ class Headline
   has_mongoid_attached_file :banner,
     styles: {
       small: ['100x100>', :png],
-      medium: ['500x500>', :png]
+      medium: ['500x250#', :png]
     }
   validates_attachment_content_type :banner, content_type: /\Aimage/
 
