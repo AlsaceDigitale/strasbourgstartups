@@ -18,6 +18,10 @@ Bundler.require(*Rails.groups)
 
 module StrasbourgStartups
   class Application < Rails::Application
+    unless ENV['DISABLE_SSL'].present?
+      config.middleware.use Rack::SslEnforcer, hsts: true
+    end
+
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 '/about',  '/a-propos'
       r301 '/admin',  '/extranet'

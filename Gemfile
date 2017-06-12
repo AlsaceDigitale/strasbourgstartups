@@ -53,6 +53,7 @@ gem 'simple_form'
 gem 'nested_form', github: 'ryanb/nested_form'
 
 gem 'rack-rewrite'
+gem 'rack-ssl-enforcer'
 gem 'mailjet'
 
 group :development, :test do
