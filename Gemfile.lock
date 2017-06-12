@@ -85,7 +85,7 @@ GEM
       sass (>= 3.4.19)
     bootstrap3-datetimepicker-rails (4.17.42)
       momentjs-rails (>= 2.8.1)
-    bson (4.1.1)
+    bson (4.2.1)
     builder (3.2.3)
     byebug (9.0.6)
     ckeditor (4.2.0)
@@ -295,9 +295,9 @@ GEM
     minitest (5.10.2)
     momentjs-rails (2.15.1)
       railties (>= 3.1)
-    mongo (2.3.0)
-      bson (~> 4.1)
-    mongoid (6.0.2)
+    mongo (2.4.2)
+      bson (>= 4.2.1, < 5.0.0)
+    mongoid (6.0.3)
       activemodel (~> 5.0)
       mongo (~> 2.3)
     mongoid-compatibility (0.4.0)
@@ -462,7 +462,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mailjet
   momentjs-rails
-  mongoid
+  mongoid (~> 6.0.0)
   mongoid-paperclip
   mongoid-simple-tags
   mongoid-slug
