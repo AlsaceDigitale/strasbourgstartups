@@ -32,4 +32,4 @@
             - if current_user.is_admin?
               %li.list-inline-item= link_to fa_icon('trash', title: 'Supprimer'), [:admin, startup], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette startup ?'}
 
-=# will_paginate @startups, renderer: BootstrapPagination::Rails
+=# will_paginate @startups, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
