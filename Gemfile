@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.0.0'
 gem 'rails-i18n'
 
 # Use Puma as the app server
@@ -43,7 +43,6 @@ gem 'acts_as_list'
 gem 'rollbar'
 gem 'ckeditor'
 gem 'recaptcha', require: 'recaptcha/rails'
-gem 'will_paginate-bootstrap4'
 gem 'bootstrap'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'

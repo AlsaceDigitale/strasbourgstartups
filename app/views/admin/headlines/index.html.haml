@@ -12,4 +12,4 @@
             %li.list-inline-item= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, headline]
             %li.list-inline-item= link_to fa_icon('trash', title: 'Supprimer'), [:admin, headline], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette actualité ?'}
 
-= will_paginate @headlines, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+= will_paginate @headlines, renderer: BootstrapPaginationHelper::LinkRenderer

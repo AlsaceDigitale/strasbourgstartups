@@ -1,4 +1,4 @@
 - @page_title = t("views.headlines.index.page_title")
 = render @headlines
 
-= will_paginate @headlines, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+= will_paginate @headlines, renderer: BootstrapPaginationHelper::LinkRenderer
