@@ -1,31 +1,31 @@
 GIT
-  remote: git://github.com/Scalingo/scalingo_databases_rake_tasks-gem.git
-  revision: 0365210de85402f7a1b3d903b589ee53c43868ab
+  remote: https://github.com/Scalingo/scalingo_databases_rake_tasks-gem.git
+  revision: b40394e02a6d798c7b994ecdb173f7701e4c1316
   specs:
-    scalingo_databases_rake_tasks (0.1.8)
+    scalingo_databases_rake_tasks (0.1.12)
 
 GIT
-  remote: git://github.com/josevalim/inherited_resources.git
-  revision: 4434f0ae72f790cf371728838c927c338100555d
+  remote: https://github.com/josevalim/inherited_resources.git
+  revision: 652686148f554fb9ce0ebee5d857b3d3decc0272
   specs:
-    inherited_resources (1.6.0)
-      actionpack (>= 3.2, < 5.1)
+    inherited_resources (1.8.0)
+      actionpack (>= 4.2, <= 5.2)
       has_scope (~> 0.6)
-      railties (>= 3.2, < 5.1)
+      railties (>= 4.2, <= 5.2)
       responders
 
 GIT
-  remote: git://github.com/ryanb/nested_form.git
+  remote: https://github.com/ryanb/nested_form.git
   revision: 1b0689dfb4d230ceabd278eba159fcb02f23c68a
   specs:
     nested_form (0.3.2)
 
 GIT
-  remote: git://github.com/scambra/devise_invitable.git
-  revision: 5dafc713bce7fd5a0abb2d3c150dd10b681f44f3
+  remote: https://github.com/scambra/devise_invitable.git
+  revision: fc61d3c2eb53d50499ab10ba1ef61005db155f9b
   specs:
-    devise_invitable (1.7.0)
-      actionmailer (>= 4.0.0)
+    devise_invitable (1.7.3)
+      actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
 
 GEM
@@ -257,9 +257,9 @@ GEM
       activesupport (>= 4.2.0)
     haml (4.0.7)
       tilt
-    has_scope (0.7.0)
-      actionpack (>= 4.1, < 5.1)
-      activesupport (>= 4.1, < 5.1)
+    has_scope (0.7.1)
+      actionpack (>= 4.1, < 5.2)
+      activesupport (>= 4.1, < 5.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.4)
@@ -492,7 +492,7 @@ DEPENDENCIES
   will_paginate_mongoid
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.4.3p205
 
 BUNDLED WITH
-   1.15.1
+   1.16.1
