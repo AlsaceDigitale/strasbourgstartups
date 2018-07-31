@@ -35,7 +35,7 @@
                   = link_to I18n.t("views.nav.pages"), admin_pages_path, class: "nav-link"
             %ul.nav.navbar-nav.pull-right
               %li.nav-item= link_to current_user.email, admin_root_path, class: "nav-link"
-              %li.nav-item= link_to fa_icon("sign-out", title: "Déconnexion"), destroy_user_session_path, method: :delete, class: "nav-link"
+              %li.nav-item= link_to fa_icon("sign-out-alt", title: "Déconnexion"), destroy_user_session_path, method: :delete, class: "nav-link"
       .container
         .row
           .col-12

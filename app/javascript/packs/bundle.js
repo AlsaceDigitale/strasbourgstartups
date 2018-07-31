@@ -8,8 +8,8 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import fontawesome from '@fortawesome/fontawesome'
-import {faRss} from '@fortawesome/fontawesome-free-solid'
-fontawesome.library.add(faRss)
+import {faRss, faAngleLeft} from '@fortawesome/fontawesome-free-solid'
+fontawesome.library.add(faRss, faAngleLeft)
 import {faFacebookF, faTwitter} from '@fortawesome/fontawesome-free-brands'
 fontawesome.library.add(faFacebookF, faTwitter)
 
