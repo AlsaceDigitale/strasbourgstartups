@@ -1,0 +1,47 @@
+version: '2'
+services:
+  mongo:
+    image: scalingo/mongo:3.6.3-1
+    volumes:
+      - ./docker/mongodb-data:/var/lib/mongodb:rw
+    environment:
+      DB_UID: 1000
+    command: /mongo
+    ports:
+      - "27017:27017"
+  web:
+    build: .
+    volumes:
+     - .:/usr/src/app:rw
+    environment:
+      PORT: 3000
+      DEFAULT_FROM: "${DEFAULT_FROM}"
+      DEFAULT_HOST: "${DEFAULT_HOST}"
+      DISQUS_SHORTNAME: "${DISQUS_SHORTNAME}"
+      FOG_PROVIDER: "${FOG_PROVIDER}"
+      RECAPTCHA_SECRET_KEY: "${RECAPTCHA_SECRET_KEY}"
+      RECAPTCHA_SITE_KEY: "${RECAPTCHA_SITE_KEY}"
+      S3_BUCKET_NAME: "${S3_BUCKET_NAME}"
+      S3_KEY: "${S3_KEY}"
+      S3_REGION: "${S3_REGION}"
+      S3_SECRET: "${S3_SECRET}"
+      RAILS_ENV: development
+      MONGO_URL: "mongodb://admin:admin-secret@mongo:27017/strasbourgstartups-development?authSource=admin"
+      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.5.0/bin"
+      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.5.0"
+      BUNDLE_APP_CONFIG: "/usr/src/app/.bundle"
+    links:
+      - mongo
+    ports:
+      - 3000:3000
+    command: bundle exec rails server -b 0.0.0.0 -p 3000
+  webpack:
+    build: .
+    ports:
+      - 3035:3035
+    volumes:
+      - ./:/usr/src/app
+    command: bundle exec ./bin/webpack-dev-server
+    environment:
+      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.5.0/bin"
+      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.5.0"
