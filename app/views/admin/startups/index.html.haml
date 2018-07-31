@@ -1,5 +1,6 @@
-%h2.no-top= @page_title = current_user.is_admin? ? "Toutes les startups" : "Édition de #{ @startups.first.name }"
-= link_to 'Ajouter une nouvelle startup', new_admin_startup_path, class: "btn btn-primary" if current_user.is_admin?
+.d-flex.my-5
+  %h1.mb-0.mr-auto= @page_title = current_user.is_admin? ? "Toutes les startups" : "Édition de #{ @startups.first.name }"
+  = link_to 'Ajouter une nouvelle startup', new_admin_startup_path, class: "btn btn-primary btn-raised" if current_user.is_admin?
 %table.table.table-condensed.table-hover.table-striped
   %thead
     %tr

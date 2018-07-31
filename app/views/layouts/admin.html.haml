@@ -5,12 +5,12 @@
     %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}
     %meta{charset: "utf-8"}
     %meta{http: {equiv: "X-UA-Compatible"}, content: "IE=edge"}
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
-    = stylesheet_link_tag 'admin', media: 'all'
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no"}
+    = stylesheet_pack_tag 'admin-style', media: 'all'
     = csrf_meta_tags
+    = csp_meta_tag
     = favicon_link_tag
-    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Oswald:300.400.700"
-    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,900,900italic,700"
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
   %body
     - if user_signed_in?
       %nav.navbar.bg-primary
@@ -38,27 +38,7 @@
               %li.nav-item= link_to fa_icon("sign-out", title: "Déconnexion"), destroy_user_session_path, method: :delete, class: "nav-link"
       .container
         .row
-          .col-xs-12
-            .card.card-block.card-transparent.bg-white
-              - if flash[:notice]
-                .alert.alert-info= flash[:notice]
-              - elsif flash[:error]
-                .alert.alert-danger= flash[:error]
-              - elsif flash[:success]
-                .alert.alert-success= flash[:success]
-              = yield
-      = javascript_include_tag :admin
-      = javascript_include_tag Ckeditor.cdn_url
-    - else
-      .container
-        .row
-          .col-xs-12.col-sm-6.offset-sm-3.col-lg-4.offset-lg-4.login
-            .card.card-block.card-transparent.bg-white
-              %h1.h3.no-top.no-bottom{style: "font-family: 'Oswald',sans-serif;font-size: 32px;font-weight: 900;"}
-                Strasbourg Startups
-                %br
-                %small
-                  admin
+          .col-12
             - if flash[:notice]
               .alert.alert-info= flash[:notice]
             - elsif flash[:error]
@@ -66,3 +46,22 @@
             - elsif flash[:success]
               .alert.alert-success= flash[:success]
             = yield
+      = javascript_pack_tag 'admin-bundle'
+    - else
+      .container
+        .row
+          .col-12.col-md-6.mx-md-auto.col-lg-4.login
+            - if flash[:notice]
+              .alert.alert-info= flash[:notice]
+            - elsif flash[:error]
+              .alert.alert-danger= flash[:error]
+            - elsif flash[:success]
+              .alert.alert-success= flash[:success]
+            .card.mt-5
+              .card-body
+                %h1.h3.no-top.no-bottom{style: "font-family: 'Oswald',sans-serif;font-size: 32px;font-weight: 900;"}
+                  Strasbourg Startups
+                  %br
+                  %small
+                    admin
+                = yield

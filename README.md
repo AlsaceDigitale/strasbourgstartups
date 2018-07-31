@@ -1,21 +1,24 @@
-# Strasbourg Startups
+# README
 
-This is the source code of the Ruby on Rails application behind the http://www.strasbourg-startups.com website whom goal is to gather and foster the emerging startup scene in Strasbourg, France, and the surrouding area.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-# Install
+Things you may want to cover:
 
-It's a standard Ruby on Rails app.
+* Ruby version
 
-# How to contribute?
+* System dependencies
 
-# Sync database from production
+* Configuration
 
-bundle exec rake scalingo:mongodb:backup_remote db:drop scalingo:mongodb:restore_local APP=strasbourg-startups
+* Database creation
 
-# MongoDB installation
+* Database initialization
 
-With the help of Scalingo's Docker image:
+* How to run the test suite
 
-```
-docker run -it -e DB_USER=pipo -e DB_PASSWORD=molo -e DB_UID=`id -u` -p 27017:27017 -v ~/data/mongo/strasbourg_startups:/var/lib/mongodb:rw,z scalingo/mongo:latest /mongo
-```
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

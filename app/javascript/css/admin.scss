@@ -1,0 +1,11 @@
+@import "common";
+
+.page-header {
+  @extend .mt-5, .mb-4;
+  @extend .pb-2;
+  border-bottom: 1px solid $gray-200;
+}
+
+textarea, .ck-editor__editable {
+  min-height: 200px;
+}

@@ -10,6 +10,8 @@ class Headline
   field :published_at, type: Time, default: -> { Time.now }
   field :is_focus, type: Boolean, default: false
 
+  validates :title, :body, presence: true
+
   # slug :title, history: true, localize: true
   slug :title, localize: true
 

@@ -15,7 +15,11 @@ public
   end
 
   def show
-    @startup = Startup.find params[:id]
+    if params[:visible].present?
+      @startup = Startup.find params[:id]
+    else
+      @startup = Startup.publicly_visible.find params[:id]
+    end
   end
 
   def new

@@ -1,0 +1,86 @@
+@import "common";
+
+section {
+  &.hero {
+    background-position: center center;
+    background-size: cover;
+    min-height: 230px;
+    height: 60vh;
+    .title, .subtitle {
+      color: white;
+    }
+    .title {
+      font-weight: 500;
+    }
+    .subtitle {
+      @extend .h4;
+      font-weight: 400;
+    }
+  }
+}
+
+header {
+  height: 64px;
+  .brand {
+    svg, img {
+      height: 32px;
+      width: auto;
+    }
+  }
+}
+
+footer {
+  background-color: $brand-primary;
+  color: white;
+  a {
+    color: white;
+    &:hover, &:focus {
+      color: white;
+    }
+  }
+}
+
+.img-responsive-fixed-height {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-deck {
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  .card {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  &.headlines-list {
+    .card {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 calc(100%)
+      }
+      @include media-breakpoint-up(md) {
+        flex: 0 0 calc(100%/2 - 30px)
+      }
+      @include media-breakpoint-up(xl) {
+        flex: 0 0 calc(100%/3 - 30px)
+      }
+    }
+  }
+  &.startups-list {
+    .card {
+      @include media-breakpoint-up(sm) {
+        flex: 0 0 calc(100%)
+      }
+      @include media-breakpoint-up(md) {
+        flex: 0 0 calc(100%/4 - 30px)
+      }
+      @include media-breakpoint-up(xl) {
+        flex: 0 0 calc(100%/5 - 30px)
+      }
+    }
+  }
+}

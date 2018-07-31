@@ -1,5 +1,5 @@
-.card.card-transparent.startup.text-xs-center
-  .card-block
-    - unless startup.new_record?
-      = link_to startup, title: startup.name do
-        = image_tag startup.logo_url(:medium), alt: "Logo #{startup.name}", title: startup.name, class: "img-responsive-fixed-height"
+- card_klass ||= 'mt-3'
+.card.startup.p-3{class: card_klass}
+  - unless startup.new_record?
+    = link_to startup, title: startup.name do
+      = image_tag startup.logo_url(:medium), alt: "Logo #{startup.name}", title: startup.name, class: "img-responsive-fixed-height"

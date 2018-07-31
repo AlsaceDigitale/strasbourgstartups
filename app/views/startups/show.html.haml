@@ -1,26 +1,27 @@
 - @page_title = "Présentation de #{ @startup.name }"
 - @page_description = @startup.description
 - @og_image = @startup.logo.url if @startup.logo.file?
-.row
-  .col-xs-12
-    = link_to startups_path, class: "btn btn-transparent", style: "margin-bottom:20px;" do
-      = fa_icon "angle-left"
-      = t("views.common.return_startups_list")
+%section.bg-white
+  .container
+    .row
+      .col-12
+        = link_to startups_path, class: "btn btn-transparent" do
+          = t("views.common.return_startups_list")
 
-.row
-  .col-xs-12.col-sm-4{style: "padding-top:50px;"}
-    - if @startup.logo.file? && @startup.logo_file_name.ends_with?("svg")
-      = image_tag(@startup.logo_url, style: "width:80%;display:block;margin: 0 auto;")
-    - else
-      = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:80%;margin: 0 auto;")
-  .col-xs-12.col-sm-8
-    %h1.no-top= @startup.name
-    - if (tags = @startup.tags).any?
-      %ul.list-inline
-        - for tag in tags
-          %li.list-inline-item= link_to "##{ tag }", startups_path(tag: tag)
-    = link_to @startup.url, @startup.url, target: "_blank"
-    %br
-    = mail_to @startup.email if @startup.email
-    %p.address= @startup.address
-    = @startup.description.html_safe
+    .row
+      .col-12.col-md-4{style: "padding-top:50px;"}
+        - if @startup.logo.file? && @startup.logo_file_name.ends_with?("svg")
+          = image_tag(@startup.logo_url, style: "width:80%;display:block;margin: 0 auto;")
+        - else
+          = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:80%;margin: 0 auto;")
+      .col-12.col-md-8
+        %h1= @startup.name
+        - if (tags = @startup.tags[I18n.locale]).any?
+          %ul.list-inline
+            - for tag in tags
+              %li.list-inline-item= link_to "##{ tag }", startups_path(tag: tag)
+        = link_to @startup.url, @startup.url, target: "_blank"
+        %br
+        = mail_to @startup.email if @startup.email
+        %p.address= @startup.address
+        = @startup.description.html_safe

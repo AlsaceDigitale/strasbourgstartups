@@ -1,13 +1,13 @@
-%footer
+%footer.mt-5.py-5
   .container
     .row
-      .col-xs-12
-        .pull-left
-          %ul.list-inline
-            %li.list-inline-item= link_to fa_icon("facebook"), "https://www.facebook.com/StrasbourgStartups"
-            %li.list-inline-item= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
-            %li.list-inline-item= link_to fa_icon("rss"), headlines_path(format: "rss")
-        .pull-right.text-right
+      .col-12
+        .d-flex.flex-column.flex-md-row.align-items-center
+          .mr-md-auto
+            %ul.list-inline
+              %li.list-inline-item= link_to fa_icon("facebook"), "https://www.facebook.com/StrasbourgStartups"
+              %li.list-inline-item= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
+              %li.list-inline-item= link_to fa_icon("rss"), headlines_path(format: "rss")
           %ul.list-unstyled
             %li= t("views.footer.signature").html_safe
             %li= mail_to "hello@strasbourg-startups.com"

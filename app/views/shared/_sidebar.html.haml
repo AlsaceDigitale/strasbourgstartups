@@ -1,21 +1,12 @@
-= link_to new_startup_path, class: "btn btn-info btn-block", style: "margin-bottom:20px;" do
+= link_to new_startup_path, class: "btn btn-info btn-block btn-raised mt-4" do
   = I18n.t("views.nav.startup_add")
-  = fa_icon "angle-right"
-
-- headline_focus = Headline.where(is_focus: true).desc(:published_at).first
-- headline_focus ||= Headline.desc(:published_at).first
-- if headline_focus
-  .card
-    = image_tag headline_focus.banner.url(:medium), style: "width:100%;background-position: center center;background-size: cover;", class: "card-img-top"
-    .card-block
-      %strong.h5.card-title= headline_focus.title
-      .card-text
-        = headline_focus.chapo
-        = link_to headline_focus, class: "btn btn-primary text-xs-center", style: "display:block;margin-top:10px;" do
-          = t("views.welcome.show.read_more")
-          = fa_icon "angle-right"
-
-.fb-page{data: {href: "https://www.facebook.com/StrasbourgStartups", height: 500, tabs: "timeline", small: {header: "true"}, adapt: {container: {width: "true"}}, hide: {cover: "false"}, show: {facepile: "true"}}}
+- unless controller.controller_name == "welcome"
+  - headline_focus = Headline.where(is_focus: true).desc(:published_at).first
+  - headline_focus ||= Headline.desc(:published_at).first
+  - if headline_focus
+    %h3.mt-5.mb-3= t('.last_headline')
+    = render partial: "headlines/card", locals: {headline: headline_focus, card_klass: ''}
+.card.fb-page.mt-5{data: {href: "https://www.facebook.com/StrasbourgStartups", height: 500, tabs: "timeline", small: {header: "true"}, adapt: {container: {width: "true"}}, hide: {cover: "false"}, show: {facepile: "true"}}}
   %blockquote{cite: "https://www.facebook.com/StrasbourgStartups", class: "fb-xfbml-parse-ignore"}
     = link_to "Strasbourg Startups", "https://www.facebook.com/StrasbourgStartups"
 

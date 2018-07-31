@@ -1,29 +1,21 @@
-%h1.no-top= t("views.welcome.show.latest_headlines")
-.card-deck-wrapper
-  .card-deck
-    - @headlines.each do |headline|
-      .card.headline
-        = image_tag(headline.banner.url(:medium), style: "width:100%;background-position: center center;background-size: cover;", class: "card-img-top") if headline.banner.file?
-        .card-block
-          %h1.h5.card-title= link_to headline.title, headline
-          .card-text
-            %small.text-muted.text-xs-italic{style: "display:block;margin-bottom:10px;"}
-              = l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
-              - if headline.tags.any?
-                = "dans #{ headline.tags.map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(", ") }".html_safe
-          .card-text
-            = strip_tags(headline.chapo)
-            = link_to t("views.welcome.show.read_more"), headline, class: "card-link"
+%section.bg-white.py-5
+  .container
+    .row
+      .col-12
+        %h1.mb-0= t("views.welcome.show.latest_headlines")
+        .card-deck.headlines-list
+          = render partial: "headlines/card", collection: @headlines, as: :headline
+        .text-center
+          = link_to headlines_path, class: "btn btn-primary btn-raised mt-4" do
+            = t("views.welcome.show.link_to_all_headlines")
 
-= link_to headlines_path, class: "btn btn-primary", style: "margin-top:30px;" do
-  = t("views.welcome.show.link_to_all_headlines")
-  = fa_icon "angle-right"
-
-%h1{style: "margin-top:40px;"}= t("views.welcome.show.latest_startups")
-.row
-  .card-deck-wrapper
-    .card-deck
-      = render @startups
-= link_to startups_path, class: "btn btn-primary", style: "margin-top:30px;" do
-  = t("views.welcome.show.link_to_all_startups")
-  = fa_icon "angle-right"
+%section
+  .container
+    .row
+      .col-12
+        %h1.mt-5.mb-0= t("views.welcome.show.latest_startups")
+        .card-deck.startups-list
+          = render @startups
+        .text-center
+          = link_to startups_path, class: "btn btn-primary btn-raised mt-4" do
+            = t("views.welcome.show.link_to_all_startups")

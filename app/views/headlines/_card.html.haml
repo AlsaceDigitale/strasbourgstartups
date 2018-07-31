@@ -1,0 +1,17 @@
+- card_klass ||= 'mt-3'
+.card.headline{class: card_klass}
+  = link_to headline do
+    = image_tag(headline.banner.url(:medium), style: "width:100%;background-position: center center;background-size: cover;", class: "card-img-top") if headline.banner.file?
+  .card-body
+    %h1.h5.card-title= link_to headline.title, headline
+    .card-text
+      %small.text-muted.d-block.mt-0.mb-1
+        = l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
+      - if headline.tags.any?
+        %small.text-muted.d-block.my-2
+          = headline.tags[I18n.locale].map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(" ").html_safe
+    .card-text
+      = strip_tags(headline.chapo)
+  .card-footer
+    = link_to t("views.welcome.show.read_more"), headline, class: "card-link"
+

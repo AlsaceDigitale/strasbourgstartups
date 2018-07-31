@@ -1,4 +1,9 @@
 - @page_title = t("views.headlines.index.page_title")
-= render @headlines
+.container
+  .row
+    .col-12
+      .card-deck.headlines-list
+        = render partial: "headlines/card", collection: @headlines, as: :headline, locals: {card_klass: 'mt-4'}
 
-= will_paginate @headlines, renderer: BootstrapPaginationHelper::LinkRenderer
+      .mt-5.d-flex.justify-content-center
+        = will_paginate @headlines

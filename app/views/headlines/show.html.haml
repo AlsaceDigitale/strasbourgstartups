@@ -1,10 +1,24 @@
 - @page_title = @headline.title
 - @og_image = @headline.banner.url if @headline.banner.file?
-.row
-  .col-xs-12
-    = link_to headlines_path, class: "btn btn-transparent", style: "margin-bottom:20px;" do
-      = fa_icon "angle-left"
-      = t("views.common.return_headlines_list")
-
-= render partial: "headline", locals: {headline: @headline}
-
+.container
+  .row
+    .col-12.col-md-8.mx-md-auto.col-lg-9
+      .row
+        .col-12
+          = link_to headlines_path, class: "btn btn-transparent" do
+            = fa_icon "angle-left"
+            = t("views.common.return_headlines_list")
+      .row
+        .col-12
+          .text-muted.mt-3.mb-0
+            = strip_tags(l(@headline.published_at, format: :published_at))
+          %h1.mt-0{class: @headline.tags.any? ? 'mb-1' : 'mb-3'}
+            = @headline.title
+          - if @headline.tags.any?
+            %small.text-muted.d-block.mb-3
+              = @headline.tags[I18n.locale].map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(" ").html_safe
+          = image_tag(@headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;") if @headline.banner.file?
+          = @headline.body.html_safe
+      .row
+        .col-12
+          = render partial: "disqus"

@@ -1,7 +1,7 @@
 .page-header
   %h2.no-top= @page_title = @startup.new_record? ? "Ajouter une nouvelle startup" : "Modifier une startup"
 
-= simple_form_for [:admin, @startup], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+= simple_form_for [:admin, @startup], html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
   = f.input :logo, as: :image_preview, input_html: {preview_version: :small}
   = f.input :name
   = f.input :email
@@ -9,14 +9,14 @@
   = f.input :tag_list
   = f.simple_fields_for :description_translations do |localized_field|
     - value = @startup.description_translations["fr"] if @startup.description_translations
-    = localized_field.input :fr, as: :ckeditor, input_html: {value: value}
+    = localized_field.input :fr, input_html: {value: value}
     - value = @startup.description_translations["en"] if @startup.description_translations
-    = localized_field.input :en, as: :ckeditor, input_html: {value: value}
+    = localized_field.input :en, input_html: {value: value}
   = f.input :is_published, as: :boolean
   - if current_user.is_admin?
     = f.input :added_on, as: :datetime, html5: true, input_html: {data: {provide: 'datepicker'}}
   .row
-    .col-xs-12
+    .col-12
       %ul.pull-right.list-inline
         %li.list-inline-item= link_to 'Retour', {action: :index}, class: "btn btn-link"
-        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary"
+        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary btn-raised"

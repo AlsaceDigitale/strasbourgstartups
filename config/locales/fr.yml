@@ -16,6 +16,9 @@ fr:
       default: "%d/%m/%Y %H:%M"
       published_at: "publié le <a href='%{link}'>%d/%m/%Y à %H:%M</a>"
       datetime: "%d/%m/%Y %H:%M"
+  shared:
+    sidebar:
+      last_headline: "Dernier article"
   views:
     nav:
       headlines: "Actualités"

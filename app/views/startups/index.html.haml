@@ -1,16 +1,15 @@
-.row
-  .col-xs-12
-    %h1.no-top= @page_title = t("views.startups.index.page_title")
-.row
-  .col-xs-12
-    .h3
-      = t("views.startups.index.count_active", count: @startups.count)
-      - if params[:tag].present?
-        %br
-        %small= "avec le tag #{params[:tag]}"
+%section.bg-white
+  .container
+    .row
+      .col-12
+        %h1= @page_title = t("views.startups.index.page_title")
+    .row
+      .col-12
+        .h3
+          = t("views.startups.index.count_active", count: @startups.count)
+          - if params[:tag].present?
+            %br
+            %small= "avec le tag #{params[:tag]}"
 
-.row
-  - @startups.in_groups_of(4, Startup.new) do |group|
-    .card-deck-wrapper
-      .card-deck
-        = render group
+    .card-deck.startups-list
+      = render @startups

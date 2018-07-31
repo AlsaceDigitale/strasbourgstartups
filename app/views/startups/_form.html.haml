@@ -1,28 +1,31 @@
-- @og_image = image_url("tout_seul_dans_le_bois.png")
-.page-header
-  %h2.no-top= @page_title = @startup.new_record? ? "Ajouter une nouvelle startup" : "Modifier une startup"
+- @og_image = asset_pack_path("images/tout_seul_dans_le_bois.png")
 
-= render partial: "/shared/errors_and_notices", locals: {model: @startup}
+%section
+  .container
+    .row
+      .col-12
+        %h1= @page_title = "Ajouter une nouvelle startup"
+        %hr.mt-3.mb-5
 
-= simple_form_for @startup, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
-  = f.input :logo, as: :image_preview, input_html: {preview_version: :small}
-  = f.input :name
-  = f.input :email
-  = f.input :url
-  = f.simple_fields_for :description_translations do |localized_field|
-    - value = @startup.description_translations["fr"] if @startup.description_translations
-    = localized_field.input :fr, as: :text, input_html: {value: value}
-    - value = @startup.description_translations["en"] if @startup.description_translations
-    = localized_field.input :en, as: :text, input_html: {value: value}
-  .form-group
-    .col-sm-9.col-sm-offset-3
-      = recaptcha_tags
-  .form-group
-    .col-sm-9.col-sm-offset-3
-      %small
-        = render partial: "explanation"
-  .row
-    .col-xs-12
-      %ul.pull-right.list-inline
-        %li= link_to 'Retour', {action: :index}, class: "btn btn-link"
-        %li= f.submit "Enregistrer", class: "btn btn-primary"
+        = render partial: "/shared/errors_and_notices", locals: {model: @startup}
+
+        = simple_form_for @startup, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+          = f.input :logo, as: :image_preview, input_html: {preview_version: :small}
+          = f.input :name
+          = f.input :email
+          = f.input :url
+          = f.simple_fields_for :description_translations do |localized_field|
+            - value = @startup.description_translations["fr"] if @startup.description_translations
+            = localized_field.input :fr, as: :text, input_html: {value: value}
+            - value = @startup.description_translations["en"] if @startup.description_translations
+            = localized_field.input :en, as: :text, input_html: {value: value}
+          .form-group
+            .col-12.col-md-9.offset-md-3
+              = recaptcha_tags
+              %ul.pull-right.list-inline.mt-3
+                %li.list-inline-item= link_to 'Retour', {action: :index}, class: "btn btn-link"
+                %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary btn-raised"
+              .form-group
+                .col-sm-9.col-sm-offset-3
+                  %small
+                    = render partial: "explanation"

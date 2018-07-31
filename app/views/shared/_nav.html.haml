@@ -1,17 +1,11 @@
-%nav.navbar.welcome{class: controller.controller_name != "welcome" ? "small": nil}
-  - if controller.controller_name == "welcome"
-    %a.fa.fa-chevron-down.fa-2x.readnext{href: "#"}
-  .container
-    .navbar-header
-      %button.navbar-toggler.hidden-sm-up{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        = fa_icon "bars", style: "color:white;"
-
-      - if controller.controller_name != "welcome"
-        = link_to "Strasbourg Startups", root_path, class: "navbar-brand"
-    = render "/shared/real_nav"
-    - if controller.controller_name == "welcome"
-      .row
-        .col-xs-12
-          .title.text-xs-center Strasbourg Startups
-          .subtitle.text-xs-center= @page_description
+- extra_klass = controller.controller_name != 'welcome' && 'mb-5'
+%header.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.bg-white.box-shadow{class: extra_klass}
+  .mr-md-auto
+    = link_to root_path, class: "brand" do
+      = image_tag(asset_pack_path("images/logo.svg"))
+  %nav.my-2.my-md-0.mr-md-3
+    = link_to I18n.t("views.nav.headlines"), headlines_path, class: "p-2 text-dark"
+    = link_to I18n.t("views.nav.startups"), startups_path, class: "p-2 text-dark"
+    - page_about = Page.where(code: "about").first
+    - if page_about
+      = link_to page_about.title, extra_page_path(page_about), class: "p-2 text-dark"
