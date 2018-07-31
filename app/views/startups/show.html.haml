@@ -16,7 +16,7 @@
           = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:80%;margin: 0 auto;")
       .col-12.col-md-8
         %h1= @startup.name
-        - if (tags = @startup.tags[I18n.locale]).any?
+        - if @startup.tags.any? && (tags = @startup.tags[I18n.locale]).any?
           %ul.list-inline
             - for tag in tags
               %li.list-inline-item= link_to "##{ tag }", startups_path(tag: tag)
