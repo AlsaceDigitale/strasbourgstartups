@@ -28,19 +28,20 @@ gem 'mongoid-slug', github: 'Fudoshiki/mongoid-slug'
 gem 'geocoder'
 gem 'mongoid-simple-tags'
 
+gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
+gem 'simple_form'
 gem 'will_paginate'
 gem 'will_paginate_mongoid'
 gem 'will_paginate-bootstrap4'
 
 gem 'recaptcha', require: 'recaptcha/rails'
 
-gem 'devise'
-
 gem 'rollbar'
 gem 'mailjet'
-gem 'simple_form'
+gem 'asset_sync'
+gem 'fog-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
