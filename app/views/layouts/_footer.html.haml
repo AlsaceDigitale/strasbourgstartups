@@ -5,8 +5,8 @@
         .d-flex.flex-column.flex-md-row.align-items-center
           .mr-md-auto
             %ul.list-inline
-              %li.list-inline-item= link_to fa_icon("facebook"), "https://www.facebook.com/StrasbourgStartups"
-              %li.list-inline-item= link_to fa_icon("twitter"), "https://twitter.com/SXBStartups"
+              %li.list-inline-item= link_to fa_icon("facebook-f", class: 'fab'), "https://www.facebook.com/StrasbourgStartups"
+              %li.list-inline-item= link_to fa_icon("twitter", class: 'fab'), "https://twitter.com/SXBStartups"
               %li.list-inline-item= link_to fa_icon("rss"), headlines_path(format: "rss")
           %ul.list-unstyled
             %li= t("views.footer.signature").html_safe

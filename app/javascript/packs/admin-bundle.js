@@ -2,8 +2,8 @@ const Rails = require('rails-ujs')
 Rails.start()
 
 import fontawesome from '@fortawesome/fontawesome'
-import {faEdit, faTrashAlt, faSignOutAlt, faExternalLinkAlt} from '@fortawesome/fontawesome-free-solid'
-fontawesome.library.add(faEdit, faTrashAlt, faSignOutAlt, faExternalLinkAlt)
+import {faEdit, faTrashAlt, faSignOutAlt, faExternalLinkAlt, faBriefcase} from '@fortawesome/fontawesome-free-solid'
+fontawesome.library.add(faEdit, faTrashAlt, faSignOutAlt, faExternalLinkAlt, faBriefcase)
 
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 

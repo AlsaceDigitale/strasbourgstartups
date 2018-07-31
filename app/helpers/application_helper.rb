@@ -13,8 +13,4 @@ module ApplicationHelper
       text
     end
   end
-
-  def fa_icon name, options = {}
-    ""
-  end
 end

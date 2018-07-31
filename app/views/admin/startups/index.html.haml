@@ -15,7 +15,8 @@
   %tbody
     - for startup in @startups
       %tr
-        %td= image_tag(startup.logo_url(:small), class: "img-responsive-fixed-height", style: "height:50px;margin:5px 0;") if startup.logo.file?
+        %td
+          = image_tag(startup.logo_url(:small), style: "height:auto;width:auto;with:auto;max-width:100px;") if startup.logo.file?
         %td= startup.name
         %td= I18n.l startup.created_at, format: :datetime
         %td= I18n.l startup.updated_at, format: :datetime
@@ -27,10 +28,10 @@
               %li.list-inline-item= user.email
         %td
           %ul.list-inline
-            %li.list-inline-item= link_to fa_icon('external-link', title: 'Voir la fiche public'), startup, target: '_blank'
+            %li.list-inline-item= link_to fa_icon('external-link-alt', title: 'Voir la fiche public'), startup_path(startup, visible: true), target: '_blank'
             %li.list-inline-item= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, startup]
             %li.list-inline-item= link_to fa_icon('briefcase', title: 'Offres d\'emploi'), [:admin, :job_offers]
             - if current_user.is_admin?
-              %li.list-inline-item= link_to fa_icon('trash', title: 'Supprimer'), [:admin, startup], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette startup ?'}
+              %li.list-inline-item= link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin, startup], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette startup ?'}
 
 =# will_paginate @startups, renderer: BootstrapPaginationHelper::LinkRenderer
