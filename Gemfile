@@ -42,6 +42,7 @@ gem 'rollbar'
 gem 'mailjet'
 gem 'asset_sync'
 gem 'fog-aws'
+gem 'rack-rewrite'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -173,6 +173,7 @@ GEM
     rack (2.0.5)
     rack-proxy (0.6.4)
       rack
+    rack-rewrite (1.5.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
@@ -286,6 +287,7 @@ DEPENDENCIES
   mongoid-simple-tags
   mongoid-slug!
   puma (~> 3.11)
+  rack-rewrite
   rails (~> 5.2.0)
   rails-i18n
   recaptcha

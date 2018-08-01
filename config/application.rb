@@ -55,5 +55,37 @@ module Strasbourgstartups
       Devise::PasswordsController.layout "admin"
       Devise::ConfirmationsController.layout "admin"
     end
+
+    # Setup HSTS to ensure https
+    if Rails.env.production?
+      config.public_file_server.headers = {
+        'Cache-Control' => "max-age=#{ 1.week.to_i }",
+        'Expires' => 1.week.from_now.httpdate
+      }
+
+      config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+        r301 '/about',  '/a-propos'
+        r301 '/admin',  '/extranet'
+        r301 '/admin/',  '/extranet/'
+        r301 '/admin/*',  '/extranet/$1'
+      end
+
+      AssetSync.configure do |config|
+        # Disable automatic run on precompile in order to attach to webpacker rake task
+        config.run_on_precompile = false
+        # The block should return an array of file paths
+        config.add_local_file_paths do
+          # Support webpacker assets
+          public_root = Rails.root.join("public")
+          Dir.chdir(public_root) do
+            packs_dir = Webpacker.config.public_output_path.relative_path_from(public_root)
+            Dir[File.join(packs_dir, '/**/**')]
+          end
+        end
+      end
+
+      config.force_ssl = true
+      config.ssl_options = { hsts: { subdomains: false, preload: true, expires: 1.year } }
+    end
   end
 end
