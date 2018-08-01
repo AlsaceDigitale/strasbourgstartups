@@ -14,6 +14,10 @@ $theme-colors: (
 
 @import "~bootstrap-material-design/scss/bootstrap-material-design";
 
+.offcanvas-collapse {
+  display: none;
+}
+
 @include media-breakpoint-down(sm) {
   .offcanvas-collapse {
     color: rgba(0,0,0,.87);
@@ -26,6 +30,7 @@ $theme-colors: (
     pointer-events: none;
     overflow: hidden;
     z-index: 5;
+    display: unset;
     &:before {
       background-color: rgba(0,0,0,.6);
       display: block;
