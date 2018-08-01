@@ -13,7 +13,7 @@
         - if @startup.logo.file? && @startup.logo_file_name.ends_with?("svg")
           = image_tag(@startup.logo_url, style: "width:80%;display:block;margin: 0 auto;")
         - else
-          = image_tag(@startup.logo.url, class: "img-responsive", style: "max-width:80%;margin: 0 auto;")
+          = image_tag(@startup.logo.url, class: "img-fluid", style: "max-width:80%;margin: 0 auto;")
       .col-12.col-md-8
         %h1= @startup.name
         - if @startup.tags.any? && (tags = @startup.tags[I18n.locale]).any?

@@ -18,7 +18,7 @@
           - if @headline.tags.any?
             %small.text-muted.d-block.mb-3
               = @headline.tags[I18n.locale].map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(" ").html_safe
-          = image_tag(@headline.banner.url(:medium), class: "img-responsive", style: "margin:20px 0;") if @headline.banner.file?
+          = image_tag(@headline.banner.url(:medium), class: "img-fluid", style: "margin:20px 0;") if @headline.banner.file?
           = @headline.body.html_safe
       .row
         .col-12
