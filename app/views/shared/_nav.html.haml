@@ -1,11 +1,34 @@
 - extra_klass = controller.controller_name != 'welcome' && 'mb-5'
-%header.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.bg-white.box-shadow{class: extra_klass}
-  .mr-md-auto
-    = link_to root_path, class: "brand" do
-      = image_tag(asset_pack_path("images/logo.svg"))
-  %nav.my-2.my-md-0.mr-md-3
-    = link_to I18n.t("views.nav.headlines"), headlines_path, class: "p-2 text-dark"
-    = link_to I18n.t("views.nav.startups"), startups_path, class: "p-2 text-dark"
-    - page_about = Page.where(code: "about").first
-    - if page_about
-      = link_to page_about.title, extra_page_path(page_about), class: "p-2 text-dark"
+%nav.navbar.navbar-expand-lg.navbar-light.bg-white{class: extra_klass}
+  %button.navbar-toggler.p-0.border-0{type: :button, data: {toggle: 'offcanvas'}}
+    %span.navbar-toggler-icon
+  = link_to root_path, class: "navbar-brand" do
+    = image_tag(asset_pack_path("images/logo.svg"))
+  .collapse.navbar-collapse.offcanvas-collapse
+    %ul.navbar-nav.ml-auto
+      - extra_klass = controller.controller_name == 'headlines' && 'active'
+      %li.nav-item{class: extra_klass}
+        = link_to I18n.t("views.nav.headlines"), headlines_path, class: "nav-link"
+      - extra_klass = controller.controller_name == 'startups' && 'active'
+      %li.nav-item{class: extra_klass}
+        = link_to I18n.t("views.nav.startups"), startups_path, class: "nav-link"
+      - page_about = Page.where(code: "about").first
+      - if page_about
+        - extra_klass = @page && @page == page_about && 'active'
+        %li.nav-item{class: extra_klass}
+          = link_to page_about.title, extra_page_path(page_about), class: "nav-link"
+
+%aside.offcanvas-collapse
+  .drawer
+    %ul.list-group
+      - klass = %w(list-group-item)
+      - klass << 'active' if controller.controller_name == 'headlines'
+      = link_to I18n.t("views.nav.headlines"), headlines_path, class: klass
+      - klass = %w(list-group-item)
+      - klass << 'active' if controller.controller_name == 'startups'
+      = link_to I18n.t("views.nav.startups"), startups_path, class: klass
+      - page_about = Page.where(code: "about").first
+      - if page_about
+        - klass = %w(list-group-item)
+        - klass << 'active' if @page && @page == page_about
+        = link_to page_about.title, extra_page_path(page_about), class: klass

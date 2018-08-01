@@ -1,9 +1,13 @@
 - @page_title = t("views.headlines.index.page_title")
-.container
-  .row
-    .col-12
-      .card-deck.headlines-list
-        = render partial: "headlines/card", collection: @headlines, as: :headline, locals: {card_klass: 'mt-4'}
+%section
+  .container
+    .row
+      .col-12
+        %h1= @page_title = t("views.headlines.index.page_title")
+    .row
+      .col-12
+        .card-deck.headlines-list
+          = render partial: "headlines/card", collection: @headlines, as: :headline, locals: {card_klass: 'mt-4'}
 
-      .mt-5.d-flex.justify-content-center
-        = will_paginate @headlines
+        .mt-5.d-flex.justify-content-center
+          = will_paginate @headlines

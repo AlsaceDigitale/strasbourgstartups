@@ -8,20 +8,41 @@ section {
     height: 60vh;
     .title, .subtitle {
       color: white;
-    }
-    .title {
-      font-weight: 500;
+      text-shadow: 0 1px 0 black;
     }
     .subtitle {
-      @extend .h4;
-      font-weight: 400;
+      @extend .h3;
+      font-weight: 300;
     }
   }
 }
 
-header {
-  height: 64px;
-  .brand {
+.card {
+  .card-title {
+    a {
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  a {
+    &:hover, &:focus {
+      color: $brand-primary;
+    }
+  }
+  &.startup {
+    @extend .d-flex, .flex-column, .justify-content-center;
+  }
+}
+
+.card-footer {
+  border-top: 0;
+  padding-top: 0;
+}
+
+
+.navbar {
+  .navbar-brand {
     svg, img {
       height: 32px;
       width: auto;

@@ -1,15 +1,15 @@
-%section.bg-white
+%section
   .container
     .row
-      .col-12
+      .col-12.col-md-6
         %h1= @page_title = t("views.startups.index.page_title")
-    .row
-      .col-12
         .h3
           = t("views.startups.index.count_active", count: @startups.count)
           - if params[:tag].present?
             %br
             %small= "avec le tag #{params[:tag]}"
+      .col-12.col-md-6.text-md-right
+        = link_to t('views.nav.startup_add'), new_startup_path, class: "btn btn-raised btn-primary"
 
     .card-deck.startups-list
       = render @startups

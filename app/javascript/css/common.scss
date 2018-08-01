@@ -4,12 +4,6 @@ $brand-primary-dark: #000063;
 $brand-secondary: #81D4FA;
 $brand-secondary-light: #B6FFFF;
 $brand-secondary-dark: #4BA3C7;
-$body-color: rgb(0, 0, 0);
-$body-bg: #f1f3f5;
-$font-family-sans-serif: Roboto, sans-serif;
-
-$headings-color: rgba(0, 0, 0, 0.8);
-$headings-weight: 700;
 
 $theme-colors: (
   "primary": $brand-primary,
@@ -18,79 +12,64 @@ $theme-colors: (
   "primary-dark": $brand-primary-dark
 );
 
-$border-radius:               2px !default;
-$border-radius-lg:            $border-radius;
-$border-radius-sm:            $border-radius;
+@import "~bootstrap-material-design/scss/bootstrap-material-design";
 
-$box-shadow-sm:               rgba(213, 213, 213, 0.8) 0px -1px 8px 0px !default;
-$box-shadow:                  $box-shadow-sm;
-$box-shadow-lg:               $box-shadow-sm;
-
-@import "~bootstrap/scss/bootstrap";
-@import "simple_form-bootstrap/simple_form-bootstrap";
-
-$spacers: (
-  0: 0,
-  1: ($spacer * 0.125),
-  2: ($spacer * 0.25),
-  3: ($spacer * 0.5),
-  4: ($spacer * 0.75),
-  5: ($spacer * 1.5)
-);
-
-.box-shadow {
-  box-shadow: $box-shadow;
-}
-
-.card {
-  border: 0;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  .card-title {
-    a {
-      &:hover, &:focus {
-        text-decoration: none;
+@include media-breakpoint-down(sm) {
+  .offcanvas-collapse {
+    color: rgba(0,0,0,.87);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+    &:before {
+      background-color: rgba(0,0,0,.6);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      content: "";
+      will-change: opacity;
+      transition: opacity;
+      transition-duration: .2s;
+      transition-timing-function: cubic-bezier(.4,0,.2,1);
+    }
+    .drawer {
+      background-color: white;
+      box-shadow: 0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12);
+      left: 0;
+      right: auto;
+      height: 100%;
+      transform: translateX(calc(-100% - 20px));
+      will-change: transform;
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: calc(100% - 56px);
+      max-width: 280px;
+      overflow: hidden;
+      touch-action: none;
+      transition: transform;
+      transition-duration: .2s;
+      transition-timing-function: cubic-bezier(.4,0,.2,1);
+    }
+    &.open {
+      pointer-events: auto;
+      &:before {
+        opacity: 1;
       }
-    }
-  }
-  a {
-    &:hover, &:focus {
-      color: $brand-primary;
-    }
-  }
-  &.startup {
-    @extend .d-flex, .flex-column, .justify-content-center;
-  }
-}
-
-.card-footer {
-  background: transparent;
-  border-top: 0;
-  padding-top: 0;
-}
-
-.btn {
-  padding: 0 16px 0 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  vertical-align: middle;
-  height: 36px;
-  position: relative;
-  border: none;
-  outline: none;
-  align-items: center;
-  justify-content: center;
-  &:not(.btn-block) {
-    display: inline-flex;
-  }
-  &.btn-block {
-    display: flex;
-  }
-  &.btn-raised {
-    color: white;
-    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    &:hover {
-      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+      .drawer {
+        transform: none;
+      }
     }
   }
 }

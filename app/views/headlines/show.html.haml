@@ -13,7 +13,7 @@
         .col-12
           .text-muted.mt-3.mb-0
             = strip_tags(l(@headline.published_at, format: :published_at))
-          %h1.mt-0{class: @headline.tags.any? ? 'mb-1' : 'mb-3'}
+          %h1.display-4.mt-0{class: @headline.tags.any? ? 'mb-2' : 'mb-3'}
             = @headline.title
           - if @headline.tags.any?
             %small.text-muted.d-block.mb-3
