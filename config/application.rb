@@ -71,6 +71,7 @@ module Strasbourgstartups
       end
 
       AssetSync.configure do |config|
+        config.enable = false
         # Disable automatic run on precompile in order to attach to webpacker rake task
         config.run_on_precompile = false
         # The block should return an array of file paths
