@@ -90,6 +90,9 @@ fr:
         name: "Nom du projet"
         email: "Email de contact"
         url: "Site web"
+        tag_list_translations:
+          fr: "Tags (FR)"
+          en: "Tags (EN)"
         description_translations:
           fr: "Description (FR)"
           en: "Description (EN)"

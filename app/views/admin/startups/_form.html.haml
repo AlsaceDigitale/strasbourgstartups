@@ -6,12 +6,14 @@
   = f.input :name
   = f.input :email
   = f.input :url
-  = f.input :tag_list
+  = f.simple_fields_for :tag_list_translations do |localized_field|
+    = localized_field.input :fr, input_html: {value: @startup.tag_list_translations["fr"]}
+    = localized_field.input :en, input_html: {value: @startup.tag_list_translations["en"]}
   = f.simple_fields_for :description_translations do |localized_field|
     - value = @startup.description_translations["fr"] if @startup.description_translations
-    = localized_field.input :fr, input_html: {value: value}
+    = localized_field.input :fr, as: :text, input_html: {value: value, class: :ckeditor}
     - value = @startup.description_translations["en"] if @startup.description_translations
-    = localized_field.input :en, input_html: {value: value}
+    = localized_field.input :en, as: :text, input_html: {value: value, class: :ckeditor}
   = f.input :is_published, as: :boolean
   - if current_user.is_admin?
     = f.input :added_on, as: :datetime, html5: true, input_html: {data: {provide: 'datepicker'}}

@@ -1,9 +1,9 @@
 class Headline
   include Mongoid::Document
-  include Mongoid::Document::Taggable
   include Mongoid::Timestamps
   include Mongoid::Paperclip
   include Mongoid::Slug
+  include Taggable
 
   field :title, type: String, localize: true
   field :body, type: String, localize: true

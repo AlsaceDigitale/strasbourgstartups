@@ -9,7 +9,7 @@
         = l(headline.published_at, format: :published_at, link: headline_path(headline)).html_safe
       - if headline.tags.any?
         %small.text-muted.d-block.my-2
-          = headline.tags[I18n.locale].map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(" ").html_safe
+          = headline.tags.map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(" ").html_safe
     .card-text
       = strip_tags(headline.chapo)
   .card-footer

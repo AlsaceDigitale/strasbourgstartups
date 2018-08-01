@@ -10,7 +10,9 @@ public
 
   def index
     @startups = Startup.publicly_visible
-    @startups = @startups.tagged_with params[:tag] if params[:tag].present?
+    if params[:tag].present?
+      @startups = @startups.in(tags: params[:tag])
+    end
     @startups = @startups.sort_by{|x| x.name.downcase}
   end
 
