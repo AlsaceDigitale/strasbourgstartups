@@ -78,3 +78,20 @@ $theme-colors: (
     }
   }
 }
+
+.navbar {
+  .navbar-brand {
+    svg, img {
+      height: 32px;
+      width: auto;
+    }
+  }
+}
+
+.img-responsive-fixed-height {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

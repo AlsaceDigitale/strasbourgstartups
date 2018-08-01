@@ -10,12 +10,12 @@
     = localized_field.input :en, input_html: {value: value}
   = f.simple_fields_for :body_translations do |localized_field|
     - value = @page.body_translations["fr"] if @page.body_translations
-    = localized_field.input :fr, as: :ckeditor, input_html: {value: value}
+    = localized_field.input :fr, as: :text, input_html: {class: :ckeditor, value: value}
     - value = @page.body_translations["en"] if @page.body_translations
-    = localized_field.input :en, as: :ckeditor, input_html: {value: value}
+    = localized_field.input :en, as: :text, input_html: {class: :ckeditor, value: value}
 
   .row
-    .col-xs-12
+    .col-12
       %ul.pull-right.list-inline
         %li.list-inline-item= link_to 'Retour', {action: :index}, class: "btn btn-link"
-        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary"
+        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary btn-raised"

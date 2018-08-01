@@ -1,8 +1,8 @@
 .page-header
-  %h2.no-top= @page_title = @user.new_record? ? "Ajouter un nouvel utilisateur" : "Modifier un utilisateur"
+  %h2= @page_title = @user.new_record? ? "Ajouter un nouvel utilisateur" : "Modifier un utilisateur"
 
 - ary = @user.new_record? ? [:create_invitation, :admin, @user] : [:admin, @user]
-= simple_nested_form_for ary, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
+= simple_nested_form_for ary, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
   = f.input :email
   = f.input :first_name
   = f.input :last_name
@@ -11,7 +11,7 @@
   = f.input :startup_ids, collection: Startup.asc(:name), input_html: {multiple: true}
   = f.input :is_admin, as: :boolean
   .row
-    .col-xs-12
+    .col-12
       %ul.pull-right.list-inline
         %li.list-inline-item= link_to 'Retour', {action: :index}, class: "btn btn-link"
-        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary"
+        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary btn-raised"

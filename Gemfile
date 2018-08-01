@@ -32,6 +32,7 @@ gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 gem 'simple_form'
+gem 'nested_form'
 gem 'will_paginate'
 gem 'will_paginate_mongoid'
 gem 'will_paginate-bootstrap4'

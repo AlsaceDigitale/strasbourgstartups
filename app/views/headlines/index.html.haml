@@ -9,5 +9,4 @@
         .card-deck.headlines-list
           = render partial: "headlines/card", collection: @headlines, as: :headline, locals: {card_klass: 'mt-4'}
 
-        .mt-5.d-flex.justify-content-center
-          = will_paginate @headlines
+        = will_paginate @headlines, list_classes: %w(pagination justify-content-center mt-5 flex-wrap)

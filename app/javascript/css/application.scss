@@ -41,15 +41,6 @@ section {
 }
 
 
-.navbar {
-  .navbar-brand {
-    svg, img {
-      height: 32px;
-      width: auto;
-    }
-  }
-}
-
 footer {
   background-color: $brand-primary;
   color: white;
@@ -59,14 +50,6 @@ footer {
       color: white;
     }
   }
-}
-
-.img-responsive-fixed-height {
-  object-fit: contain;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
 .card-deck {

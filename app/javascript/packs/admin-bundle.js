@@ -19,3 +19,5 @@ document.querySelectorAll('.ckeditor').forEach((node) => {
         console.error( error )
     })
 })
+
+require('js/offcanvas.js')
