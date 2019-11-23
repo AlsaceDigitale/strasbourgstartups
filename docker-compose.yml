@@ -1,7 +1,7 @@
 version: '2'
 services:
   mongo:
-    image: scalingo/mongo:3.6.3-1
+    image: scalingo/mongo:4.0.13-1
     volumes:
       - ./docker/mongodb-data:/var/lib/mongodb:rw
     environment:
@@ -27,8 +27,8 @@ services:
       S3_SECRET: "${S3_SECRET}"
       RAILS_ENV: development
       MONGO_URL: "mongodb://admin:admin-secret@mongo:27017/strasbourgstartups-development?authSource=admin"
-      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.5.0/bin"
-      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.5.0"
+      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.6.0/bin"
+      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.6.0"
       BUNDLE_APP_CONFIG: "/usr/src/app/.bundle"
       WEBPACKER_DEV_SERVER_HOST: 172.17.0.1
     links:
@@ -45,5 +45,5 @@ services:
       - ./:/usr/src/app
     command: bundle exec ./bin/webpack-dev-server
     environment:
-      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.5.0/bin"
-      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.5.0"
+      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.6.0/bin"
+      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.6.0"
