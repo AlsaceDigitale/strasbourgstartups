@@ -1,15 +1,7 @@
-$brand-primary: #97bf0b;
-$brand-primary-light: #6746C3;
-$brand-primary-dark: #000063;
-$brand-secondary: #81D4FA;
-$brand-secondary-light: #B6FFFF;
-$brand-secondary-dark: #4BA3C7;
-
+$brand-primary: #c80f53;
+$headings-color: $brand-primary;
 $theme-colors: (
-  "primary": $brand-primary,
-  "secondary": $brand-secondary,
-  "primary-light": $brand-primary-light,
-  "primary-dark": $brand-primary-dark
+  "primary": $brand-primary
 );
 
 @import "~bootstrap-material-design/scss/bootstrap-material-design";
