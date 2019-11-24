@@ -1,7 +1,7 @@
 !!! 5
 %html{lang: 'fr'}
   %head
-    %title= @page_meta_title.present? ? @page_meta_title : ["Strasbourg Startups Extranet", @page_title].compact.join(" - ")
+    %title= @page_meta_title.present? ? @page_meta_title : ["French Tech Strasbourg Extranet", @page_title].compact.join(" - ")
     %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}
     %meta{charset: "utf-8"}
     %meta{http: {equiv: "X-UA-Compatible"}, content: "IE=edge"}
@@ -19,7 +19,7 @@
         %button.navbar-toggler.p-0.border-0{type: :button, data: {toggle: 'offcanvas'}}
           %span.navbar-toggler-icon
         = link_to root_path, class: "navbar-brand" do
-          = image_tag(asset_pack_path("images/logo.svg"))
+          = image_tag(asset_pack_path("media/images/logo.svg"))
         .collapse.navbar-collapse.offcanvas-collapse
           %ul.navbar-nav.mr-auto
             - nav_items.each do |item|
@@ -63,7 +63,7 @@
             .card.mt-5
               .card-body
                 %h1.h3
-                  Strasbourg Startups
+                  French Tech Strasbourg
                   %br
                   %small.text-muted
                     admin
