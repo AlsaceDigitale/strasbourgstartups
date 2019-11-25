@@ -3,12 +3,8 @@
 
 = simple_form_for [:admin, @headline], html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
   = f.input :banner, as: :image_preview, input_html: {preview_version: :small}
-  = f.simple_fields_for :title_translations do |localized_field|
-    = localized_field.input :fr, input_html: {value: @headline.title_translations["fr"]}
-    = localized_field.input :en, input_html: {value: @headline.title_translations["en"]}
-  = f.simple_fields_for :body_translations do |localized_field|
-    = localized_field.input :fr, as: :text, input_html: {value: @headline.body_translations["fr"], class: 'ckeditor'}
-    = localized_field.input :en, as: :text, input_html: {value: @headline.body_translations["en"], class: 'ckeditor'}
+  = f.input :title
+  = f.input :body
   = f.input :published_at, as: :datetime, html5: true, input_html: {data: {provide: 'datetimepicker'}}
   = f.input :is_focus, as: :boolean
   = f.input :tag_list

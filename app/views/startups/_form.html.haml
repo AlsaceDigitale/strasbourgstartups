@@ -9,16 +9,12 @@
 
         = render partial: "/shared/errors_and_notices", locals: {model: @startup}
 
-        = simple_form_for @startup, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
-          = f.input :logo, as: :image_preview, input_html: {preview_version: :small}
+        = simple_form_for @startup, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file, boolean: :horizontal_radio_and_checkboxes} do |f|
+          = f.input :logo
           = f.input :name
           = f.input :email
           = f.input :url
-          = f.simple_fields_for :description_translations do |localized_field|
-            - value = @startup.description_translations["fr"] if @startup.description_translations
-            = localized_field.input :fr, as: :text, input_html: {value: value}
-            - value = @startup.description_translations["en"] if @startup.description_translations
-            = localized_field.input :en, as: :text, input_html: {value: value}
+          = f.input :description, as: :text
           .form-group
             .col-12.col-md-9.offset-md-3
               = recaptcha_tags

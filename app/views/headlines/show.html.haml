@@ -1,5 +1,5 @@
 - @page_title = @headline.title
-- @og_image = @headline.banner.url if @headline.banner.file?
+- @og_image = url_for(@headline.banner) if @headline.banner.attached?
 .container
   .row
     .col-12.col-md-8.mx-md-auto.col-lg-9
@@ -18,8 +18,8 @@
           - if @headline.tags.any?
             %small.text-muted.d-block.mb-3
               = @headline.tags.map{|tag| link_to "##{tag}", headlines_path(tag: tag)}.join(" ").html_safe
-          = image_tag(@headline.banner.url(:medium), class: "img-fluid", style: "margin:20px 0;") if @headline.banner.file?
-          = @headline.body.html_safe
+          = image_tag(@headline.banner.variant(resize_to_limit: [500, 250]), class: "img-fluid", style: "margin:20px 0;") if @headline.banner.attached?
+          = @headline.body
       .row
         .col-12
           = render partial: "disqus"

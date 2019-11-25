@@ -1,53 +1,24 @@
-class Startup
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include Mongoid::Paperclip
-  include Mongoid::Slug
-  include Geocoder::Model::Mongoid
-  include Taggable
+class Startup < ApplicationRecord
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  extend FriendlyId
+  friendly_id :name, use: %i[slugged finders history]
 
-  field :name, type: String
-  field :url, type: String
-  field :street, type: String
-  field :zip_code, type: String
-  field :city, type: String
-  field :email, type: String
-  field :description, type: String, localize: true
-  field :is_published, type: Boolean, default: false
-  field :added_on, type: Date, default: Date.today
-
-  field :coordinates, type: Array
-
-  has_and_belongs_to_many :users
+  has_many :startup_users
+  has_many :users, through: :startup_users
   has_many :job_offers
 
-  slug :name
+  has_rich_text :description
 
-  has_mongoid_attached_file :logo,
-    styles: {
-      small: ['250x250>', :png],
-      medium: ['500x500>', :png]
-    }
-  validates_attachment_content_type :logo, content_type: /\Aimage/
+  has_one_attached :logo
+  # validates_attachment_content_type :logo, content_type: /\Aimage/
 
-  scope :publicly_visible, -> { desc(:added_on).where(is_published: true) }
+  scope :publicly_visible, -> { order(added_on: :desc).where(is_published: true) }
 
   validates :name, presence: true, uniqueness: true
-
-  geocoded_by :address
-  after_validation :geocode
 
   def address
     [street, zip_code, city].compact.join(', ')
   end
-
-  # def description
-  #   locale = I18n.locale
-  #   txt = self["description_#{locale}".to_sym]
-  #   contrary = locale.to_s == "en" ? "fr" : "en"
-  #   txt = txt.present? ? txt : self["description_#{contrary}".to_sym]
-  #   txt.present? ? txt : self["description".to_sym]
-  # end
 
   def url
     x = read_attribute :url
@@ -57,14 +28,6 @@ class Startup
       uri.to_s
     else
       x
-    end
-  end
-
-  def logo_url(size = nil)
-    if logo.file?
-      logo_file_name.ends_with?("svg") ? logo.url : logo.url(size)
-    else
-      logo.url
     end
   end
 end

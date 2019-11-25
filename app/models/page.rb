@@ -1,15 +1,8 @@
-class Page
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include Mongoid::Slug
+class Page < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: %i[slugged finders history]
 
-  field :code
-  field :title, type: String, localize: true
-  field :body, type: String, localize: true
-
-  slug :title, localize: true
+  has_rich_text :body
 
   validates :title, :code, presence: true
-
-  index({ code: 1 }, { unique: true, background: true })
 end

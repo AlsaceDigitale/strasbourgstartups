@@ -4,12 +4,12 @@ require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
-# require "active_record/railtie"
-# require "active_storage/engine"
+require "active_record/railtie"
+require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 # require "action_mailbox/engine"
-# require "action_text/engine"
+require "action_text/engine"
 require "action_view/railtie"
 # require "action_cable/engine"
 # require "sprockets/railtie"
@@ -30,9 +30,15 @@ module Strasbourgstartups
     # the framework and any gems in your application.
     config.time_zone = 'Paris'
 
+    config.generators do |g|
+      g.orm :active_record
+    end
+
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.available_locales = [:fr, :en]
     config.i18n.default_locale = :fr
+
+    config.active_storage.content_types_to_serve_as_binary -= ['image/svg+xml']
 
     config.paperclip_defaults = {
       storage: :fog,

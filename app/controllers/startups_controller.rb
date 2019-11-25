@@ -3,7 +3,7 @@ class StartupsController < ApplicationController
 protected
 
   def permitted_params
-    params.permit(startup: [:logo, :name, :email, :url, {description_translations: [:fr, :en]}])
+    params.permit(startup: [:logo, :name, :email, :url, :description])
   end
 
 public
@@ -30,7 +30,7 @@ public
 
   def create
     @startup = Startup.new permitted_params[:startup]
-    if verify_recaptcha(model: @startup) && @startup.save
+    if Rails.env.development? ? @startup.save : (verify_recaptcha(model: @startup) && @startup.save)
       flash[:notice] = "Merci de votre contribution, nous allons bientôt reprendre contact avec vous !"
       redirect_to new_startup_path
     else

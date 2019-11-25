@@ -8,7 +8,7 @@
   = f.input :last_name
   = f.input :password
   = f.input :password_confirmation
-  = f.input :startup_ids, collection: Startup.asc(:name), input_html: {multiple: true}
+  = f.input :startup_ids, collection: Startup.order(name: :desc), input_html: {multiple: true}
   = f.input :is_admin, as: :boolean
   .row
     .col-12

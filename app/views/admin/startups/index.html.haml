@@ -16,7 +16,9 @@
     - for startup in @startups
       %tr
         %td
-          = image_tag(startup.logo_url(:small), style: "height:auto;width:auto;with:auto;max-width:100px;") if startup.logo.file?
+          - if startup.logo.attached?
+            - url = startup.logo.filename.to_s.ends_with?('svg') ? startup.logo : startup.logo.variant(resize_to_limit: [100, 100])
+            = image_tag url, alt: "Logo #{startup.name}", title: startup.name, style: "height:auto;width:auto;with:auto;max-width:100px;"
         %td= startup.name
         %td= I18n.l startup.created_at, format: :datetime
         %td= I18n.l startup.updated_at, format: :datetime

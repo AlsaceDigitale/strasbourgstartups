@@ -5,11 +5,11 @@ class Admin::HeadlinesController < Admin::BaseController
 protected
 
   def permitted_params
-    params.permit(headline: [:published_at, :banner, :is_focus, :tag_list, {title_translations: [:fr, :en]}, {body_translations: [:fr, :en]}])
+    params.permit(headline: [:published_at, :banner, :is_focus, :tag_list, :title, :body])
   end
 
   def collection
-    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:published_at).paginate(per_page: 20, page: params[:page]))
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.order(published_at: :desc).paginate(per_page: 20, page: params[:page]))
   end
 
 public

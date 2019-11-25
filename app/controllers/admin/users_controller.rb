@@ -10,7 +10,7 @@ protected
   end
 
   def collection
-    get_collection_ivar || set_collection_ivar(end_of_association_chain.desc(:created_at).paginate(page: params[:page], per_page: 20))
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.order(created_at: :desc).paginate(page: params[:page], per_page: 20))
   end
 
   def check_current_user
