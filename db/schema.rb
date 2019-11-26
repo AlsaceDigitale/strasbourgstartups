@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_215830) do
+ActiveRecord::Schema.define(version: 2019_11_26_125842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,19 @@ ActiveRecord::Schema.define(version: 2019_11_24_215830) do
     t.boolean "is_focus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_headlines_on_slug"
+  end
+
+  create_table "job_offers", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.boolean "is_published", default: true
+    t.date "end_publishing_on", default: "2020-02-26"
+    t.bigint "startup_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_job_offers_on_slug"
+    t.index ["startup_id"], name: "index_job_offers_on_startup_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -72,7 +85,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_215830) do
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "index_pages_on_code", unique: true
+    t.index ["code"], name: "index_pages_on_code"
+    t.index ["slug"], name: "index_pages_on_slug"
   end
 
   create_table "startup_users", force: :cascade do |t|
@@ -151,6 +165,7 @@ ActiveRecord::Schema.define(version: 2019_11_24_215830) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_offers", "startups"
   add_foreign_key "startup_users", "startups"
   add_foreign_key "startup_users", "users"
   add_foreign_key "taggings", "tags"

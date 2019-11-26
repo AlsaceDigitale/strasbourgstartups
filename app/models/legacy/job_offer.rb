@@ -1,4 +1,4 @@
-class JobOffer
+class Legacy::JobOffer
   include Mongoid::Document
   include Mongoid::Timestamps
 
