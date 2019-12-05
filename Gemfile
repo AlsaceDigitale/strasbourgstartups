@@ -7,7 +7,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.1'
 gem 'rails-i18n'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
