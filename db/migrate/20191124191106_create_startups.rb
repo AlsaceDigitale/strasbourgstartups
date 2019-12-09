@@ -3,6 +3,7 @@ class CreateStartups < ActiveRecord::Migration[6.0]
     create_table :startups do |t|
       t.string :slug, uniq: true
       t.string :name
+      t.text :description
       t.string :url
       t.string :street
       t.string :zip_code

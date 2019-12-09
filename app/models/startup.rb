@@ -7,8 +7,6 @@ class Startup < ApplicationRecord
   has_many :users, through: :startup_users
   has_many :job_offers
 
-  has_rich_text :description
-
   has_one_attached :logo
   # validates_attachment_content_type :logo, content_type: /\Aimage/
 
