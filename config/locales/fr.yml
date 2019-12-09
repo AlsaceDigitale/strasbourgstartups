@@ -10,12 +10,13 @@ fr:
   date:
     formats:
       added_on: "accepté le %d/%m/%Y"
-      added_on_short: "%d/%m/%Y"
+      added_on_short: "%d/%m/%y"
   time:
     formats:
+      added_on_short: "%d/%m/%y"
+      datetime: "%d/%m/%y %H:%M"
       default: "%d/%m/%Y %H:%M"
       published_at: "publié le <a href='%{link}'>%d/%m/%Y à %H:%M</a>"
-      datetime: "%d/%m/%Y %H:%M"
   shared:
     sidebar:
       last_headline: "Dernier article"
@@ -69,41 +70,24 @@ fr:
   simple_form:
     labels:
       defaults:
-        tag_list: "Mots-clés"
+        body: "Corps de texte"
+        description: "Description"
         is_published: "Publié ?"
+        name: "Nom"
+        tag_list: "Mots-clés"
+        title: "Titre"
       headline:
         banner: "Image"
         published_at: "Date de publication"
-        title_translations:
-          fr: "Titre (FR)"
-          en: "Titre (EN)"
-        body_translations:
-          fr: "Corps de texte (FR)"
-          en: "Corps de texte (EN)"
         is_focus: "Mis en avant ?"
       job_offer:
-        title: "Titre (FR)"
-        body: "Corps de texte (FR)"
         end_publishing_on: "Date de fin de publication"
       startup:
         logo: "Logo"
-        name: "Nom du projet"
         email: "Email de contact"
         url: "Site web"
-        tag_list_translations:
-          fr: "Tags (FR)"
-          en: "Tags (EN)"
-        description_translations:
-          fr: "Description (FR)"
-          en: "Description (EN)"
         added_on: "Ajouté le"
       page:
-        title_translations:
-          fr: "Titre (FR)"
-          en: "Titre (EN)"
-        body_translations:
-          fr: "Corps de texte (FR)"
-          en: "Corps de texte (EN)"
         code: "Code"
       user:
         email: "Email"
@@ -120,7 +104,6 @@ fr:
         logo: "Si vous avez votre logo en SVG, vous devriez choisir cette version. Le vectoriel c'est mieux :)"
       page:
         code: "Code à usage interne pour utiliser la page sur le Front Office"
-
   devise:
     passwords:
       new:

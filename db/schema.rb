@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_125842) do
     t.string "title"
     t.string "slug"
     t.boolean "is_published", default: true
-    t.date "end_publishing_on", default: "2020-02-26"
+    t.date "end_publishing_on", default: "2020-03-09"
     t.bigint "startup_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -101,13 +101,14 @@ ActiveRecord::Schema.define(version: 2019_11_26_125842) do
   create_table "startups", force: :cascade do |t|
     t.string "slug"
     t.string "name"
+    t.text "description"
     t.string "url"
     t.string "street"
     t.string "zip_code"
     t.string "city"
     t.string "email"
     t.boolean "is_published", default: false
-    t.date "added_on"
+    t.datetime "added_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

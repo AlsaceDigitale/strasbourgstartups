@@ -13,7 +13,7 @@ class Headline < ApplicationRecord
   validates :title, :body, presence: true
 
   def chapo
-    first_part = ActionView::Base.full_sanitizer.sanitize(body.to_s).split(/\.|\!|\?/).first
+    first_part = body.to_plain_text.split(/\.|\!|\?/).first
     first_part.present? ? (first_part.strip + ".").truncate(120) : nil
   end
 end

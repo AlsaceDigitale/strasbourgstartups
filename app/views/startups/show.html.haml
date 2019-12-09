@@ -1,6 +1,6 @@
 - @page_title = "Présentation de #{ @startup.name }"
-- @page_description = @startup.description
-- @og_image = @startup.logo.url if @startup.logo.file?
+- @page_description = @startup.description.to_plain_text
+- @og_image = url_for(@startup.logo) if @startup.logo.attached?
 %section
   .container
     .row
@@ -12,10 +12,8 @@
 
     .row
       .col-12.col-md-4{style: "padding-top:50px;"}
-        - if @startup.logo.file? && @startup.logo_file_name.ends_with?("svg")
-          = image_tag(@startup.logo_url, style: "width:80%;display:block;margin: 0 auto;")
-        - else
-          = image_tag(@startup.logo.url, class: "img-fluid", style: "max-width:80%;margin: 0 auto;")
+        - url = @startup.logo.filename.to_s.ends_with?('svg') ? @startup.logo : @startup.logo.variant(resize_to_limit: [500, 500])
+        = image_tag url, alt: "Logo #{@startup.name}", title: @startup.name, style: "width:80%;display:block;margin: 0 auto;"
       .col-12.col-md-8
         %h1= @startup.name
         - if (tags = @startup.tags).any?
@@ -27,4 +25,4 @@
         %br
         = mail_to @startup.email if @startup.email
         %p.address= @startup.address
-        = @startup.description.html_safe
+        = @startup.description

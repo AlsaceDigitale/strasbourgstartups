@@ -3,17 +3,8 @@
 
 = simple_form_for [:admin, @page], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
   = f.input :code
-  = f.simple_fields_for :title_translations do |localized_field|
-    - value = @page.title_translations["fr"] if @page.title_translations
-    = localized_field.input :fr, input_html: {value: value}
-    - value = @page.title_translations["en"] if @page.title_translations
-    = localized_field.input :en, input_html: {value: value}
-  = f.simple_fields_for :body_translations do |localized_field|
-    - value = @page.body_translations["fr"] if @page.body_translations
-    = localized_field.input :fr, as: :text, input_html: {class: :ckeditor, value: value}
-    - value = @page.body_translations["en"] if @page.body_translations
-    = localized_field.input :en, as: :text, input_html: {class: :ckeditor, value: value}
-
+  = f.input :title
+  = f.input :body
   .row
     .col-12
       %ul.pull-right.list-inline

@@ -87,3 +87,45 @@ $theme-colors: (
   display: block;
   margin: 0 auto;
 }
+
+.page-header {
+  @extend .d-flex, .align-items-center, .mb-5, .pb-3;
+  border-bottom: 1px solid $gray-200;
+  .page-header__title {
+    @extend .mb-0, .mr-auto;
+  }
+}
+
+.bmd-form-group {
+  border-radius: 4px;
+  padding-top: 0;
+  input.form-control, input.custom-file-control {
+    padding: 0 8px;
+  }
+  textarea.form-control {
+    padding: 8px 8px;
+  }
+  &.bg-light {
+    background-color: #f1f3f4;
+  }
+  &.bmd-form-group-lg {
+    padding-top: 0;
+    input.form-control-lg {
+      padding: 0 8px;
+    }
+  }
+}
+
+.checkbox.form-group.bmd-form-group {
+  label {
+    @extend .mb-0;
+  }
+}
+
+.radio label, .is-focused .radio label, .radio-inline, .is-focused .radio-inline, .checkbox label, .is-focused .checkbox label, .checkbox-inline, .is-focused .checkbox-inline, .switch label, .is-focused .switch label {
+  color: unset;
+}
+
+.radio label:hover, .radio label:focus, .radio label:active, .is-focused .radio label:hover, .is-focused .radio label:focus, .is-focused .radio label:active, .radio-inline:hover, .radio-inline:focus, .radio-inline:active, .is-focused .radio-inline:hover, .is-focused .radio-inline:focus, .is-focused .radio-inline:active, .checkbox label:hover, .checkbox label:focus, .checkbox label:active, .is-focused .checkbox label:hover, .is-focused .checkbox label:focus, .is-focused .checkbox label:active, .checkbox-inline:hover, .checkbox-inline:focus, .checkbox-inline:active, .is-focused .checkbox-inline:hover, .is-focused .checkbox-inline:focus, .is-focused .checkbox-inline:active, .switch label:hover, .switch label:focus, .switch label:active, .is-focused .switch label:hover, .is-focused .switch label:focus, .is-focused .switch label:active {
+  color: unset;
+}

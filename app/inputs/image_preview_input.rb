@@ -8,6 +8,7 @@ class ImagePreviewInput < SimpleForm::Inputs::FileInput
     if object.send("#{attribute_name}").attached?
       # append preview image to output
       image_options = input_html_options.delete(:image_options) || {}
+      image_options[:style] = 'width:200px;height:auto;'
       out << template.image_tag(object.send(attribute_name), image_options)
     end
     # allow multiple submissions without losing the tmp version

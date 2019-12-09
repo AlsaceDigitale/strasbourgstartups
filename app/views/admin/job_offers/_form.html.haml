@@ -1,8 +1,7 @@
 .page-header
   %h2.no-top= @page_title = @job_offer.new_record? ? "Ajouter une nouvelle offre d'emploi" : "Modifier une offre d'emploi"
 
-= simple_form_for [:admin, @job_offer], html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
-
+= simple_form_for [:admin, @job_offer] do |f|
   = f.input :title
   = f.input :body, as: :text, input_html: {class: :ckeditor}
   = f.input :is_published, as: :boolean

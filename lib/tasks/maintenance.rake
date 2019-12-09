@@ -7,6 +7,8 @@ namespace :maintenance do
     end
     Legacy::User.all.each do |legacy_user|
       user = User.new email: legacy_user.email,
+                   created_at: legacy_user.created_at,
+                   updated_at: legacy_user.updated_at,
                    encrypted_password: legacy_user.encrypted_password,
                    reset_password_token: legacy_user.reset_password_token,
                    remember_created_at: legacy_user.remember_created_at,
@@ -29,6 +31,8 @@ namespace :maintenance do
     Legacy::Headline.all.each do |legacy_headline|
       headline = Headline.create! title: legacy_headline.title,
                                   body: legacy_headline.body,
+                                  created_at: legacy_headline.created_at,
+                                  updated_at: legacy_headline.updated_at,
                                   published_at: legacy_headline.published_at,
                                   is_focus: legacy_headline.is_focus,
                                   tag_list: legacy_headline.tag_list
@@ -50,6 +54,8 @@ namespace :maintenance do
                                 email: legacy_startup.email,
                                 description: legacy_startup.description,
                                 is_published: legacy_startup.is_published,
+                                created_at: legacy_startup.created_at,
+                                updated_at: legacy_startup.updated_at,
                                 added_on: legacy_startup.added_on,
                                 tag_list: legacy_startup.tag_list
 
