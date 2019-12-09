@@ -10,7 +10,7 @@ class CreateStartups < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :email
       t.boolean :is_published, default: false
-      t.date :added_on
+      t.datetime :added_on
 
       t.timestamps
     end
