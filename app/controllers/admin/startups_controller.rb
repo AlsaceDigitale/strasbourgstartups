@@ -14,7 +14,7 @@ protected
 
   def collection
     sort_param, sort_order = params[:s].present? ? params[:s].split("+") : [nil, nil]
-    sort_param ||= :added_on
+    sort_param ||= :created_at
     sort_order ||= :desc
     hsh = {}
     hsh[sort_param.to_sym] = sort_order.to_sym
