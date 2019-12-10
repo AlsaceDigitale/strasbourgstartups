@@ -15,7 +15,7 @@
       - for user in @users
         %tr
           %td
-            = link_to user.name, edit_admin_user_path(user), title: "#{user.name} #{user.email}"
+            = link_to (user.name.present? ? user.name : user.email), edit_admin_user_path(user), title: "#{user.name} #{user.email}"
           %td= user.is_admin? ? "Oui" : "Non"
           %td= l user.created_at
           %td= user.confirmed_at.present? ? "Oui" : "Non"

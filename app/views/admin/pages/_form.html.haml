@@ -1,12 +1,16 @@
-.page-header
-  %h2.no-top= @page_title = @page.new_record? ? "Ajouter une nouvelle page" : "Modifier une page"
+- @page_title = @page.new_record? ? "Ajouter une nouvelle page" : "Modifier une page"
 
-= simple_form_for [:admin, @page], html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_radio_and_checkboxes} do |f|
-  = f.input :code
-  = f.input :title
-  = f.input :body
+= simple_form_for [:admin, @page] do |f|
+  =# link_to 'Retour', {action: :index}, class: "btn btn-link"
   .row
-    .col-12
-      %ul.pull-right.list-inline
-        %li.list-inline-item= link_to 'Retour', {action: :index}, class: "btn btn-link"
-        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary btn-raised"
+    .col-12.col-md-8
+      .form-group.bmd-form-group.bmd-form-group-lg
+        = f.text_field :title, class: 'form-control form-control-lg', placeholder: 'Ajoutez un titre'
+      .form-group.bmd-form-group.bg-light
+        = f.text_field :code, class: 'form-control', placeholder: 'Ajoutez un code'
+    .col-12.col-md-4
+      = f.submit "Enregistrer", class: "btn btn-raised btn-primary "
+  .row
+    .col-12.col-md-8
+      .form-group.bmd-form-group.bg-light
+        = f.rich_text_area :body, placeholder: 'Contenu'
