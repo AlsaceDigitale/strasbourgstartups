@@ -1,4 +1,4 @@
-class Event
+class Legacy::Event
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
