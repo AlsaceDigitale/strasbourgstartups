@@ -20,7 +20,12 @@ textarea, .ck-editor__editable {
 
 .table-cell__column-name {
   @extend .text-truncate;
-  width: 200px;
+  max-width: 200px;
+}
+
+.table-cell__column-title {
+  @extend .text-truncate;
+  max-width: 500px;
 }
 
 .table-cell__column-logo {

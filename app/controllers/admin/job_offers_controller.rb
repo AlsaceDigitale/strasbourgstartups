@@ -16,6 +16,15 @@ protected
     end
   end
 
+  def collection
+    sort_param, sort_order = params[:s].present? ? params[:s].split("+") : [nil, nil]
+    sort_param ||= :created_at
+    sort_order ||= :desc
+    hsh = {}
+    hsh[sort_param.to_sym] = sort_order.to_sym
+    get_collection_ivar || set_collection_ivar(end_of_association_chain.order(hsh))
+  end
+
 public
 
   def create
