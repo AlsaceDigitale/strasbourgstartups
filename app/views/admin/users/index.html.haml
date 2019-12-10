@@ -1,10 +1,12 @@
-%h2.no-top= @page_title = "Gestion des utilisateurs"
-= link_to "Ajouter un utilisateur", new_admin_user_path, class: "btn btn-primary"
+.page-header
+  %h1.page-header__title= @page_title = "Gestion des utilisateurs"
+  = link_to new_admin_user_path, class: "btn btn-raised btn-primary" do
+    = fa_icon 'plus'
+    Ajouter un utilisateur
 - unless @users.empty?
   %table.table.table-condensed.table-hover.table-striped{style: 'margin-top:10px;'}
     %tbody
       %tr
-        %th Email
         %th Nom
         %th Admin ?
         %th Date de création
@@ -12,12 +14,15 @@
         %th
       - for user in @users
         %tr
-          %td= link_to user.email, edit_admin_user_path(user)
-          %td= user.name
+          %td
+            = link_to (user.name.present? ? user.name : user.email), edit_admin_user_path(user), title: "#{user.name} #{user.email}"
           %td= user.is_admin? ? "Oui" : "Non"
           %td= l user.created_at
           %td= user.confirmed_at.present? ? "Oui" : "Non"
-          %td= link_to fa_icon("trash-alt", title: "Supprimer"), admin_user_path(user), method: :delete, data: {confirm: 'Êtes-vous sûr ?'}
+          %td
+            .actions
+              = link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, user]
+              = link_to fa_icon("trash-alt", title: "Supprimer"), admin_user_path(user), method: :delete, data: {confirm: 'Êtes-vous sûr ?'}
   = will_paginate @users, list_classes: %w(pagination justify-content-center mt-5 flex-wrap)
 - else
   Pas d'utilisateurs enregistrés.

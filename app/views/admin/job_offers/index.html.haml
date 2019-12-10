@@ -1,27 +1,30 @@
-%h2.no-top= @page_title = @startup.present? ? "Vos offres d'emploi" : "Toutes les offres d'emploi"
-= link_to 'Ajouter une nouvelle offre d\'emploi', new_admin_job_offer_path, class: "btn btn-primary"
+.page-header
+  %h1.page-header__title= @page_title = @startup.present? ? "Vos offres d'emploi" : "Toutes les offres d'emploi"
+  = link_to new_admin_job_offer_path, class: "btn btn-raised btn-primary" do
+    = fa_icon 'plus'
+    Ajouter une offre d'emploi
 - if @job_offers.any?
   %table.table.table-condensed.table-hover.table-striped
     %thead
       %tr
-        %th Nom
-        %th Ajouté
-        %th Modifié
-        %th Fin de publication
+        %th.table-cell__column-title
+          Nom
+        %th= sort_link @q, :created_at, 'Ajouté'
+        %th= sort_link @q, :end_publishing_on, 'Fin de publication'
         %th Publié ?
         %th
     %tbody
       - for job_offer in @job_offers
         %tr
-          %td= job_offer.title
+          %td.table-cell__column-title
+            = job_offer.title
           %td= I18n.l job_offer.created_at, format: :datetime
-          %td= I18n.l job_offer.updated_at, format: :datetime
           %td= I18n.l job_offer.end_publishing_on, format: :added_on_short if job_offer.end_publishing_on.present?
           %td= job_offer.is_published? ? "oui" : "non"
           %td
-            %ul.list-inline
-              %li.list-inline-item=# link_to fa_icon('external-link-alt', title: 'Voir la fiche public'), job_offer, target: '_blank'
-              %li.list-inline-item= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, job_offer]
-              %li.list-inline-item= link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin,  job_offer], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette offre d\'empoi ?'}
+            .actions
+              =# link_to fa_icon('external-link-alt', title: 'Voir la fiche public'), job_offer, target: '_blank'
+              = link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, job_offer]
+              = link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin,  job_offer], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette offre d\'empoi ?'}
 - else
   %em{style: "display:block;margin-top:10px;"} Vous n'avez encore publié aucune annonce.

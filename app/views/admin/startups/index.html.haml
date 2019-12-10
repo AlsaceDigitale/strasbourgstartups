@@ -1,37 +1,45 @@
-.d-flex.my-5
-  %h1.mb-0.mr-auto= @page_title = current_user.is_admin? ? "Toutes les startups" : "Édition de #{ @startups.first.name }"
-  = link_to 'Ajouter une nouvelle startup', new_admin_startup_path, class: "btn btn-primary btn-raised" if current_user.is_admin?
+.page-header
+  %h1.page-header__title= @page_title = current_user.is_admin? ? "Toutes les startups" : "Édition de #{ @startups.first.name }"
+  - if current_user.is_admin?
+    = link_to new_admin_startup_path, class: "btn btn-raised btn-primary mb-0" do
+      = fa_icon 'plus'
+      Ajouter une startup
 %table.table.table-condensed.table-hover.table-striped
   %thead
     %tr
-      %th Logo
-      %th= sort_link @q, :name, 'Nom'
-      %th= sort_link @q, :created_at, 'Ajouté'
-      %th= sort_link @q, :updated_at, 'Modifié'
-      %th= sort_link @q, :added_on, 'Accepté'
-      %th= sort_link @q, :is_published, 'Publié ?'
-      %th Comptes liés
+      %th.table-cell__column-logo
+        Logo
+      %th.table-cell__column-name
+        = sort_link @q, :name, 'Nom'
+      %th= sort_link @q, :created_at, 'Créé le'
+      %th= sort_link @q, :added_on, 'Accepté le'
+      %th
+        .text-nowrap
+          = sort_link @q, :is_published, 'Publié ?'
       %th
   %tbody
     - for startup in @startups
       %tr
+        %td.table-cell__column-logo
+          - if startup.logo.attached?
+            .table-cell__column-logo-container
+              - url = startup.logo.filename.to_s.ends_with?('svg') ? startup.logo : startup.logo.variant(resize_to_limit: [80, 80])
+              = image_tag url, alt: "Logo #{startup.name}", title: startup.name
+        %td.table-cell__column-name
+          = startup.name
         %td
-          = image_tag(startup.logo_url(:small), style: "height:auto;width:auto;with:auto;max-width:100px;") if startup.logo.file?
-        %td= startup.name
-        %td= I18n.l startup.created_at, format: :datetime
-        %td= I18n.l startup.updated_at, format: :datetime
-        %td= I18n.l startup.added_on, format: :added_on_short if startup.added_on
+          .text-nowrap
+            = I18n.l startup.created_at, format: :datetime
+        %td
+          .text-nowrap
+            = I18n.l startup.added_on, format: :added_on_short if startup.added_on
         %td= startup.is_published? ? "oui" : "non"
         %td
-          %ul.list-unstyled
-            - for user in startup.users
-              %li.list-inline-item= user.email
-        %td
-          %ul.list-inline
-            %li.list-inline-item= link_to fa_icon('external-link-alt', title: 'Voir la fiche public'), startup_path(startup, visible: true), target: '_blank'
-            %li.list-inline-item= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, startup]
-            %li.list-inline-item= link_to fa_icon('briefcase', title: 'Offres d\'emploi'), [:admin, :job_offers]
+          .actions
+            = link_to fa_icon('external-link-alt', title: 'Voir la fiche public'), startup_path(startup, visible: true), target: '_blank'
+            = link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, startup]
+            = link_to fa_icon('briefcase', title: 'Offres d\'emploi'), [:admin, :job_offers]
             - if current_user.is_admin?
-              %li.list-inline-item= link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin, startup], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette startup ?'}
+              = link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin, startup], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette startup ?'}
 
 =# will_paginate @startups, renderer: BootstrapPaginationHelper::LinkRenderer

@@ -1,11 +1,56 @@
 @import "common";
 
-.page-header {
-  @extend .mt-5, .mb-4;
-  @extend .pb-2;
-  border-bottom: 1px solid $gray-200;
-}
-
 textarea, .ck-editor__editable {
   min-height: 200px;
+}
+
+.actions {
+  @extend .d-flex, .flex-row;
+  > * {
+    @extend .mr-2;
+    &:last-child {
+      @extend .mr-0;
+    }
+  }
+}
+
+.table {
+  table-layout: fixed;
+}
+
+.table-cell__column-name {
+  @extend .text-truncate;
+  max-width: 200px;
+}
+
+.table-cell__column-title {
+  @extend .text-truncate;
+  max-width: 500px;
+}
+
+.table-cell__column-logo {
+  .table-cell__column-logo-container {
+    @extend .d-flex, .align-items-center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    img {
+      @extend .img-responsive-fixed-height;
+    }
+  }
+}
+
+trix-editor {
+  border: 0;
+  border-radius: 0;
+  padding: 0 8px;
+}
+
+trix-toolbar {
+  .trix-button-group, .trix-button {
+    border: 0;
+  }
+  .trix-button-group {
+    padding-top: 4px;
+  }
 }

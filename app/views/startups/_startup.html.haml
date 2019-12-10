@@ -2,4 +2,8 @@
 .card.startup.p-3{class: card_klass}
   - unless startup.new_record?
     = link_to startup, title: startup.name do
-      = image_tag startup.logo_url(:medium), alt: "Logo #{startup.name}", title: startup.name, class: "img-responsive-fixed-height"
+      - if startup.logo.attached?
+        - url = startup.logo.filename.to_s.ends_with?('svg') ? startup.logo : startup.logo.variant(resize_to_limit: [500, 500])
+        = image_tag url, alt: "Logo #{startup.name}", title: startup.name, class: "img-responsive-fixed-height"
+      - else
+        = startup.name

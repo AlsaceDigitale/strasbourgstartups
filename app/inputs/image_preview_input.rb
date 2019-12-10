@@ -5,10 +5,11 @@ class ImagePreviewInput < SimpleForm::Inputs::FileInput
     version = input_html_options.delete(:preview_version)
     out = ActiveSupport::SafeBuffer.new # the output buffer we're going to build
     # check if there's an uploaded file (eg: edit mode or form not saved)
-    if object.send("#{attribute_name}?")
+    if object.send("#{attribute_name}").attached?
       # append preview image to output
       image_options = input_html_options.delete(:image_options) || {}
-      out << template.image_tag(object.send(attribute_name).send('url', version), image_options)
+      image_options[:style] = 'width:200px;height:auto;'
+      out << template.image_tag(object.send(attribute_name), image_options)
     end
     # allow multiple submissions without losing the tmp version
     # out << @builder.hidden_field("#{attribute_name}_cache").html_safe

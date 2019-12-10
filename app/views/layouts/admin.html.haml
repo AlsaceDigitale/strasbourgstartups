@@ -1,7 +1,7 @@
 !!! 5
 %html{lang: 'fr'}
   %head
-    %title= @page_meta_title.present? ? @page_meta_title : ["French Tech Strasbourg Extranet", @page_title].compact.join(" - ")
+    %title= @page_meta_title.present? ? @page_meta_title : [@page_title, "French Tech Strasbourg Extranet"].compact.join(" - ")
     %meta{content: "text/html; charset=UTF-8", http: {equiv: "Content-Type"}}
     %meta{charset: "utf-8"}
     %meta{http: {equiv: "X-UA-Compatible"}, content: "IE=edge"}
@@ -53,7 +53,7 @@
     - else
       .container
         .row
-          .col-12.col-md-6.mx-md-auto.col-lg-4.login
+          .col-12.col-md-6.mx-md-auto.col-lg-5.login
             - if flash[:notice]
               .alert.alert-info= flash[:notice]
             - elsif flash[:error]
@@ -67,4 +67,7 @@
                   %br
                   %small.text-muted
                     admin
-                = yield
+                .my-4
+                  = yield
+                = render "devise/shared/links"
+

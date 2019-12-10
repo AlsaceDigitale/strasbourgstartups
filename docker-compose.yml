@@ -1,5 +1,14 @@
 version: '2'
 services:
+  postgresql:
+    image: scalingo/postgresql:10.4.0-1
+    ports:
+      - 5432:5432
+    environment:
+      DB_UID: 1000
+    volumes:
+      - ./docker/postgresql-data:/var/lib/postgresql:rw
+    command: /postgresql
   mongo:
     image: scalingo/mongo:4.0.13-1
     volumes:
@@ -27,11 +36,11 @@ services:
       S3_SECRET: "${S3_SECRET}"
       RAILS_ENV: development
       MONGO_URL: "mongodb://admin:admin-secret@mongo:27017/strasbourgstartups-development?authSource=admin"
-      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.6.0/bin"
-      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.6.0"
-      BUNDLE_APP_CONFIG: "/usr/src/app/.bundle"
+      DATABASE_URL: postgresql://admin:admin-secret@postgresql:5432/frenchtechstrasbourg_development
+      DATABASE_URL_TEST: postgresql://admin:admin-secret@postgresql:5432/frenchtechstrasbourg_test
       WEBPACKER_DEV_SERVER_HOST: 172.17.0.1
     links:
+      - postgresql
       - mongo
       - webpack
     ports:
@@ -44,6 +53,3 @@ services:
     volumes:
       - ./:/usr/src/app
     command: bundle exec ./bin/webpack-dev-server
-    environment:
-      BUNDLE_BIN: "/usr/src/app/vendor/.bundle/ruby/2.6.0/bin"
-      BUNDLE_PATH: "/usr/src/app/vendor/.bundle/ruby/2.6.0"

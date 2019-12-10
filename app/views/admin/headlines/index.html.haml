@@ -1,16 +1,24 @@
-.page-header.d-flex
-  %h2.mr-auto= @page_title = "Toutes les actualités"
-  = link_to 'Ajouter une nouvelle actualité', new_admin_headline_path, class: "btn btn-primary btn-raised"
+.page-header
+  %h1.page-header__title= @page_title = "Toutes les actualités"
+  = link_to new_admin_headline_path, class: "btn btn-primary btn-raised" do
+    = fa_icon 'plus'
+    Nouvelle publication
 %table.table.table-condensed.table-hover.table-striped
+  %thead
+    %tr
+      %th.table-cell__column-title
+        Titre
+      %th= sort_link @q, :published_at, 'Date de publication'
+      %th
   %tbody
     - for headline in @headlines
       %tr
-        %td= image_tag(headline.banner.url(:small), class: "img-responsive-fixed-height", style: "height:50px;") if headline.banner.file?
-        %td= headline.title
+        %td.table-cell__column-title
+          = headline.title
         %td= I18n.l headline.published_at, format: :datetime if headline.published_at
         %td
-          %ul.list-inline
-            %li.list-inline-item= link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, headline]
-            %li.list-inline-item= link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin, headline], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette actualité ?'}
+          .actions
+            = link_to fa_icon('edit', title: 'Modifier'), [:edit, :admin, headline]
+            = link_to fa_icon('trash-alt', title: 'Supprimer'), [:admin, headline], method: :delete, data: {confirm: 'Voulez-vous vraiment supprimer cette actualité ?'}
 
 = will_paginate @headlines, list_classes: %w(pagination justify-content-center mt-5 flex-wrap)

@@ -6,8 +6,11 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 gem 'rails-i18n'
+
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -21,28 +24,29 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'acts-as-taggable-on'
+gem 'asset_sync'
+gem 'aws-sdk-s3', require: false
+gem 'devise'
+gem 'fog-aws'
+gem 'friendly_id'
+gem 'geocoder'
+gem 'globalize'
 gem 'haml'
+gem 'image_processing', '~> 1.2'
+gem 'inherited_resources'
+gem 'mailjet'
 gem 'mongoid'
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 gem 'mongoid-slug'
-gem 'geocoder'
-
-gem 'devise'
-gem 'inherited_resources'
-
-gem 'simple_form'
 gem 'nested_form'
+gem 'rack-rewrite'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'rollbar'
+gem 'simple_form'
 gem 'will_paginate'
 gem 'will_paginate_mongoid'
 gem 'will_paginate-bootstrap4'
-
-gem 'recaptcha', require: 'recaptcha/rails'
-
-gem 'rollbar'
-gem 'mailjet'
-gem 'asset_sync'
-gem 'fog-aws'
-gem 'rack-rewrite'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

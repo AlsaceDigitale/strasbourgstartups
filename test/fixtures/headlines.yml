@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slug: MyString
+  published_at: 2019-11-24 19:11:50
+  is_focus: false
+
+two:
+  title: MyString
+  slug: MyString
+  published_at: 2019-11-24 19:11:50
+  is_focus: false

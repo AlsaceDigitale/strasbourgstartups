@@ -8,10 +8,12 @@ section {
     height: 60vh;
     .title, .subtitle {
       color: white;
-      text-shadow: 0 1px 0 black;
+    }
+    .title {
+      font-weight: 400;
     }
     .subtitle {
-      @extend .h3;
+      @extend .h2;
       font-weight: 300;
     }
   }

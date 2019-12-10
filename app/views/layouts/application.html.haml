@@ -10,7 +10,7 @@
       %meta{name: "description", content: @page_description}
     %meta{property: "og:title", content: @og_title || @page_title}
     %meta{property: "og:type", content: "website"}
-    - @og_image ||= image_url("og_image_default.png")
+    - @og_image ||= asset_pack_path('media/images/og_image_default.png')
     %meta{property: "og:image", content: @og_image}
     - description = @og_description || @page_description
     - if description.present?
@@ -18,7 +18,7 @@
     = stylesheet_pack_tag 'style', media: 'all', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
     = csp_meta_tag
-    = favicon_link_tag
+    = favicon_link_tag(asset_pack_path('media/images/favicon.ico'))
     = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
   %body{class: controller.controller_name}
     = render "/shared/facebook_page_plugin"

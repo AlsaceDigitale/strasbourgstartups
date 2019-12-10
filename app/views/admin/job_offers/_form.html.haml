@@ -1,16 +1,30 @@
-.page-header
-  %h2.no-top= @page_title = @job_offer.new_record? ? "Ajouter une nouvelle offre d'emploi" : "Modifier une offre d'emploi"
-
-= simple_form_for [:admin, @job_offer], html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
-
-  = f.input :title
-  = f.input :body, as: :text, input_html: {class: :ckeditor}
-  = f.input :is_published, as: :boolean
-  = f.input :end_publishing_on, as: :date, html5: true, input_html: {data: {provide: 'datepicker'}}
-  - if current_user.is_admin?
-    = f.input :startup_id, collection: Startup.all
+- @page_title = @job_offer.new_record? ? "Ajouter une nouvelle offre d'emploi" : "Modifier une offre d'emploi"
+= simple_form_for [:admin, @job_offer] do |f|
+  =# link_to 'Retour', {action: :index}, class: "btn btn-link"
   .row
-    .col-12
-      %ul.pull-right.list-inline
-        %li.list-inline-item= link_to 'Retour', {action: :index}, class: "btn btn-link"
-        %li.list-inline-item= f.submit "Enregistrer", class: "btn btn-primary btn-raised"
+    .col-12.col-md-8
+      .form-group.bmd-form-group.bmd-form-group-lg
+        = f.text_field :title, class: 'form-control form-control-lg', placeholder: 'Ajoutez un titre'
+    .col-12.col-md-4
+      = f.submit "Enregistrer", class: "btn btn-raised btn-primary "
+  .row
+    .col-12.col-md-8
+      .form-group.bmd-form-group.bg-light
+        = f.text_area :body, placeholder: 'Contenu', class: 'form-control'
+    .col-12.col-md-4
+      .checkbox.form-group.bmd-form-group
+        %label
+          = f.check_box :is_published
+          %span.checkbox-decorator
+            %span.check
+          Publié ?
+      %label.mb-2.mt-3 Date de fin de publication :
+      .d-flex.flex-row.align-items-center.mb-3
+        .form-group.bmd-form-group.bg-light.mb-0
+          = f.date_field :end_publishing_on, class: 'form-control'
+        .mx-2 à
+        .form-group.bmd-form-group.bg-light.mb-0.d-flex.align-items-center
+          = f.time_select :end_publishing_on, {}, class: 'bmd-form-group form-control pb-0'
+      - if current_user.is_admin?
+        %label.mb-2.mt-3 Startup concernée :
+        = f.input :startup_id, collection: Startup.all, label: false, wrapper_html: {class: 'bg-light'}

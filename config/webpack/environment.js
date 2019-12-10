@@ -6,4 +6,12 @@ const customConfig = require('./custom')
 
 environment.config.merge(customConfig)
 
+const webpack = require('webpack')
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery'
+  })
+)
+
 module.exports = environment

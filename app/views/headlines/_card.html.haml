@@ -1,7 +1,7 @@
 - card_klass ||= 'mt-3'
 .card.headline{class: card_klass}
   = link_to headline do
-    = image_tag(headline.banner.url(:medium), style: "width:100%;background-position: center center;background-size: cover;", class: "card-img-top") if headline.banner.file?
+    = image_tag(headline.banner.variant(resize_to_limit: [500, 250]), style: 'width:100%;background-position: center center;background-size: cover;', class: 'card-img-top') if headline.banner.attached?
   .card-body
     %h1.h5.card-title= link_to headline.title, headline
     .card-text
