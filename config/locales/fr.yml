@@ -38,14 +38,6 @@ fr:
       signature: "French Tech Strasbourg est une initiative portée par <a href='https://www.alsacedigitale.org' target='_blank'>Alsace Digitale</a> et soutenue par l'<a href='https://www.strasbourg.eu' target='_blank'>Eurométropole de Strasbourg</a>."
       web_development: "<a href='https://www.novelys.com' target='_blank'>Développement Ruby on Rails</a>"
       hosting: "<a href='https://scalingo.com' target='_blank'>Hébergement Ruby on Rails</a>"
-    welcome:
-      show:
-        page_description: "Rassembler et promouvoir la scène startup strasbourgeoise"
-        latest_headlines: "Dernières actualités"
-        latest_startups: "Dernières startups acceptées"
-        read_more: "Lire la suite"
-        link_to_all_headlines: "Voir toutes les actualités"
-        link_to_all_startups: "Voir toutes les startups"
     startups:
       index:
         page_title: "Liste des startups"
@@ -67,6 +59,17 @@ fr:
       sidebar:
         focus: "À la une"
         startup_last: "Dernière startup acceptée"
+
+  welcome:
+    show:
+      page_description: "Rassembler et promouvoir la scène startup strasbourgeoise"
+      latest_headlines: "Dernières actualités"
+      latest_startups: "Dernières startups acceptées"
+      read_more: "Lire la suite"
+      link_to_all_headlines: "Voir toutes les actualités"
+      link_to_all_startups: "Voir toutes les startups"
+      our_mission: "Notre mission"
+
   simple_form:
     labels:
       defaults:

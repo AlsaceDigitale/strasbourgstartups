@@ -1,21 +1,42 @@
-%section.py-5
+- @page_meta_title = "French Tech Strasbourg - " + t(".page_description")
+- @page_title = "French Tech Strasbourg"
+- @page_description = t(".page_description")
+%section.my-5
   .container
     .row
       .col-12
-        %h1.mb-0= t("views.welcome.show.latest_headlines")
+        %h1.text-center= t(".latest_headlines")
         .card-deck.headlines-list
           = render partial: "headlines/card", collection: @headlines, as: :headline
         .text-center
           = link_to headlines_path, class: "btn btn-primary btn-raised mt-4" do
-            = t("views.welcome.show.link_to_all_headlines")
+            = t(".link_to_all_headlines")
 
-%section
+%section.mb-5
   .container
     .row
       .col-12
-        %h1.mt-5.mb-0= t("views.welcome.show.latest_startups")
-        .card-deck.startups-list
-          = render @startups
-        .text-center
-          = link_to startups_path, class: "btn btn-primary btn-raised mt-4" do
-            = t("views.welcome.show.link_to_all_startups")
+        %h1.text-center= t(".our_mission")
+        .card-deck
+          .card
+            .card-body
+              .h5.card-title
+                Rassembler
+              .card-text
+                Nous organisons régulièrement des événements qui permettent de rassembler la communauté : des Meetups <strong>mensuels</strong> sur des thématiques variées, des Demo Night <strong>semestriels</strong>.
+                %br
+                Nous organisons également des déplacements groupés lors des grands événements startups nationaux et internationaux.
+          .card
+            .card-body
+              .h5.card-title
+                Promouvoir
+              .card-text
+                Nous représentons les couleurs de la communauté <strong>French Tech Strasbourg</strong> lors de manifestations strasbourgeoises, régionales, nationales et même internationales. Les Demo Night semestrielles permettent de mettre en avant des entrepreneurs et leur projet.
+          .card
+            .card-body
+              .h5.card-title
+                Faire grandir
+              .card-text
+                Nous mettons en place des actions collectives permettant aux startupers d'apprendre et d'échanger dans un cadre sécurisé dans tous les domaines : leadership, management, tech, marketing, commercial, etc.
+                %br
+                En avant les <em>scale-ups</em> !
