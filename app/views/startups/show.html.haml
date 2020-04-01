@@ -25,4 +25,4 @@
         %br
         = mail_to @startup.email if @startup.email
         %p.address= @startup.address
-        = @startup.description
+        = sanitize @startup.description, tags: %w(strong em a p), attributes: %w(href)
